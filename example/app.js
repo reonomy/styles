@@ -1,7 +1,11 @@
 /* eslint react/jsx-filename-extension: 0 */
 
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import asdf from '@reonomy/styles';
+
+console.log(asdf);
+
 
 const HelloWorld = () => {
   return (
@@ -12,4 +16,4 @@ const HelloWorld = () => {
   )
 };
 
-ReactDOM.render(<HelloWorld />, document.getElementById('app'))
+ReactDOM.render(<HelloWorld />, document.getElementById('app'));
