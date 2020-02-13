@@ -1,0 +1,64 @@
+{
+  "name": "@reonomy/styles",
+  "version": "1.0.0",
+  "description": "Reonomy Design Styles Library",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "scripts": {
+    "compile": "tsc --declaration -p ./tsconfig.json --outDir lib/",
+    "lint": "eslint --ext .ts,.tsx --ignore-pattern '**/*.spec.*' --ignore-pattern '**/*.d.ts' src/"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "NODE_ENV=production lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "pretty-quick --staged",
+      "eslint --fix"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reonomy/styles.git"
+  },
+  "keywords": [
+    "CRE8",
+    "react",
+    "material-ui",
+    "styles",
+    "graycliff",
+    "reonomy"
+  ],
+  "author": "Reonomy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/reonomy/styles/issues"
+  },
+  "homepage": "https://github.com/reonomy/styles#readme",
+  "peerDependencies": {
+    "@material-ui/core": "^4.5.1"
+  },
+  "devDependencies": {
+    "@types/react": "^16.8.23",
+    "@typescript-eslint/eslint-plugin": "^2.3.0",
+    "@typescript-eslint/parser": "^2.3.0",
+    "eslint": "^6.0.1",
+    "eslint-config-airbnb": "^17.1.1",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-config-react-app": "^4.0.1",
+    "eslint-plugin-import": "^2.18.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "^7.14.2",
+    "husky": "^3.0.0",
+    "lint-staged": "^8.1.4",
+    "prettier": "^1.18.2",
+    "pretty-quick": "^1.11.1",
+    "react": "^16.9.0",
+    "react-dom": "^16.8.6",
+    "ts-node": "^8.3.0",
+    "typescript": "^3.4.0"
+  }
+}
