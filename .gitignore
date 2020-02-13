@@ -17,6 +17,7 @@ lib
 
 # Dependency directories
 node_modules/
+example/node_modules/
 
 # TypeScript v1 declaration files
 typings/
@@ -35,3 +36,6 @@ typings/
 
 # Yarn Integrity file
 .yarn-integrity
+
+# Mac OS
+.DS_Store

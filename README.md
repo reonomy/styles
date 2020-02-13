@@ -54,7 +54,7 @@ The button click handler will update `foo$` and set this state to `bar`.
 
 
 # Author
-[Reonomy Team](https://github.com/organizations/reonomy/settings/profile)
+[Reonomy Team](https://github.com/reonomy)
 
 # License
 MIT

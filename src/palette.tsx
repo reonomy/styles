@@ -20,7 +20,7 @@ const ReonomyPalette = {
   danger: '#dc3545', // red chips/labels/panels
 
   // dangerLegacy: '#ec5f5f', // danger color used in Angular app
-  // mineShaft: '#212121', // dark grey
+  mineShaft: '#212121', // dark grey
   deco: '#C5E1A5', // pale green for ownership green matches
 
   labelStyle0: '#959595', // grey
