@@ -39,3 +39,6 @@ typings/
 
 # Mac OS
 .DS_Store
+
+# Example react app
+example/yarn.lock
