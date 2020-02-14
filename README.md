@@ -1,9 +1,8 @@
 # Reonomy Design Styles Library
-<!--
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/reonomy/reactive-hooks/blob/master/LICENSE)
-[![npm version](https://img.shields.io/npm/v/@reonomy/reactive-hooks.svg?style=flat-square)](https://www.npmjs.com/package/@reonomy/reactive-hooks)
--->
-To install:
+
+[![npm version](https://img.shields.io/npm/v/@reonomy/styles.svg?style=flat-square)](https://www.npmjs.com/package/@reonomy/styles)
+
+Install:
 
 ```bash
 $ yarn add @reonomy/styles
@@ -33,9 +32,14 @@ The default export `ReonomyStyles` includes the "kitchen sink" of the Reonomy We
 - ReonomyPalette: A custom palette of all Reonomy colors, known and unknown.
 
 - Global CSS
+  - Utilities
+    - Helper classes like `.capitalize`, `.uppercase`, `.lowercase` etc, and `.icon-spin` for animated rotating icons.
   - Typography
-  - Utils
+    - Font references (see below).
+  - Labels
+    - Colors for Reonomy's user-generated labels `.label-style-1`, `.label-style-2` etc
   - Leader lines
+    - Styles for common `dl`/`dt`/`dd` data display
 
 ## Typography
 Since the Reonomy fonts need to be self-hosted, you will need to supply the ReonomyStyles component with a `fontDirectory` where your fonts are stored, so that the style sheets can access them publicly from the front end.
@@ -51,15 +55,16 @@ will result in the font syle references rendering this css in the app:
   font-family: Basier Square Regular;
   src: url(/somewhere/public/fonts/basier-square/basiersquare-regular.eot)
   ...
+}
 ```
 
 You must copy a `/basier-square` font folder with the necessary fonts into your site repo. You may copy the [font folder in this repo](https://github.com/reonomy/styles/tree/master/src/fonts/basier-square) to do so. It is stored in this repo only for that convenience.
 
 The library also exposes the above as individual exports in case they are ever needed separately:
 
-1. ReonomyPalette: `{}`
-1. ReonomyCssBaseline: `JSX.Element`
-1. ReonomyTheme: `Theme`
+- ReonomyPalette: `{}`
+- ReonomyCssBaseline: `JSX.Element`
+- ReonomyTheme: `Theme`
 
 ## Reference
 See [Material UI](https://material-ui.com/getting-started/usage/) for more info on getting setup with Material UI in React.

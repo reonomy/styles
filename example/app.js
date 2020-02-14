@@ -13,10 +13,6 @@ const HelloWorld = () => {
         <p>These leader lines should look not broken:</p>
         <article style={{width: 350, padding: 20, background: 'white'}}>
           <dl className="leader-lines">
-            <dt>Asset Type</dt>
-            <dd style={{maxWidth: '100%'}}>Mixed Use: Multiple Uses</dd>
-          </dl>
-          <dl className="leader-lines">
             <dt>Lot Area SF</dt>
             <dd><span>20,000 sf</span></dd>
           </dl>
@@ -35,6 +31,10 @@ const HelloWorld = () => {
           <dl className="leader-lines">
             <dt>Frontage</dt>
             <dd>100 ft</dd>
+          </dl>
+          <dl className="leader-lines">
+            <dt>Asset Type</dt>
+            <dd style={{maxWidth: '72%'}}>A line that has just gone too long</dd>
           </dl>
         </article>
 
