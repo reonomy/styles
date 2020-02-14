@@ -1,6 +1,11 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core';
+import ReonomyTheme from './theme';
+import Labels from './globals/labels';
+import Utils from './globals/utils';
 import Typography from './globals/typography';
+import Leaders from './globals/leaders';
+
 
 interface StyleProps {
   children?: React.ReactElement;
@@ -9,7 +14,10 @@ interface StyleProps {
 
 const withReonomyStyles = (fontDirectory='') => makeStyles({
   '@global': {
-    ...Typography(fontDirectory)
+    ...Leaders(ReonomyTheme),
+    ...Typography(fontDirectory),
+    ...Labels,
+    ...Utils,
   },
 });
 
