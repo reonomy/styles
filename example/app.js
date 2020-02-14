@@ -1,5 +1,3 @@
-/* eslint react/jsx-filename-extension: 0 */
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ReonomyStyles from '@reonomy/styles';
@@ -7,9 +5,9 @@ import ReonomyStyles from '@reonomy/styles';
 const HelloWorld = () => {
   return (
     <ReonomyStyles fontDirectory="./fonts">
-      <main>
-        <h1>Hello World</h1>
-        <p>Welcome to my world</p>
+      <main style={{ padding: 150 }}>
+        <h1>Hello World, I should be Basier Square</h1>
+        <p>Welcome to my world.</p>
       </main>
     </ReonomyStyles>
   )
