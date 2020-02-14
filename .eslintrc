@@ -10,7 +10,8 @@
         "import/no-unresolved": 0,
         "import/prefer-default-export": 0,
         "no-plusplus": 0,
-        "import/extensions": ["error", "never"]
+        "import/extensions": ["error", "never"],
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }]
     },
     "globals": {
         "window": true,

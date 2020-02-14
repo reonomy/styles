@@ -2,17 +2,16 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import asdf from '@reonomy/styles';
-
-console.log(asdf);
-
+import ReonomyStyles from '@reonomy/styles';
 
 const HelloWorld = () => {
   return (
-    <div className='hello-world'>
-      <h1>Hello World</h1>
-      <p>Welcome to my world</p>
-    </div>
+    <ReonomyStyles fontDirectory="./fonts">
+      <main>
+        <h1>Hello World</h1>
+        <p>Welcome to my world</p>
+      </main>
+    </ReonomyStyles>
   )
 };
 
