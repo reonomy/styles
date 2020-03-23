@@ -9,29 +9,27 @@ const hasTouch = typeof document !== 'undefined' && 'ontouchstart' in document.d
 const ReonomyTheme = createMuiTheme({
   typography: {
     fontFamily: "'Basier Square Regular', Helvetica, Arial, sans-serif",
-    h1: {
-      fontSize: '1.5rem'
-    },
-    h2: {
-      fontSize: '1.5rem'
-    },
-    h3: {
-      fontSize: '1.5rem'
-    },
-    h4: {
-      fontSize: '1.125rem'
-    },
-    h5: {
-      fontSize: '1.125rem'
-    },
     h6: {
-      fontSize: '1.125rem'
+      fontFamily: "'Basier Square Medium', Helvetica, Arial, sans-serif",
+      fontWeight: 'normal'
+    },
+    subtitle1: {
+      fontSize: '1.125rem',
+      lineHeight: '1.33'
+    },
+    subtitle2: {
+      fontFamily: "'Basier Square Medium', Helvetica, Arial, sans-serif",
+      fontSize: '1rem',
+      fontWeight: 'normal'
     },
     button: {
       fontFamily: "'Basier Square Medium', Helvetica, Arial, sans-serif",
       fontWeight: 'normal',
-      fontSize: '0.875rem',
       textTransform: 'none'
+    },
+    overline: {
+      fontFamily: "'Basier Square Medium', Helvetica, Arial, sans-serif",
+      fontWeight: 'normal'
     }
   },
   palette: {
