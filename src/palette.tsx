@@ -15,9 +15,9 @@ const ReonomyPalette = {
   blueZodiac: '#0F1144', // dark navy blue
   tuatara: '#3b3a39', // dark orange-grey opposite catskill-white
 
-  success: '#28a745', // green chips/labels/panels
-  warning: '#ffc107', // orange chips/labels/panels
-  danger: '#dc3545', // red chips/labels/panels
+  success: '#07C279', // green chips/labels/panels
+  warning: '#FF9800', // orange chips/labels/panels
+  danger: '#FF0C3E', // red chips/labels/panels
 
   // dangerLegacy: '#ec5f5f', // danger color used in Angular app
   mineShaft: '#212121', // dark grey
