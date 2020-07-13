@@ -67,22 +67,28 @@ The library also exposes the above as individual exports in case they are ever n
 - ReonomyTheme: `Theme`
 
 ## Update NPM
+Update package version in package.json or bump npm version with <update_type> being `patch`, `minor`, or `major`
+```bash
+$ npm version <update_type>
+```
 To publish updates to the package:
 ```bash
 $ yarn compile
 $ npm pack
 ```
-This will generate a .tgz file top level you can now bump reference to in /example/package.json, eg:
+
+This will generate a .tgz file top level you can now update reference to in /example/package.json, eg:
 ```js
 "dependencies": {
     "@reonomy/styles": "../reonomy-styles-1.0.5.tgz",
 ```
 Update /example/public/index.html as needed, and ensure visual styles are as expected.
 
-Then publish your changes to NPM:
+Delete old .tgz file versions for good housekeeping.
+
+After branch is updated/approved and merged, publish the package to npm:
 ```bash
-$ yarn login
-$ yarn publish
+$ npm publish
 ```
 
 ## Reference
