@@ -14,7 +14,12 @@ $ yarn start
 
 Will be served at http://localhost:8080/
 
-
+1. Reference latest reonomy-styles package
+After any updates make sure to bump the version of reonomy-styles in package.json, eg:
+```js
+"dependencies": {
+    "@reonomy/styles": "../reonomy-styles-1.0.5.tgz",
+```
 
 # Author
 [Reonomy Team](https://github.com/reonomy)

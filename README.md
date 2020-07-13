@@ -66,7 +66,28 @@ The library also exposes the above as individual exports in case they are ever n
 - ReonomyCssBaseline: `JSX.Element`
 - ReonomyTheme: `Theme`
 
+## Update NPM
+To publish updates to the package:
+```bash
+$ yarn compile
+$ npm pack
+```
+This will generate a .tgz file top level you can now bump reference to in /example/package.json, eg:
+```js
+"dependencies": {
+    "@reonomy/styles": "../reonomy-styles-1.0.5.tgz",
+```
+Update /example/public/index.html as needed, and ensure visual styles are as expected.
+
+Then publish your changes to NPM:
+```bash
+$ yarn login
+$ yarn publish
+```
+
 ## Reference
+See [Create/Publishing NPM Package](https://www.npmjs.com/package/@bcms-demo/new-project) for more info on updating NPM.
+
 See [Material UI](https://material-ui.com/getting-started/usage/) for more info on getting setup with Material UI in React.
 
 ## Author
