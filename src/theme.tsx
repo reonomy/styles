@@ -102,7 +102,8 @@ const ReonomyTheme = createMuiTheme({
       root: {
         fontSize: '.875rem',
         borderRadius: '2px',
-        height: '28px'
+        height: '28px',
+        backgroundColor: '#E9EBEF' // grey[200]
       },
       deleteIcon: {
         width: `12px`,
@@ -168,7 +169,18 @@ const ReonomyTheme = createMuiTheme({
         height: 'auto'
       }
     },
-
+    MuiMobileStepper: {
+      root: {
+        backgroundColor: '#fff',
+        width: '100%',
+        padding: '16px 24px'
+      },
+      dot: {
+        width: 10,
+        height: 10,
+        margin: '0 4px'
+      }
+    },
     MuiInputLabel: {
       outlined: {
         backgroundColor: '#fff'
