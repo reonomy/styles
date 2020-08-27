@@ -165,13 +165,14 @@ import IconWarningOutline from './ionicons/outlineIcons/IconWarningOutline';
 
 interface StylesProps {
   children?: React.ReactElement;
+  fontDirectory?: string;
 }
 
-function ReonomyStyles({ children }: StylesProps) {
+function ReonomyStyles({ children, fontDirectory }: StylesProps) {
   return (
     <MuiThemeProvider theme={ReonomyTheme}>
       <CssBaseline />
-      <ReonomyCssBaseline />
+      <ReonomyCssBaseline fontDirectory={fontDirectory} />
       {children}
     </MuiThemeProvider>
   );

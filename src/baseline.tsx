@@ -9,20 +9,22 @@ import MTAs from './globals/mta-icons';
 
 interface StyleProps {
   children?: React.ReactElement;
+  fontDirectory?: string;
 }
 
-const withReonomyStyles = makeStyles({
-  '@global': {
-    ...Leaders(ReonomyTheme),
-    ...Typography,
-    ...Labels,
-    ...Utils,
-    ...MTAs
-  }
-});
+const withReonomyStyles = (fontDirectory = '') =>
+  makeStyles({
+    '@global': {
+      ...Leaders(ReonomyTheme),
+      ...Typography(fontDirectory),
+      ...Labels,
+      ...Utils,
+      ...MTAs
+    }
+  });
 
-function ReonomyCssBaseline({ children }: StyleProps) {
-  withReonomyStyles();
+function ReonomyCssBaseline({ children, fontDirectory }: StyleProps) {
+  withReonomyStyles(fontDirectory)();
   return <React.Fragment>{children}</React.Fragment>;
 }
 
