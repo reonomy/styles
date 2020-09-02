@@ -155,7 +155,7 @@ import ReonomyStyles, {
 
 const HelloWorld = () => {
   return (
-    <ReonomyStyles fontDirectory="./fonts">
+    <ReonomyStyles>
       <main style={{ padding: 150 }}>
         <h1>Hello World, I should be Basier Square</h1>
         <p>Welcome to my world.</p>
