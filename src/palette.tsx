@@ -1,5 +1,6 @@
-const ReonomyPalette = {
+import { hexToRGBA } from './utils/hexToRgba';
 
+const ReonomyPalette = {
   // primary
   pelorous: '#40bbc6', // teal
   pelorousLight: '#7aeef9',
@@ -31,7 +32,12 @@ const ReonomyPalette = {
   labelStyle5: '#cc7aa8', // pink
   labelStyle6: '#5fb2e6', // light blue
   labelStyle7: '#0773b3', // dark blue
-  labelStyle8: '#3a3b4d' // black
+  labelStyle8: '#3a3b4d', // black
+
+  blackHighEmphasis: hexToRGBA('#000', 0.87),
+  blackMediumEmphasis: hexToRGBA('#000', 0.6),
+  blackInactive: hexToRGBA('#000', 0.54),
+  blackDisabled: hexToRGBA('#000', 0.38)
 };
 
 export default ReonomyPalette;
