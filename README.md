@@ -13,16 +13,17 @@ Usage:
 ```jsx
 import ReonomyStyles from '@reonomy/styles';
 
-function App(){
+function App() {
   return (
-    <ReonomyStyles fontDirectory="/fonts">
+    <ReonomyStyles>
       <MyApp />
     </ReonomyStyles>
-  )
+  );
 }
 ```
 
 ## What's included
+
 The default export `ReonomyStyles` includes the "kitchen sink" of the Reonomy Web styles library:
 
 - Default Material UI `CssBaseline`
@@ -35,30 +36,13 @@ The default export `ReonomyStyles` includes the "kitchen sink" of the Reonomy We
   - Utilities
     - Helper classes like `.capitalize`, `.uppercase`, `.lowercase` etc, and `.icon-spin` for animated rotating icons.
   - Typography
-    - Font references (see below).
+    - Basier Square fonts used throughout our app.
   - Labels
     - Colors for Reonomy's user-generated labels `.label-style-1`, `.label-style-2` etc
   - Leader lines
     - Styles for common `dl`/`dt`/`dd` data display
 
 ## Typography
-Since the Reonomy fonts need to be self-hosted, you will need to supply the ReonomyStyles component with a `fontDirectory` where your fonts are stored, so that the style sheets can access them publicly from the front end.
-
-For example:
-```jsx
-<ReonomyStyles fontDirectory="/somewhere/public/fonts">
-```
-will result in the font syle references rendering this css in the app:
-
-```css
-@font-face {
-  font-family: Basier Square Regular;
-  src: url(/somewhere/public/fonts/basier-square/basiersquare-regular.eot)
-  ...
-}
-```
-
-You must copy a `/basier-square` font folder with the necessary fonts into your site repo. You may copy the [font folder in this repo](https://github.com/reonomy/styles/tree/master/src/fonts/basier-square) to do so. It is stored in this repo only for that convenience.
 
 The library also exposes the above as individual exports in case they are ever needed separately:
 
@@ -67,37 +51,47 @@ The library also exposes the above as individual exports in case they are ever n
 - ReonomyTheme: `Theme`
 
 ## Update NPM
+
 Update package version in package.json or bump npm version with <update_type> being `patch`, `minor`, or `major`
+
 ```bash
 $ npm version <update_type>
 ```
+
 To publish updates to the package:
+
 ```bash
 $ yarn compile
 $ npm pack
 ```
 
 This will generate a .tgz file top level you can now update reference to in /example/package.json, eg:
+
 ```js
 "dependencies": {
     "@reonomy/styles": "../reonomy-styles-1.0.5.tgz",
 ```
+
 Update /example/public/index.html as needed, and ensure visual styles are as expected.
 
 Delete old .tgz file versions for good housekeeping.
 
 After branch is updated/approved and merged, publish the package to npm:
+
 ```bash
 $ npm publish
 ```
 
 ## Reference
+
 See [Create/Publishing NPM Package](https://www.npmjs.com/package/@bcms-demo/new-project) for more info on updating NPM.
 
 See [Material UI](https://material-ui.com/getting-started/usage/) for more info on getting setup with Material UI in React.
 
 ## Author
+
 [Reonomy Team](https://github.com/reonomy)
 
 ## License
+
 MIT

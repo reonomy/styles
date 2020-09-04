@@ -12,19 +12,18 @@ interface StyleProps {
   fontDirectory?: string;
 }
 
-const withReonomyStyles = (fontDirectory = '') =>
-  makeStyles({
-    '@global': {
-      ...Leaders(ReonomyTheme),
-      ...Typography(fontDirectory),
-      ...Labels,
-      ...Utils,
-      ...MTAs
-    }
-  });
+const withReonomyStyles = makeStyles({
+  '@global': {
+    ...Leaders(ReonomyTheme),
+    ...Typography,
+    ...Labels,
+    ...Utils,
+    ...MTAs
+  }
+});
 
 function ReonomyCssBaseline({ children, fontDirectory }: StyleProps) {
-  withReonomyStyles(fontDirectory)();
+  withReonomyStyles();
   return <React.Fragment>{children}</React.Fragment>;
 }
 

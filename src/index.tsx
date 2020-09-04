@@ -168,11 +168,11 @@ interface StylesProps {
   fontDirectory?: string;
 }
 
-function ReonomyStyles({ children, fontDirectory }: StylesProps) {
+function ReonomyStyles({ children }: StylesProps) {
   return (
     <MuiThemeProvider theme={ReonomyTheme}>
       <CssBaseline />
-      <ReonomyCssBaseline fontDirectory={fontDirectory} />
+      <ReonomyCssBaseline />
       {children}
     </MuiThemeProvider>
   );
