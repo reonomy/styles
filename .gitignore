@@ -42,3 +42,6 @@ typings/
 
 # Example react app
 example/yarn.lock
+
+# temp/swp files
+*.swp
