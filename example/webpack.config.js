@@ -13,7 +13,18 @@ module.exports = {
   module: {
     loaders: [
       {test: /\.js$/, exclude: /node_modules/, loaders: ['babel-loader']},
-      {test: /(\.css)$/, loaders: ['style-loader', 'css-loader']}
+      {test: /(\.css)$/, loaders: ['style-loader', 'css-loader']},
+      {
+    test: /\.(woff|woff2|otf)$/,
+    use: [
+      {
+        loader: 'url-loader',
+        options: {
+          name: './fonts/[name].[ext]?[hash]',
+        },
+      },
+    ],
+  },
     ]
   }
 }
