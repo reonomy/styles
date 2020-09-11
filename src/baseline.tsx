@@ -3,9 +3,10 @@ import { makeStyles } from '@material-ui/core';
 import ReonomyTheme from './theme';
 import Labels from './globals/labels';
 import Utils from './globals/utils';
-import Typography from './globals/typography';
+// import Typography from './globals/typography';
 import Leaders from './globals/leaders';
 import MTAs from './globals/mta-icons';
+import './_typography';
 
 interface StyleProps {
   children?: React.ReactElement;
@@ -15,14 +16,14 @@ interface StyleProps {
 const withReonomyStyles = makeStyles({
   '@global': {
     ...Leaders(ReonomyTheme),
-    ...Typography,
+    //  ...Typography,
     ...Labels,
     ...Utils,
     ...MTAs
   }
 });
 
-function ReonomyCssBaseline({ children, fontDirectory }: StyleProps) {
+function ReonomyCssBaseline({ children }: StyleProps) {
   withReonomyStyles();
   return <React.Fragment>{children}</React.Fragment>;
 }
