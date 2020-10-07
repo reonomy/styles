@@ -3,11 +3,10 @@ import SvgIcon, { SvgIconProps } from '@material-ui/core/SvgIcon';
 
 export default function IconHelpCircleOutline(props: SvgIconProps) {
   return (
-    <SvgIcon viewBox="0 0 24 24" fill="none" {...props}>
+    <SvgIcon viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
       <path
         d="M12 3.75C10.3683 3.75 8.77325 4.23385 7.41655 5.14038C6.05984 6.0469 5.00242 7.33537 4.378 8.84286C3.75357 10.3504 3.5902 12.0092 3.90853 13.6095C4.22685 15.2098 5.01259 16.6798 6.16637 17.8336C7.32016 18.9874 8.79017 19.7732 10.3905 20.0915C11.9909 20.4098 13.6497 20.2464 15.1571 19.622C16.6646 18.9976 17.9531 17.9402 18.8596 16.5835C19.7662 15.2268 20.25 13.6317 20.25 12C20.25 9.81196 19.3808 7.71354 17.8336 6.16637C16.2865 4.61919 14.188 3.75 12 3.75Z"
-        stroke="black"
-        strokeOpacity="0.54"
+        fill="transparent"
         strokeWidth="1.5"
         strokeMiterlimit="10"
       />

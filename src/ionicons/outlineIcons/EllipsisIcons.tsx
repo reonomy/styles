@@ -3,11 +3,10 @@ import SvgIcon, { SvgIconProps } from '@material-ui/core/SvgIcon';
 
 export function IconEllipsisVerticalOutline(props: SvgIconProps) {
   return (
-    <SvgIcon viewBox="0 0 24 24" fill="none" {...props}>
+    <SvgIcon viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
       <path
         d="M12 13.5C12.8284 13.5 13.5 12.8284 13.5 12C13.5 11.1716 12.8284 10.5 12 10.5C11.1716 10.5 10.5 11.1716 10.5 12C10.5 12.8284 11.1716 13.5 12 13.5Z"
-        stroke="black"
-        strokeOpacity="0.54"
+        fill="transparent"
         strokeWidth="1.5"
         strokeMiterlimit="10"
       />
@@ -31,11 +30,10 @@ export function IconEllipsisVerticalOutline(props: SvgIconProps) {
 
 export function IconEllipsisHorizontalOutline(props: SvgIconProps) {
   return (
-    <SvgIcon viewBox="0 0 24 24" fill="none" {...props}>
+    <SvgIcon viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
       <path
         d="M12 13.5C12.8284 13.5 13.5 12.8284 13.5 12C13.5 11.1716 12.8284 10.5 12 10.5C11.1716 10.5 10.5 11.1716 10.5 12C10.5 12.8284 11.1716 13.5 12 13.5Z"
-        stroke="black"
-        strokeOpacity="0.54"
+        fill="transparent"
         strokeWidth="1.5"
         strokeMiterlimit="10"
       />

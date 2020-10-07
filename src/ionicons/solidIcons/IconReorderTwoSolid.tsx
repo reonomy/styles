@@ -3,11 +3,10 @@ import SvgIcon, { SvgIconProps } from '@material-ui/core/SvgIcon';
 
 export default function IconWarningSolid(props: SvgIconProps) {
   return (
-    <SvgIcon viewBox="0 0 24 24" fill="none" {...props}>
+    <SvgIcon viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
       <path
         d="M5.53125 14.25H18.4688M5.53125 9.75H18.4688"
-        stroke="black"
-        strokeOpacity="0.54"
+        fill="transparent"
         strokeWidth="2.0625"
         strokeLinecap="round"
         strokeLinejoin="round"
