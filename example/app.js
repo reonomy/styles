@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 import ReonomyStyles, {
   IconAddSolid,
   IconArrowDownSolid,
@@ -152,15 +153,14 @@ import ReonomyStyles, {
   IconTrashOutline,
   IconWarningOutline
 } from '@reonomy/styles';
+import { Button, IconButton, Typography } from '@material-ui/core';
 
 const HelloWorld = () => {
   return (
     <ReonomyStyles fontDirectory="./fonts">
       <main style={{ padding: 150 }}>
-        <h1>Hello World, I should be Basier Square</h1>
-        <p>Welcome to my world.</p>
-
-        <p>These leader lines should look not broken:</p>
+        <Typography variant="h1">Hello World, I should be Basier Square</Typography>
+        <Typography>These leader lines should look not broken:</Typography>
         <article style={{ width: 350, padding: 20, background: 'white' }}>
           <dl className="leader-lines">
             <dt>Lot Area SF</dt>
@@ -192,67 +192,73 @@ const HelloWorld = () => {
           </dl>
         </article>
 
-        <p>These buttons should be colorful and hoverable:</p>
+        <Typography variant="h5">These buttons should be colorful and hoverable:</Typography>
         <article>
-          <button type="button" className="label-style-0">
+          <Button variant="contained" className="label-style-0">
             Style 0
-          </button>
-          <button type="button" className="label-style-1">
+          </Button>
+          <Button variant="contained" className="label-style-1">
             Style 1
-          </button>
-          <button type="button" className="label-style-2">
+          </Button>
+          <Button variant="contained" className="label-style-2">
             Style 2
-          </button>
-          <button type="button" className="label-style-3">
+          </Button>
+          <Button variant="contained" className="label-style-3">
             Style 3
-          </button>
-          <button type="button" className="label-style-4">
+          </Button>
+          <Button variant="contained" className="label-style-4">
             Style 4
-          </button>
-          <button type="button" className="label-style-5">
+          </Button>
+          <Button variant="contained" className="label-style-5">
             Style 5
-          </button>
-          <button type="button" className="label-style-6">
+          </Button>
+          <Button variant="contained" className="label-style-6">
             Style 6
-          </button>
-          <button type="button" className="label-style-7">
+          </Button>
+          <Button variant="contained" className="label-style-7">
             Style 7
-          </button>
+          </Button>
         </article>
 
-        <p>And hey look, a spinning ampersand:</p>
-        <div className="icon-spin" style={{ background: 'white', boxShadow: '0 0 5px rgba(0,0,0,0.2)' }}>
-          @
-        </div>
+        <Typography variant="h5">And hey look, a spinning ampersand:</Typography>
+        <article>
+          <div className="icon-spin" style={{ background: 'white', boxShadow: '0 0 5px rgba(0,0,0,0.2)' }}>
+            @
+          </div>
+        </article>
 
-        <p>MTA icons, for your pleasure:</p>
-        <div>
-          <span className="subway-icon mta-green">6</span>
-          <span className="subway-icon mta-green express">6</span>
-          <span className="subway-icon mta-green">4</span>
-        </div>
-        <div>
-          <span className="subway-icon mta-orange ">B</span>
-          <span className="subway-icon mta-blue">C</span>
-          <span className="subway-icon mta-blue">A</span>
-        </div>
-        <div>
-          <span className="subway-icon mta-purple">7</span>
-          <span className="subway-icon mta-purple express">7</span>
-          <span className="subway-icon mta-gray">S</span>
-        </div>
-        <div>
-          <span className="subway-icon mta-yellow">N</span>
-          <span className="subway-icon mta-yellow">R</span>
-          <span className="subway-icon mta-yellow">Q</span>
-          <span className="subway-icon mta-red">1</span>
-          <span className="subway-icon mta-red">2</span>
-          <span className="subway-icon mta-red">3</span>
-        </div>
+        <Typography variant="h5">MTA icons, for your pleasure:</Typography>
+        <article>
+          <div>
+            <span className="subway-icon mta-green">6</span>
+            <span className="subway-icon mta-green express">6</span>
+            <span className="subway-icon mta-green">4</span>
+          </div>
+          <div>
+            <span className="subway-icon mta-orange ">B</span>
+            <span className="subway-icon mta-blue">C</span>
+            <span className="subway-icon mta-blue">A</span>
+          </div>
+          <div>
+            <span className="subway-icon mta-purple">7</span>
+            <span className="subway-icon mta-purple express">7</span>
+            <span className="subway-icon mta-gray">S</span>
+          </div>
+          <div>
+            <span className="subway-icon mta-yellow">N</span>
+            <span className="subway-icon mta-yellow">R</span>
+            <span className="subway-icon mta-yellow">Q</span>
+            <span className="subway-icon mta-red">1</span>
+            <span className="subway-icon mta-red">2</span>
+            <span className="subway-icon mta-red">3</span>
+          </div>
+        </article>
 
-        <h3>IonIcons</h3>
-        <div>
-          <p>Solid Icons</p>
+        <Typography variant="h5" gutterBottom>
+          IonIcons
+        </Typography>
+        <article>
+          <Typography>Solid Icons</Typography>
           <IconAddSolid />
           <IconArrowDownSolid />
           <IconArrowUpSolid />
@@ -328,7 +334,9 @@ const HelloWorld = () => {
           <IconTodaySolid />
           <IconTrashSolid />
           <IconWarningSolid />
-          <p>Outline Icons</p>
+        </article>
+        <article>
+          <Typography>Outline Icons</Typography>
           <IconAddOutline />
           <IconArrowDownOutline />
           <IconArrowUpOutline />
@@ -404,16 +412,25 @@ const HelloWorld = () => {
           <IconTodayOutline />
           <IconTrashOutline />
           <IconWarningOutline />
-        </div>
-        <h1>I am a heading 1 with icon <IconTodaySolid fontSize="inherit" /></h1>
-        <h2>I am a heading 2 with icon <IconTodaySolid fontSize="inherit" /></h2>
-        <h3>I am a heading 3 with icon <IconTodaySolid fontSize="inherit" /></h3>
-        <p>
-          I am a paragraph with icon <IconTodaySolid fontSize="inherit" />
-        </p>
-        <button type="button" className="label-style-0">
-          <IconTodaySolid fontSize="inherit" />
-        </button>
+        </article>
+        <Typography variant="h2" color="primary">
+          I am primary color h2 with icon <IconTodaySolid fontSize="inherit" />
+        </Typography>
+        <Typography variant="subtitle1" color="secondary">
+          I am a secondary color subtitle1 with icon <IconTodaySolid fontSize="inherit" />
+        </Typography>
+        <Typography variant="subtitle2" color="textSecondary">
+          I am a textSecondary color subtitle2 with icon <IconTodaySolid fontSize="inherit" />
+        </Typography>
+        <Typography>
+          I am a default body color paragraph with icon <IconTodaySolid fontSize="inherit" />
+        </Typography>
+        <Typography>
+          And here is an IconButton:
+          <IconButton>
+            <IconTodaySolid fontSize="inherit" />
+          </IconButton>
+        </Typography>
       </main>
     </ReonomyStyles>
   );

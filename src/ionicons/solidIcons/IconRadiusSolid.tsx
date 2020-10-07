@@ -1,7 +1,7 @@
 import React from 'react';
 import SvgIcon, { SvgIconProps } from '@material-ui/core/SvgIcon';
 
-export default function IconRadiusSolid(props: SvgIconProps) {
+export function IconRadiusSolid(props: SvgIconProps) {
   return (
     <SvgIcon viewBox="0 0 24 24" fill="none" {...props}>
       <path

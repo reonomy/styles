@@ -1,7 +1,7 @@
 import React from 'react';
 import SvgIcon, { SvgIconProps } from '@material-ui/core/SvgIcon';
 
-export default function IconColorWandSolid(props: SvgIconProps) {
+export function IconColorWandSolid(props: SvgIconProps) {
   return (
     <SvgIcon viewBox="0 0 24 24" fill="none" {...props}>
       <path d="M4.50293 9.75H2.25293C2.05402 9.75 1.86325 9.67098 1.7226 9.53033C1.58195 9.38968 1.50293 9.19891 1.50293 9C1.50293 8.80109 1.58195 8.61032 1.7226 8.46967C1.86325 8.32902 2.05402 8.25 2.25293 8.25H4.50293C4.70184 8.25 4.89261 8.32902 5.03326 8.46967C5.17391 8.61032 5.25293 8.80109 5.25293 9C5.25293 9.19891 5.17391 9.38968 5.03326 9.53033C4.89261 9.67098 4.70184 9.75 4.50293 9.75Z" />

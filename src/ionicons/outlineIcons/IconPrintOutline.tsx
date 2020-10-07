@@ -1,7 +1,7 @@
 import React from 'react';
 import SvgIcon, { SvgIconProps } from '@material-ui/core/SvgIcon';
 
-export default function IconPrintOutline(props: SvgIconProps) {
+export function IconPrintOutline(props: SvgIconProps) {
   return (
     <SvgIcon viewBox="0 0 24 24" fill="none" {...props}>
       <path d="M19.5 8.625C19.5 9.24632 18.9963 9.75 18.375 9.75C17.7537 9.75 17.25 9.24632 17.25 8.625C17.25 8.00368 17.7537 7.5 18.375 7.5C18.9963 7.5 19.5 8.00368 19.5 8.625Z" />

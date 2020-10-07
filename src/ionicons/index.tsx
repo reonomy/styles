@@ -65,7 +65,6 @@ export * from './solidIcons/IconTodaySolid';
 export * from './solidIcons/IconTrashSolid';
 export * from './solidIcons/IconWarningSolid';
 export * from './solidIcons/LockIcons';
-
 export * from './outlineIcons/ArrowIcons';
 export * from './outlineIcons/CaretIcons';
 export * from './outlineIcons/ChevronIcons';

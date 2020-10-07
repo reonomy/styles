@@ -46,9 +46,11 @@ const ReonomyTheme = createMuiTheme({
       contrastText: '#fff'
     },
     text: {
-      primary: ReonomyPalette.tuatara
+      primary: '#1C1D20', // grey[900]
+      secondary: '#5B5D60', // grey[700]
+      disabled: '#97999D', // grey[500]
+      hint: '#97999D' // grey[500]
     },
-    // grey palette generated off tuatara (grey[800]) here https://materialpalettes.com/
     grey: {
       '50': '#F7F9FE',
       '100': '#F1F3F7',

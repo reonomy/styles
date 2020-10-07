@@ -1,7 +1,7 @@
 import React from 'react';
 import SvgIcon, { SvgIconProps } from '@material-ui/core/SvgIcon';
 
-export default function IconGridSolid(props: SvgIconProps) {
+export function IconGridSolid(props: SvgIconProps) {
   return (
     <SvgIcon viewBox="0 0 24 24" fill="none" {...props}>
       <path d="M9.5625 11.25H3.1875C2.73995 11.25 2.31072 11.0722 1.99426 10.7557C1.67779 10.4393 1.5 10.0101 1.5 9.5625V3.1875C1.5 2.73995 1.67779 2.31072 1.99426 1.99426C2.31072 1.67779 2.73995 1.5 3.1875 1.5H9.5625C10.0101 1.5 10.4393 1.67779 10.7557 1.99426C11.0722 2.31072 11.25 2.73995 11.25 3.1875V9.5625C11.25 10.0101 11.0722 10.4393 10.7557 10.7557C10.4393 11.0722 10.0101 11.25 9.5625 11.25Z" />

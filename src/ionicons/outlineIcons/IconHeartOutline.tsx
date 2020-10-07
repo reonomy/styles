@@ -1,7 +1,7 @@
 import React from 'react';
 import SvgIcon, { SvgIconProps } from '@material-ui/core/SvgIcon';
 
-export default function IconHeartOutline(props: SvgIconProps) {
+export function IconHeartOutline(props: SvgIconProps) {
   return (
     <SvgIcon viewBox="0 0 24 24" stroke="currentColor" {...props}>
       <path

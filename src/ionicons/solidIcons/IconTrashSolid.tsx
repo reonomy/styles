@@ -1,7 +1,7 @@
 import React from 'react';
 import SvgIcon, { SvgIconProps } from '@material-ui/core/SvgIcon';
 
-export default function IconTrashSolid(props: SvgIconProps) {
+export function IconTrashSolid(props: SvgIconProps) {
   return (
     <SvgIcon viewBox="0 0 24 24" fill="none" {...props}>
       <path d="M13.875 3H10.125C10.0756 2.99943 10.0266 3.00875 9.98083 3.02739C9.93507 3.04604 9.89351 3.07364 9.85857 3.10858C9.82364 3.14351 9.79604 3.18507 9.77739 3.23083C9.75875 3.27658 9.74943 3.3256 9.75 3.375V4.5H14.25V3.375C14.2506 3.3256 14.2413 3.27658 14.2226 3.23083C14.204 3.18507 14.1764 3.14351 14.1414 3.10858C14.1065 3.07364 14.0649 3.04604 14.0192 3.02739C13.9734 3.00875 13.9244 2.99943 13.875 3Z" />

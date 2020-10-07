@@ -1,7 +1,7 @@
 import React from 'react';
 import SvgIcon, { SvgIconProps } from '@material-ui/core/SvgIcon';
 
-export default function IconInformationCircleOutline(props: SvgIconProps) {
+export function IconInformationCircleOutline(props: SvgIconProps) {
   return (
     <SvgIcon viewBox="0 0 24 24" fill="none" {...props}>
       <path d="M10.3125 9.5625C9.89829 9.5625 9.5625 9.89829 9.5625 10.3125C9.5625 10.7267 9.89829 11.0625 10.3125 11.0625H11.0625V15.1875H9.75C9.33579 15.1875 9 15.5233 9 15.9375C9 16.3517 9.33579 16.6875 9.75 16.6875H13.875C14.2892 16.6875 14.625 16.3517 14.625 15.9375C14.625 15.5233 14.2892 15.1875 13.875 15.1875H12.5625V10.3125C12.5625 9.89829 12.2267 9.5625 11.8125 9.5625H10.3125Z" />

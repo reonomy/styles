@@ -1,7 +1,7 @@
 import React from 'react';
 import SvgIcon, { SvgIconProps } from '@material-ui/core/SvgIcon';
 
-export default function IconCodeDownload(props: SvgIconProps) {
+export function IconCodeDownload(props: SvgIconProps) {
   return (
     <SvgIcon viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
       <path

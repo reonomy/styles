@@ -1,7 +1,7 @@
 import React from 'react';
 import SvgIcon, { SvgIconProps } from '@material-ui/core/SvgIcon';
 
-export default function IconEyeSolid(props: SvgIconProps) {
+export function IconEyeSolid(props: SvgIconProps) {
   return (
     <SvgIcon viewBox="0 0 24 24" fill="none" {...props}>
       <path d="M12.0009 15C13.6578 15 15.0009 13.6569 15.0009 12C15.0009 10.3431 13.6578 9 12.0009 9C10.3441 9 9.00093 10.3431 9.00093 12C9.00093 13.6569 10.3441 15 12.0009 15Z" />

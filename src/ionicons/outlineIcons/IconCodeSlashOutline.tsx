@@ -1,7 +1,7 @@
 import React from 'react';
 import SvgIcon, { SvgIconProps } from '@material-ui/core/SvgIcon';
 
-export default function IconCodeSlashOutline(props: SvgIconProps) {
+export function IconCodeSlashOutline(props: SvgIconProps) {
   return (
     <SvgIcon viewBox="0 0 24 24" fill="none" {...props}>
       <path d="M14.9684 4.71571C15.0874 4.31896 14.8623 3.90085 14.4655 3.78183C14.0688 3.6628 13.6507 3.88794 13.5316 4.28469L9.03163 19.2847C8.91261 19.6814 9.13774 20.0995 9.53449 20.2186C9.93123 20.3376 10.3493 20.1125 10.4684 19.7157L14.9684 4.71571Z" />

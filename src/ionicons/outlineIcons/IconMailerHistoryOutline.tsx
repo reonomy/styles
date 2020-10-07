@@ -1,7 +1,7 @@
 import React from 'react';
 import SvgIcon, { SvgIconProps } from '@material-ui/core/SvgIcon';
 
-export default function IconMailerHistoryOutline(props: SvgIconProps) {
+export function IconMailerHistoryOutline(props: SvgIconProps) {
   return (
     <SvgIcon viewBox="0 0 24 24" fill="none" {...props}>
       <path d="M17.626 12.375C18.0402 12.375 18.376 12.7108 18.376 13.125V14.875H20.126C20.5402 14.875 20.876 15.2108 20.876 15.625C20.876 16.0392 20.5402 16.375 20.126 16.375H17.626C17.2118 16.375 16.876 16.0392 16.876 15.625V13.125C16.876 12.7108 17.2118 12.375 17.626 12.375Z" />

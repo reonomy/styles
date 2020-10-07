@@ -1,7 +1,7 @@
 import React from 'react';
 import SvgIcon, { SvgIconProps } from '@material-ui/core/SvgIcon';
 
-export default function IconFolderOutline(props: SvgIconProps) {
+export function IconFolderOutline(props: SvgIconProps) {
   return (
     <SvgIcon viewBox="0 0 24 24" stroke="currentColor" {...props}>
       <path
