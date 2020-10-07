@@ -12,8 +12,7 @@ export default function IconHelpCircleOutline(props: SvgIconProps) {
       />
       <path
         d="M9.375 9.4827C9.375 9.4827 9.41438 8.66238 10.2923 7.95598C10.8131 7.53645 11.4375 7.41504 12 7.40661C12.5123 7.40004 12.9698 7.48489 13.2436 7.6152C13.7123 7.83832 14.625 8.38301 14.625 9.54129C14.625 10.76 13.8281 11.3136 12.9202 11.9225C12.0122 12.5314 11.7656 13.1924 11.7656 13.8753"
-        stroke="black"
-        strokeOpacity="0.54"
+        fill="transparent"
         strokeWidth="1.3125"
         strokeMiterlimit="10"
         strokeLinecap="round"
