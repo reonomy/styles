@@ -109,7 +109,7 @@ const ReonomyTheme = createMuiTheme({
       },
       deleteIcon: {
         width: `12px`,
-        color: ReonomyPalette.mineShaft
+        color: '#3C3E41' // grey[800]
       }
     },
     MuiTab: {
