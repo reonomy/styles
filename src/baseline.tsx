@@ -10,7 +10,6 @@ import MTAs from './globals/mta-icons';
 interface StyleProps {
   children?: React.ReactElement;
 }
-
 const withReonomyStyles = () =>
   makeStyles({
     '@global': {
@@ -23,7 +22,7 @@ const withReonomyStyles = () =>
   });
 
 function ReonomyCssBaseline({ children }: StyleProps) {
-  withReonomyStyles();
+  withReonomyStyles()();
   return (
     <React.Fragment>
       <CssBaseline />
