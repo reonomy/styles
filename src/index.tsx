@@ -1,19 +1,17 @@
 import React from 'react';
-import { MuiThemeProvider, CssBaseline } from '@material-ui/core';
+import { MuiThemeProvider } from '@material-ui/core';
 import ReonomyPalette from './palette';
 import ReonomyCssBaseline from './baseline';
 import ReonomyTheme from './theme';
 
 interface StylesProps {
   children?: React.ReactElement;
-  fontDirectory?: string;
 }
 
-function ReonomyStyles({ children, fontDirectory }: StylesProps) {
+function ReonomyStyles({ children }: StylesProps) {
   return (
     <MuiThemeProvider theme={ReonomyTheme}>
-      <CssBaseline />
-      <ReonomyCssBaseline fontDirectory={fontDirectory} />
+      <ReonomyCssBaseline />
       {children}
     </MuiThemeProvider>
   );

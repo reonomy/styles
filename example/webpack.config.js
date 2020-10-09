@@ -13,7 +13,8 @@ module.exports = {
   module: {
     loaders: [
       {test: /\.js$/, exclude: /node_modules/, loaders: ['babel-loader']},
-      {test: /(\.css)$/, loaders: ['style-loader', 'css-loader']}
+      {test: /(\.css)$/, loaders: ['style-loader', 'css-loader']},
+      {test: /\.(woff(2)?|ttf|eot|svg|otf)(\?v=\d+\.\d+\.\d+)?$/, loaders: ['file-loader']}
     ]
   }
 }

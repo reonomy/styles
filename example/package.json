@@ -10,8 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@reonomy/styles": "../reonomy-styles-1.6.3.tgz",
     "@material-ui/core": "^4.5.1",
+    "@reonomy/styles": "../reonomy-styles-1.6.93.tgz",
     "react": "^16.9.0",
     "react-dom": "^16.9.0"
   },
@@ -21,6 +21,7 @@
     "babel-preset-es2015": "^6.22.0",
     "babel-preset-react": "^6.22.0",
     "css-loader": "^0.26.1",
+    "file-loader": "^6.1.0",
     "path": "^0.12.7",
     "style-loader": "^0.13.1",
     "webpack": "^2.2.1",
