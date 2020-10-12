@@ -16,7 +16,6 @@ const ReonomyPalette = {
   warning: '#FF9800', // orange chips/labels/panels
   danger: '#FF0C3E', // red chips/labels/panels
 
-  mineShaft: '#212121', // dark grey
   deco: '#C5E1A5', // pale green for ownership green matches
 
   labelStyle0: '#959595', // grey

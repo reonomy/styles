@@ -157,7 +157,7 @@ import { Button, IconButton, Typography } from '@material-ui/core';
 
 const HelloWorld = () => {
   return (
-    <ReonomyStyles fontDirectory="./fonts">
+    <ReonomyStyles>
       <main style={{ padding: 150 }}>
         <Typography variant="h1">Hello World, I should be Basier Square</Typography>
         <Typography>These leader lines should look not broken:</Typography>

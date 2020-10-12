@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core';
+import { makeStyles, CssBaseline } from '@material-ui/core';
 import ReonomyTheme from './theme';
 import Labels from './globals/labels';
 import Utils from './globals/utils';
@@ -9,23 +9,26 @@ import MTAs from './globals/mta-icons';
 
 interface StyleProps {
   children?: React.ReactElement;
-  fontDirectory?: string;
 }
-
-const withReonomyStyles = (fontDirectory = '') =>
+const withReonomyStyles = () =>
   makeStyles({
     '@global': {
       ...Leaders(ReonomyTheme),
-      ...Typography(fontDirectory),
+      ...Typography,
       ...Labels,
       ...Utils,
       ...MTAs
     }
   });
 
-function ReonomyCssBaseline({ children, fontDirectory }: StyleProps) {
-  withReonomyStyles(fontDirectory)();
-  return <React.Fragment>{children}</React.Fragment>;
+function ReonomyCssBaseline({ children }: StyleProps) {
+  withReonomyStyles()();
+  return (
+    <React.Fragment>
+      <CssBaseline />
+      {children}
+    </React.Fragment>
+  );
 }
 
 export default ReonomyCssBaseline;
