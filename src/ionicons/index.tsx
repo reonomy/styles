@@ -132,3 +132,7 @@ export * from './outlineIcons/IconTodayOutline';
 export * from './outlineIcons/IconTrashOutline';
 export * from './outlineIcons/IconWarningOutline';
 export * from './outlineIcons/LockIcons';
+export * from './outlineIcons/IconNewDataFeedOutline';
+export * from './outlineIcons/IconSortOutline';
+export * from './outlineIcons/IconRefreshOutline';
+export * from './outlineIcons/IconLinkOutline';

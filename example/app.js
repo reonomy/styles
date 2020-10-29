@@ -151,7 +151,11 @@ import ReonomyStyles, {
   IconSquareOutline,
   IconTodayOutline,
   IconTrashOutline,
-  IconWarningOutline
+  IconWarningOutline,
+  IconNewDataFeedOutline,
+  IconSortOutline,
+  IconRefreshOutline,
+  IconLinkOutline
 } from '@reonomy/styles';
 import { Button, IconButton, Typography } from '@material-ui/core';
 
@@ -412,6 +416,10 @@ const HelloWorld = () => {
           <IconTodayOutline />
           <IconTrashOutline />
           <IconWarningOutline />
+          <IconNewDataFeedOutline />
+          <IconSortOutline />
+          <IconRefreshOutline />
+          <IconLinkOutline />
         </article>
         <Typography variant="h2" color="primary">
           I am primary color h2 with icon <IconTodaySolid fontSize="inherit" />
