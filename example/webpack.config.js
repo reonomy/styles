@@ -1,5 +1,5 @@
-var webpack = require('webpack')
-var path = require('path')
+var webpack = require('webpack');
+var path = require('path');
 module.exports = {
   entry: path.resolve(__dirname, 'app'),
   output: {
@@ -11,10 +11,10 @@ module.exports = {
     contentBase: path.resolve(__dirname, 'public')
   },
   module: {
-    loaders: [
-      {test: /\.js$/, exclude: /node_modules/, loaders: ['babel-loader']},
-      {test: /(\.css)$/, loaders: ['style-loader', 'css-loader']},
-      {test: /\.(woff(2)?|ttf|eot|svg|otf)(\?v=\d+\.\d+\.\d+)?$/, loaders: ['file-loader']}
+    rules: [
+      { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' },
+      { test: /(\.css)$/, loader: 'css-loader' },
+      { test: /\.(woff(2)?|ttf|eot|svg|otf)(\?v=\d+\.\d+\.\d+)?$/, loader: 'file-loader' }
     ]
   }
-}
+};

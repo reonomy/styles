@@ -1,6 +1,6 @@
 {
   "name": "@reonomy/styles",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "description": "Reonomy Design Styles Library",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
