@@ -62,6 +62,7 @@ import ReonomyStyles, {
   IconPencilSolid,
   IconPersonAddSolid,
   IconPersonSolid,
+  IconPhonePortraitSolid,
   IconPlaySolid,
   IconPolygonSolid,
   IconPrintSolid,
@@ -74,6 +75,7 @@ import ReonomyStyles, {
   IconShareSocialSolid,
   IconSpreadsheetSolid,
   IconSquareSolid,
+  IconStarHalfSolid,
   IconTodaySolid,
   IconTrashSolid,
   IconWarningSolid,
@@ -322,6 +324,7 @@ const HelloWorld = () => {
           <IconPaperPlaneSolid />
           <IconPencilSolid />
           <IconPersonAddSolid />
+          <IconPhonePortraitSolid />
           <IconPersonSolid />
           <IconPlaySolid />
           <IconPolygonSolid />
@@ -335,6 +338,7 @@ const HelloWorld = () => {
           <IconShareSocialSolid />
           <IconSpreadsheetSolid />
           <IconSquareSolid />
+          <IconStarHalfSolid />
           <IconTodaySolid />
           <IconTrashSolid />
           <IconWarningSolid />
