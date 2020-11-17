@@ -131,6 +131,7 @@ export * from './outlineIcons/IconSettingsOutline';
 export * from './outlineIcons/IconShareSocialOutline';
 export * from './outlineIcons/IconSpreadsheetOutline';
 export * from './outlineIcons/IconSquareOutline';
+export * from './outlineIcons/IconStarHalfOutline';
 export * from './outlineIcons/IconTodayOutline';
 export * from './outlineIcons/IconTrashOutline';
 export * from './outlineIcons/IconWarningOutline';
