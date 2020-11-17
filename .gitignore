@@ -42,3 +42,7 @@ typings/
 
 # Example react app
 example/yarn.lock
+
+# Intellij Artifacts
+.idea/
+*.iml

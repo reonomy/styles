@@ -62,6 +62,7 @@ import ReonomyStyles, {
   IconPencilSolid,
   IconPersonAddSolid,
   IconPersonSolid,
+  IconPhonePortraitSolid,
   IconPlaySolid,
   IconPolygonSolid,
   IconPrintSolid,
@@ -74,6 +75,7 @@ import ReonomyStyles, {
   IconShareSocialSolid,
   IconSpreadsheetSolid,
   IconSquareSolid,
+  IconStarHalfSolid,
   IconTodaySolid,
   IconTrashSolid,
   IconWarningSolid,
@@ -137,6 +139,7 @@ import ReonomyStyles, {
   IconPencilOutline,
   IconPersonAddOutline,
   IconPersonOutline,
+  IconPhonePortraitOutline,
   IconPlayOutline,
   IconPolygonOutline,
   IconPrintOutline,
@@ -149,6 +152,7 @@ import ReonomyStyles, {
   IconShareSocialOutline,
   IconSpreadsheetOutline,
   IconSquareOutline,
+  IconStarHalfOutline,
   IconTodayOutline,
   IconTrashOutline,
   IconWarningOutline,
@@ -323,6 +327,7 @@ const HelloWorld = () => {
           <IconPencilSolid />
           <IconPersonAddSolid />
           <IconPersonSolid />
+          <IconPhonePortraitSolid />
           <IconPlaySolid />
           <IconPolygonSolid />
           <IconPrintSolid />
@@ -335,6 +340,7 @@ const HelloWorld = () => {
           <IconShareSocialSolid />
           <IconSpreadsheetSolid />
           <IconSquareSolid />
+          <IconStarHalfSolid />
           <IconTodaySolid />
           <IconTrashSolid />
           <IconWarningSolid />
@@ -401,6 +407,7 @@ const HelloWorld = () => {
           <IconPencilOutline />
           <IconPersonAddOutline />
           <IconPersonOutline />
+          <IconPhonePortraitOutline />
           <IconPlayOutline />
           <IconPolygonOutline />
           <IconPrintOutline />
@@ -413,6 +420,7 @@ const HelloWorld = () => {
           <IconShareSocialOutline />
           <IconSpreadsheetOutline />
           <IconSquareOutline />
+          <IconStarHalfOutline />
           <IconTodayOutline />
           <IconTrashOutline />
           <IconWarningOutline />
