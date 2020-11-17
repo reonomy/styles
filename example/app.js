@@ -139,6 +139,7 @@ import ReonomyStyles, {
   IconPencilOutline,
   IconPersonAddOutline,
   IconPersonOutline,
+  IconPhonePortraitOutline,
   IconPlayOutline,
   IconPolygonOutline,
   IconPrintOutline,
@@ -405,6 +406,7 @@ const HelloWorld = () => {
           <IconPencilOutline />
           <IconPersonAddOutline />
           <IconPersonOutline />
+          <IconPhonePortraitOutline />
           <IconPlayOutline />
           <IconPolygonOutline />
           <IconPrintOutline />

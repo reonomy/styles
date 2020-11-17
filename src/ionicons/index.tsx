@@ -116,6 +116,7 @@ export * from './outlineIcons/IconPencilOutline';
 export * from './outlineIcons/IconPersonAddOutline';
 export * from './outlineIcons/IconPersonCircleOutline';
 export * from './outlineIcons/IconPersonOutline';
+export * from './outlineIcons/IconPhonePortraitOutline';
 export * from './outlineIcons/IconPlayOutline';
 export * from './outlineIcons/IconPolygonOutline';
 export * from './outlineIcons/IconPrintOutline';
