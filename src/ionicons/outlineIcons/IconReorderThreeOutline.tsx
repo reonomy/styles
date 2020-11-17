@@ -3,7 +3,7 @@ import SvgIcon, { SvgIconProps } from '@material-ui/core/SvgIcon';
 
 export function IconReorderThreeOutline(props: SvgIconProps) {
   return (
-    <SvgIcon viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
+    <SvgIcon viewBox="0 0 24 24" stroke="currentColor" {...props}>
       <path
         d="M4.5 12H19.5M4.5 8.25H19.5M4.5 15.75H19.5"
         fill="transparent"

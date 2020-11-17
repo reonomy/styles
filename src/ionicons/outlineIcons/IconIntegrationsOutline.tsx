@@ -3,7 +3,7 @@ import SvgIcon, { SvgIconProps } from '@material-ui/core/SvgIcon';
 
 export function IconIntegrationsOutline(props: SvgIconProps) {
   return (
-    <SvgIcon viewBox="0 0 24 24" fill="none" {...props}>
+    <SvgIcon viewBox="0 0 24 24" {...props}>
       <path d="M13.708 8.72423C13.4169 8.42953 12.942 8.4266 12.6473 8.71768C12.3526 9.00876 12.3497 9.48363 12.6408 9.77832L14.1785 11.3351H8.03217C7.61795 11.3351 7.28217 11.6709 7.28217 12.0851C7.28217 12.4993 7.61795 12.8351 8.03217 12.8351H14.168L12.7892 14.2195C12.4969 14.513 12.4979 14.9878 12.7913 15.2801C13.0848 15.5724 13.5597 15.5715 13.852 15.278L16.5049 12.6143C16.7955 12.3225 16.7964 11.851 16.507 11.558L13.708 8.72423Z" />
       <path
         fillRule="evenodd"

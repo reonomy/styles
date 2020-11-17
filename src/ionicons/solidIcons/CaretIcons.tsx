@@ -3,7 +3,7 @@ import SvgIcon, { SvgIconProps } from '@material-ui/core/SvgIcon';
 
 export function IconCaretBackSolid(props: SvgIconProps) {
   return (
-    <SvgIcon viewBox="0 0 24 24" fill="none" {...props}>
+    <SvgIcon viewBox="0 0 24 24" {...props}>
       <path d="M15.0907 4.59397L7.4445 11.1462C7.32132 11.2518 7.22244 11.3828 7.15465 11.5302C7.08686 11.6776 7.05176 11.838 7.05176 12.0002C7.05176 12.1625 7.08686 12.3228 7.15465 12.4702C7.22244 12.6177 7.32132 12.7487 7.4445 12.8543L15.0907 19.4065C15.8206 20.0318 16.9479 19.5133 16.9479 18.5524V5.44615C16.9479 4.48522 15.8206 3.96678 15.0907 4.59397Z" />
     </SvgIcon>
   );
@@ -11,7 +11,7 @@ export function IconCaretBackSolid(props: SvgIconProps) {
 
 export function IconCaretForwardSolid(props: SvgIconProps) {
   return (
-    <SvgIcon viewBox="0 0 24 24" fill="none" {...props}>
+    <SvgIcon viewBox="0 0 24 24" {...props}>
       <path d="M8.90895 19.4067L16.5552 12.8545C16.6784 12.7489 16.7773 12.6179 16.845 12.4705C16.9128 12.323 16.9479 12.1627 16.9479 12.0004C16.9479 11.8382 16.9128 11.6778 16.845 11.5304C16.7773 11.383 16.6784 11.252 16.5552 11.1464L8.90895 4.5942C8.1791 3.96888 7.05176 4.48732 7.05176 5.44826V18.5545C7.05176 19.5154 8.1791 20.0339 8.90895 19.4067Z" />
     </SvgIcon>
   );
@@ -19,7 +19,7 @@ export function IconCaretForwardSolid(props: SvgIconProps) {
 
 export function IconCaretDownSolid(props: SvgIconProps) {
   return (
-    <SvgIcon viewBox="0 0 24 24" fill="none" {...props}>
+    <SvgIcon viewBox="0 0 24 24" {...props}>
       <path d="M4.59543 8.90894L11.1476 16.5552C11.2532 16.6784 11.3842 16.7773 11.5317 16.845C11.6791 16.9128 11.8394 16.9479 12.0017 16.9479C12.1639 16.9479 12.3243 16.9128 12.4717 16.845C12.6191 16.7773 12.7501 16.6784 12.8557 16.5552L19.4079 8.90894C20.0332 8.1791 19.5148 7.05176 18.5539 7.05176H5.44762C4.48668 7.05176 3.96824 8.1791 4.59543 8.90894Z" />
     </SvgIcon>
   );
@@ -27,7 +27,7 @@ export function IconCaretDownSolid(props: SvgIconProps) {
 
 export function IconCaretUpSolid(props: SvgIconProps) {
   return (
-    <SvgIcon viewBox="0 0 24 24" fill="none" {...props}>
+    <SvgIcon viewBox="0 0 24 24" {...props}>
       <path d="M19.4067 15.0907L12.8545 7.4445C12.7489 7.32132 12.6179 7.22244 12.4705 7.15465C12.323 7.08686 12.1627 7.05176 12.0004 7.05176C11.8382 7.05176 11.6778 7.08686 11.5304 7.15465C11.383 7.22244 11.252 7.32132 11.1464 7.4445L4.5942 15.0907C3.96888 15.8206 4.48732 16.9479 5.44826 16.9479H18.5545C19.5154 16.9479 20.0339 15.8206 19.4067 15.0907Z" />
     </SvgIcon>
   );
