@@ -3,7 +3,7 @@ import SvgIcon, { SvgIconProps } from '@material-ui/core/SvgIcon';
 
 export function IconMailboxSolid(props: SvgIconProps) {
   return (
-    <SvgIcon viewBox="0 0 24 24" fill="none" {...props}>
+    <SvgIcon viewBox="0 0 24 24" {...props}>
       <path d="M14.5685 18.531H9.37031V23.2314C9.37031 23.6456 9.70609 23.9814 10.1203 23.9814H13.8185C14.2327 23.9814 14.5685 23.6456 14.5685 23.2314V18.531Z" />
       <path d="M15.6528 0.0322266C15.2386 0.0322266 14.9028 0.368013 14.9028 0.782227V5.17252H16.4028V3.94206H19.5944C20.0086 3.94206 20.3444 3.60627 20.3444 3.19206V0.782227C20.3444 0.368013 20.0086 0.0322266 19.5944 0.0322266H15.6528Z" />
       <path

@@ -3,7 +3,7 @@ import SvgIcon, { SvgIconProps } from '@material-ui/core/SvgIcon';
 
 export function IconGridOutline(props: SvgIconProps) {
   return (
-    <SvgIcon viewBox="0 0 24 24" fill="none" {...props}>
+    <SvgIcon viewBox="0 0 24 24" {...props}>
       <path
         fillRule="evenodd"
         clipRule="evenodd"

@@ -77,6 +77,37 @@ import {
 } from '@reonomy/styles`
 ```
 
+## Creating Icon SVGs
+
+Currently all Icon SVGs are exported from our [Figma design system](https://www.figma.com/file/gL4ne4FElhPkB5wXFZIoLp/Material-Design-for-Reonomy).
+
+Things to consider when exporting new SVGs into the repo:
+
+- Figma's Ionicons export with all stroke, path, and fill colors explicitly defined (bad!). In order to utilize these within the Material UI framework, these should all be reset.
+- Example of a reset SVG with stroke definitions:
+
+```js
+<SvgIcon viewBox="0 0 24 24" stroke="currentColor" {...props}>
+  <path d="M19.5..." fill="transparent" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+</SvgIcon>
+```
+
+- Example of a reset SVG with path clip and fill rules:
+
+```js
+<SvgIcon viewBox="0 0 24 24" {...props}>
+  <path fillRule="evenodd" clipRule="evenodd" d="M18.0543..." />
+</SvgIcon>
+```
+
+- Example of a reset plain SVG:
+
+```js
+<SvgIcon viewBox="0 0 24 24" {...props}>
+  <path d="M17.25..." />
+</SvgIcon>
+```
+
 ## Update NPM
 
 Update package version in package.json or bump npm version with <update_type> being `patch`, `minor`, or `major`

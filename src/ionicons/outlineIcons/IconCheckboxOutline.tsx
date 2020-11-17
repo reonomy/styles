@@ -3,7 +3,7 @@ import SvgIcon, { SvgIconProps } from '@material-ui/core/SvgIcon';
 
 export function IconCheckboxOutline(props: SvgIconProps) {
   return (
-    <SvgIcon viewBox="0 0 24 24" fill="none" {...props}>
+    <SvgIcon viewBox="0 0 24 24" {...props}>
       <path d="M17.0743 8.73239C17.3407 8.41523 17.2996 7.94214 16.9824 7.67572C16.6652 7.4093 16.1921 7.45044 15.9257 7.76761L10.1805 14.6072L8.05747 12.2483C7.78038 11.9404 7.30616 11.9154 6.99828 12.1925C6.69039 12.4696 6.66544 12.9438 6.94253 13.2517L9.64253 16.2517C9.78775 16.4131 9.99576 16.5036 10.2128 16.4999C10.4299 16.4962 10.6347 16.3986 10.7743 16.2324L17.0743 8.73239Z" />
       <path
         fillRule="evenodd"
