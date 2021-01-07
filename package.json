@@ -6,7 +6,9 @@
   "types": "./lib/index.d.ts",
   "scripts": {
     "compile": "tsc --declaration -p ./tsconfig.json --outDir lib/;cp -R src/fonts/ lib/fonts/",
-    "lint": "eslint --ext .ts,.tsx --ignore-pattern '**/*.spec.*' --ignore-pattern '**/*.d.ts' src/"
+    "lint": "eslint --ext .ts,.tsx --ignore-pattern '**/*.spec.*' --ignore-pattern '**/*.d.ts' src/",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "husky": {
     "hooks": {
@@ -42,10 +44,16 @@
     "react": "^16.9.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.12.10",
     "@material-ui/core": "^4.5.1",
+    "@storybook/addon-actions": "^6.1.11",
+    "@storybook/addon-essentials": "^6.1.11",
+    "@storybook/addon-links": "^6.1.11",
+    "@storybook/react": "^6.1.11",
     "@types/react": "^16.8.23",
     "@typescript-eslint/eslint-plugin": "^2.3.0",
     "@typescript-eslint/parser": "^2.3.0",
+    "babel-loader": "^8.2.2",
     "eslint": "^6.0.1",
     "eslint-config-airbnb": "^17.1.1",
     "eslint-config-prettier": "^6.0.0",
