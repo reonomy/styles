@@ -20,6 +20,18 @@ Checked.args = {
         id: '2',
         label: 'two',
         checked: true
+      },
+      {
+        id: '3',
+        label: 'three',
+        checked: true,
+        children: [
+          {
+            id: '4',
+            label: 'four',
+            checked: false
+          }
+        ]
       }
     ]
   }
