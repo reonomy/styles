@@ -19,13 +19,23 @@ export interface CheckboxTreeProps {
 
 function CheckboxTree({ data, level = 0 }: CheckboxTreeProps) {
   const classes: StyleClasses = useStyles({ level } as StyleProps);
-  // a parent can check/uncheck all or be Indeterminate if one of the child checkboxes is checked
+  const allChildNodesChecked: boolean = data?.children?.every(node => node.checked) || false;
+  const hasOneChildNodeChecked: boolean = data?.children?.some(node => node.checked) || false;
+
   return (
     <div className={classes.container}>
       <FormControl>
         <FormGroup>
           <FormControlLabel
-            control={<Checkbox className={level === 0 ? classes.parent : classes.child} checked={data.checked} />}
+            control={
+              <Checkbox
+                checked={allChildNodesChecked || data.checked}
+                className={level === 0 ? classes.parent : classes.child}
+                indeterminate={level === 0 && !allChildNodesChecked && hasOneChildNodeChecked}
+                onChange={event => event}
+                onClick={event => event.stopPropagation()}
+              />
+            }
             key={data.id}
             label={`${data.label} on level ${level}`}
           />

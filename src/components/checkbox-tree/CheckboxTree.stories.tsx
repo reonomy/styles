@@ -9,8 +9,8 @@ export default {
 
 const Template: Story<CheckboxTreeProps> = args => <CheckboxTree {...args} />;
 
-export const Checked = Template.bind({});
-Checked.args = {
+export const AllChecked = Template.bind({});
+AllChecked.args = {
   data: {
     id: '1',
     label: 'one',
@@ -24,20 +24,50 @@ Checked.args = {
       {
         id: '3',
         label: 'three',
-        checked: true,
-        children: [
-          {
-            id: '4',
-            label: 'four',
-            checked: false
-          }
-        ]
+        checked: true
       }
     ]
   }
 };
 
-// export const Unchecked = Template.bind({});
-// Unchecked.args = {
-//   checked: false
-// };
+export const AtLeastOneChildChecked = Template.bind({});
+AtLeastOneChildChecked.args = {
+  data: {
+    id: '1',
+    label: 'one',
+    checked: false,
+    children: [
+      {
+        id: '2',
+        label: 'two',
+        checked: false
+      },
+      {
+        id: '3',
+        label: 'three',
+        checked: true
+      }
+    ]
+  }
+};
+
+export const AllUnchecked = Template.bind({});
+AllUnchecked.args = {
+  data: {
+    id: '1',
+    label: 'one',
+    checked: false,
+    children: [
+      {
+        id: '2',
+        label: 'two',
+        checked: false
+      },
+      {
+        id: '3',
+        label: 'three',
+        checked: false
+      }
+    ]
+  }
+};
