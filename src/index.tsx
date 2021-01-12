@@ -21,4 +21,6 @@ export { ReonomyPalette, ReonomyCssBaseline, ReonomyTheme };
 
 export * from './ionicons';
 
+export * from './components';
+
 export default ReonomyStyles;

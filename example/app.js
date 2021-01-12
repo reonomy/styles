@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import ReonomyStyles, {
+  CheckboxTree,
   IconAddSolid,
   IconArrowDownSolid,
   IconArrowUpSolid,
@@ -447,6 +448,25 @@ const HelloWorld = () => {
             <IconTodaySolid fontSize="inherit" />
           </IconButton>
         </Typography>
+        <CheckboxTree
+          data={{
+            id: '1',
+            label: 'one',
+            checked: null,
+            children: [
+              {
+                id: '2',
+                label: 'two',
+                checked: false
+              },
+              {
+                id: '3',
+                label: 'three',
+                checked: true
+              }
+            ]
+          }}
+        />
       </main>
     </ReonomyStyles>
   );

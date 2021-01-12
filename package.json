@@ -5,8 +5,8 @@
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "scripts": {
-    "compile": "tsc --declaration -p ./tsconfig.json --outDir lib/;cp -R src/fonts/ lib/fonts/",
-    "lint": "eslint --ext .ts,.tsx --ignore-pattern '**/*.spec.*' --ignore-pattern '**/*.d.ts' src/",
+    "compile": "tsc --declaration -p ./tsconfig.json --outDir lib/;cp -R src/fonts/ src/components/ lib/fonts/",
+    "lint": "eslint --ext .ts,.tsx --ignore-pattern '**/*.spec.*' --ignore-pattern '**/*.d.ts' --ignore-pattern '**/*.stories.*' src/",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },

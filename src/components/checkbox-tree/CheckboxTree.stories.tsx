@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
-import CheckboxTree, { CheckboxTreeProps } from './CheckboxTree';
+import { CheckboxTree, CheckboxTreeProps } from './CheckboxTree';
 
 export default {
   title: 'Components/CheckboxTree',
@@ -14,7 +14,7 @@ AllChecked.args = {
   data: {
     id: '1',
     label: 'one',
-    checked: false,
+    checked: null,
     children: [
       {
         id: '2',
@@ -35,7 +35,7 @@ AtLeastOneChildChecked.args = {
   data: {
     id: '1',
     label: 'one',
-    checked: false,
+    checked: null,
     children: [
       {
         id: '2',
@@ -56,7 +56,7 @@ AllUnchecked.args = {
   data: {
     id: '1',
     label: 'one',
-    checked: false,
+    checked: null,
     children: [
       {
         id: '2',
