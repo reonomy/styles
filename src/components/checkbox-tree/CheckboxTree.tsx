@@ -1,8 +1,8 @@
-import Checkbox from '@material-ui/core/Checkbox';
 import FormControl from '@material-ui/core/FormControl';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormGroup from '@material-ui/core/FormGroup';
 import React, { useCallback, useState } from 'react';
+import { Checkbox } from '../checkbox';
 import useStyles, { StyleClasses, StyleProps } from './style';
 
 export interface TreeData {
