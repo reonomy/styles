@@ -17,19 +17,8 @@ export default makeStyles((theme: Theme) => {
     container: {
       display: 'flex'
     },
-    parent: {
-      color: theme.palette.grey[900],
-      '&$checked': {
-        color: theme.palette.grey[900]
-      },
-      checked: {}
-    },
+    parent: {},
     child: {
-      color: theme.palette.grey[900],
-      '&$checked': {
-        color: theme.palette.grey[900]
-      },
-      checked: {},
       marginLeft: (props: StyleProps) => theme.spacing(props.level * multiplier)
     }
   });

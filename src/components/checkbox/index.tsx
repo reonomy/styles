@@ -4,5 +4,5 @@ import useStyles, { StyleClasses } from './style';
 
 export function Checkbox(args: CheckboxProps) {
   const classes: StyleClasses = useStyles();
-  return <MUICheckbox color="default" className={classes.checkbox} {...args} />;
+  return <MUICheckbox color="default" {...args} className={[classes.checkbox, args.className].join(' ')} />;
 }
