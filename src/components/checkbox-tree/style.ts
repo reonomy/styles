@@ -11,7 +11,7 @@ export interface StyleProps {
 }
 
 export default makeStyles((theme: Theme) => {
-  const multiplier = 4;
+  const multiplier = theme.spacing(1 / 2);
 
   return createStyles({
     container: {
