@@ -4,6 +4,8 @@ import FormGroup from '@material-ui/core/FormGroup';
 import React, { useCallback, useState } from 'react';
 import { Checkbox } from '../checkbox';
 import useStyles, { StyleClasses, StyleProps } from './style';
+import { CheckboxTreeProvider, useCheckboxTree } from './CheckboxTreeProvider';
+import { selectCheckbox } from './CheckboxTreeActions';
 
 export interface TreeData {
   id: string;
@@ -12,27 +14,31 @@ export interface TreeData {
   children?: TreeData[];
 }
 
-export interface CheckboxTreeProps {
+// export interface CheckboxTreeProps {
+//   // data: TreeData;
+//   // level: number;
+//   // onChange?: (event: React.ChangeEvent<HTMLInputElement>, data: TreeData) => void;
+//   // selected: string[];
+// }
+
+interface CheckboxWrapperProps {
   data: TreeData;
   level: number;
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>, data: TreeData) => void;
-  selected: string[];
+  onChange: (event: React.ChangeEvent<HTMLInputElement>, data: TreeData) => void;
 }
 
-export function CheckboxWrapper({ data, level, onChange, selected }: CheckboxTreeProps) {
+export function CheckboxWrapper({ data, level, onChange }: CheckboxWrapperProps) {
   const classes: StyleClasses = useStyles({ level } as StyleProps);
-  const allChildNodesChecked: boolean = data?.children?.length === selected.length && selected.length > 0;
-  const hasOneChildNodeChecked: boolean = selected.length > 0;
   return (
     <FormControlLabel
       control={
         <Checkbox
           color="default"
-          checked={level === 0 ? allChildNodesChecked : selected.some(id => id === data.id)}
+          checked={!!data.checked}
           className={level === 0 ? classes.parent : classes.child}
-          indeterminate={level === 0 && !allChildNodesChecked && hasOneChildNodeChecked}
+          indeterminate={data.checked === null}
           name={data.label.toLowerCase().replace(/ /g, '')}
-          onChange={(event: React.ChangeEvent<HTMLInputElement>) => onChange && onChange(event, data)}
+          onChange={(event: React.ChangeEvent<HTMLInputElement>) => onChange(event, data)}
           onClick={event => event.stopPropagation()}
         />
       }
@@ -42,47 +48,50 @@ export function CheckboxWrapper({ data, level, onChange, selected }: CheckboxTre
   );
 }
 
-export function CheckboxTree({ data, level = 0, onChange }: CheckboxTreeProps) {
-  const classes: StyleClasses = useStyles({ level } as StyleProps);
-  const defaultSelected = [data, ...(data.children || [])].filter(node => node.checked).map(node => node.id);
-  const [selected, setSelected] = useState<string[]>(defaultSelected);
+function CheckboxTreeComponent() {
+  const [{ data }, dispatch] = useCheckboxTree();
+  const classes: StyleClasses = useStyles({} as StyleProps);
+  const onChange = useCallback((e: React.ChangeEvent<HTMLInputElement>, node: TreeData) => {
+    const isParentNode = node.children && node.children.length > 0;
+    if (isParentNode && e.target.checked) {
+      console.log('cool');
+    } else if (isParentNode && !e.target.checked) {
+      console.log('this');
+    } else if (!isParentNode && e.target.checked) {
+      selectCheckbox(dispatch, {
+        ...node,
+        checked: true
+      });
+    } else {
+      console.log('and the other');
+    }
+  }, []);
+  if (data) {
+    return (
+      <div className={classes.container}>
+        <FormControl>
+          <FormGroup>
+            <CheckboxWrapper data={data} level={0} onChange={onChange} />
+            {!!data?.children?.length &&
+              data.children.map(childNode => <CheckboxWrapper data={childNode} level={1} onChange={onChange} />)}
+          </FormGroup>
+        </FormControl>
+      </div>
+    );
+  }
 
-  const onToggleCheck = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>, node: TreeData) => {
-      if (onChange) {
-        onChange(e, node);
-      }
-      const isParentNode = node.children && node.children.length > 0;
-      if (isParentNode && e.target.checked) {
-        setSelected([...(node?.children || []).map(child => child.id)]);
-      } else if (isParentNode && !e.target.checked) {
-        setSelected([]);
-      } else if (!isParentNode && e.target.checked) {
-        setSelected([...selected, node.id]);
-      } else {
-        setSelected([...selected.filter(id => id !== node.id)]);
-      }
-    },
-    [onChange, selected]
-  );
+  return null;
+}
 
+interface CheckboxTreeProps2 {
+  data: TreeData;
+  onChange: VoidFunction;
+}
+
+export function CheckboxTree({ data, onChange }: CheckboxTreeProps2) {
   return (
-    <div className={classes.container}>
-      <FormControl>
-        <FormGroup>
-          <CheckboxWrapper data={data} level={level} onChange={onToggleCheck} selected={selected} />
-          {!!data?.children?.length &&
-            data.children.map(childNode => (
-              <CheckboxWrapper
-                key={data.id}
-                data={childNode}
-                level={level + 1}
-                onChange={onToggleCheck}
-                selected={selected}
-              />
-            ))}
-        </FormGroup>
-      </FormControl>
-    </div>
+    <CheckboxTreeProvider data={data}>
+      <CheckboxTreeComponent />
+    </CheckboxTreeProvider>
   );
 }

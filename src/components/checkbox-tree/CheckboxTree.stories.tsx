@@ -14,7 +14,7 @@ AllChecked.args = {
   data: {
     id: '1',
     label: 'one',
-    checked: null,
+    checked: true,
     children: [
       {
         id: '2',
@@ -56,7 +56,7 @@ AllUnchecked.args = {
   data: {
     id: '1',
     label: 'one',
-    checked: null,
+    checked: false,
     children: [
       {
         id: '2',

@@ -1,0 +1,55 @@
+import { TreeData } from './CheckboxTreeProvider';
+
+export enum CheckboxTreeActionTypes {
+  select,
+  clear,
+  selectAll,
+  clearAll
+}
+
+export interface SelectCheckboxType {
+  type: CheckboxTreeActionTypes.select;
+  payload: TreeData; // the id to add
+}
+
+export interface ClearCheckboxType {
+  type: CheckboxTreeActionTypes.clear;
+  payload: string; // the id to remove
+}
+
+// Do these types need a payload?
+export interface SelectAllType {
+  type: CheckboxTreeActionTypes.selectAll;
+}
+
+export interface ClearAllType {
+  type: CheckboxTreeActionTypes.clearAll;
+}
+
+export type CheckboxTreeActions = SelectCheckboxType | ClearCheckboxType | SelectAllType | ClearAllType;
+
+export function selectCheckbox(dispatch: React.Dispatch<SelectCheckboxType>, selectedCheckboxData: TreeData) {
+  dispatch({
+    type: CheckboxTreeActionTypes.select,
+    payload: selectedCheckboxData
+  });
+}
+
+export function clearCheckbox(dispatch: React.Dispatch<ClearCheckboxType>, id: string) {
+  dispatch({
+    type: CheckboxTreeActionTypes.clear,
+    payload: id
+  });
+}
+
+export function selectAllCheckboxes(dispatch: React.Dispatch<SelectAllType>) {
+  dispatch({
+    type: CheckboxTreeActionTypes.selectAll
+  });
+}
+
+export function clearAllCheckboxes(dispatch: React.Dispatch<ClearAllType>) {
+  dispatch({
+    type: CheckboxTreeActionTypes.clearAll
+  });
+}
