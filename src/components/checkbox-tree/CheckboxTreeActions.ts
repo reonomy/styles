@@ -9,12 +9,12 @@ export enum CheckboxTreeActionTypes {
 
 export interface SelectCheckboxType {
   type: CheckboxTreeActionTypes.select;
-  payload: TreeData; // the id to add
+  payload: TreeData; // the checkbox to add
 }
 
 export interface ClearCheckboxType {
   type: CheckboxTreeActionTypes.clear;
-  payload: TreeData; // the id to remove
+  payload: TreeData; // the checkbox to remove
 }
 
 // Do these types need a payload?

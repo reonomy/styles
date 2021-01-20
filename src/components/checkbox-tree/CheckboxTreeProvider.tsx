@@ -57,6 +57,7 @@ function reducer(state: CheckboxTreeState, action: Actions.CheckboxTreeActions) 
       return {
         data: {
           ...state.data,
+          checked: null,
           children: newCheckboxChildren
         } as TreeData
       };
@@ -70,13 +71,32 @@ function reducer(state: CheckboxTreeState, action: Actions.CheckboxTreeActions) 
       return {
         data: {
           ...state.data,
+          checked: null,
           children: newCheckboxChildren
         } as TreeData
       };
-    // case Actions.CheckboxTreeActionTypes.selectAll:
-    //   return {};
-    // case Actions.CheckboxTreeActionTypes.clearAll:
-    //   return {};
+    case Actions.CheckboxTreeActionTypes.selectAll:
+      return {
+        data: {
+          ...state.data,
+          checked: true,
+          children: (state?.data?.children || []).map(child => ({
+            ...child,
+            checked: true
+          }))
+        } as TreeData
+      };
+    case Actions.CheckboxTreeActionTypes.clearAll:
+      return {
+        data: {
+          ...state.data,
+          checked: false,
+          children: (state?.data?.children || []).map(child => ({
+            ...child,
+            checked: false
+          }))
+        } as TreeData
+      };
     default:
       return state;
   }

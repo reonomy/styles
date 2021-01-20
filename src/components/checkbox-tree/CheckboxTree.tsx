@@ -1,11 +1,11 @@
 import FormControl from '@material-ui/core/FormControl';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormGroup from '@material-ui/core/FormGroup';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback } from 'react';
 import { Checkbox } from '../checkbox';
 import useStyles, { StyleClasses, StyleProps } from './style';
 import { CheckboxTreeProvider, useCheckboxTree } from './CheckboxTreeProvider';
-import { clearCheckbox, selectCheckbox } from './CheckboxTreeActions';
+import { clearAllCheckboxes, clearCheckbox, selectAllCheckboxes, selectCheckbox } from './CheckboxTreeActions';
 
 export interface TreeData {
   id: string;
@@ -14,12 +14,9 @@ export interface TreeData {
   children?: TreeData[];
 }
 
-// export interface CheckboxTreeProps {
-//   // data: TreeData;
-//   // level: number;
-//   // onChange?: (event: React.ChangeEvent<HTMLInputElement>, data: TreeData) => void;
-//   // selected: string[];
-// }
+interface CheckboxTreeProps {
+  data: TreeData;
+}
 
 interface CheckboxWrapperProps {
   data: TreeData;
@@ -54,9 +51,9 @@ function CheckboxTreeComponent() {
   const onChange = useCallback((e: React.ChangeEvent<HTMLInputElement>, node: TreeData) => {
     const isParentNode = node.children && node.children.length > 0;
     if (isParentNode && e.target.checked) {
-      console.log('cool');
+      selectAllCheckboxes(dispatch);
     } else if (isParentNode && !e.target.checked) {
-      console.log('this');
+      clearAllCheckboxes(dispatch);
     } else if (!isParentNode && e.target.checked) {
       selectCheckbox(dispatch, {
         ...node,
@@ -86,12 +83,7 @@ function CheckboxTreeComponent() {
   return null;
 }
 
-interface CheckboxTreeProps2 {
-  data: TreeData;
-  onChange: VoidFunction;
-}
-
-export function CheckboxTree({ data, onChange }: CheckboxTreeProps2) {
+export function CheckboxTree({ data }: CheckboxTreeProps) {
   return (
     <CheckboxTreeProvider data={data}>
       <CheckboxTreeComponent />
