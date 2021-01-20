@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as Actions from './CheckboxTreeActions';
+import { ClearCheckboxType, SelectCheckboxType } from './CheckboxTreeActions';
 
 export interface TreeData {
   id: string;
@@ -10,15 +11,11 @@ export interface TreeData {
 
 interface CheckboxTreeProviderProps {
   children: React.ReactNode;
-  data: TreeData | null; // this should be TreeData or null
+  data: TreeData | null;
 }
 
 type CheckboxTreeState = {
   data: TreeData | null;
-};
-
-const INITIAL_STATE: CheckboxTreeState = {
-  data: null
 };
 
 type CheckboxTreeContextType = [CheckboxTreeState, React.Dispatch<Actions.CheckboxTreeActions>];
@@ -43,36 +40,30 @@ const childMapToList = (children: { [key: number]: TreeData }) => {
 };
 
 function reducer(state: CheckboxTreeState, action: Actions.CheckboxTreeActions) {
-  let newCheckboxChildren: TreeData[] = [];
+  const updateChildCheckbox = (data: SelectCheckboxType | ClearCheckboxType) => {
+    let newCheckboxChildren: TreeData[] = [];
+    if (state?.data?.children) {
+      const tempChildDict = childListToMap(state.data.children);
+      const currentCheckboxIndex = getCheckboxIndex(data.payload.id, state.data.children);
+      tempChildDict[currentCheckboxIndex] = data.payload;
+      newCheckboxChildren = childMapToList(tempChildDict);
+    }
+    return newCheckboxChildren;
+  };
 
   switch (action.type) {
     case Actions.CheckboxTreeActionTypes.select:
-      if (state?.data?.children) {
-        const tempChildDict = childListToMap(state.data.children);
-        const currentCheckboxIndex = getCheckboxIndex(action.payload.id, state.data.children);
-        tempChildDict[currentCheckboxIndex] = action.payload;
-        newCheckboxChildren = childMapToList(tempChildDict);
-      }
-
       return {
         data: {
           ...state.data,
-          checked: null,
-          children: newCheckboxChildren
+          children: updateChildCheckbox(action)
         } as TreeData
       };
     case Actions.CheckboxTreeActionTypes.clear:
-      if (state?.data?.children) {
-        const tempChildDict = childListToMap(state.data.children);
-        const currentCheckboxIndex = getCheckboxIndex(action.payload.id, state.data.children);
-        tempChildDict[currentCheckboxIndex] = action.payload;
-        newCheckboxChildren = childMapToList(tempChildDict);
-      }
       return {
         data: {
           ...state.data,
-          checked: null,
-          children: newCheckboxChildren
+          children: updateChildCheckbox(action)
         } as TreeData
       };
     case Actions.CheckboxTreeActionTypes.selectAll:

@@ -17,7 +17,6 @@ export interface ClearCheckboxType {
   payload: TreeData; // the checkbox to remove
 }
 
-// Do these types need a payload?
 export interface SelectAllType {
   type: CheckboxTreeActionTypes.selectAll;
 }

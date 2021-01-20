@@ -26,14 +26,16 @@ interface CheckboxWrapperProps {
 
 export function CheckboxWrapper({ data, level, onChange }: CheckboxWrapperProps) {
   const classes: StyleClasses = useStyles({ level } as StyleProps);
+  const allChildrenChecked = data?.children?.every(child => child.checked);
+  const hasOneAndNotAllChecked = data.children && data.children.some(child => child.checked) && !allChildrenChecked;
   return (
     <FormControlLabel
       control={
         <Checkbox
           color="default"
-          checked={!!data.checked}
+          checked={level === 0 ? allChildrenChecked : !!data.checked}
           className={level === 0 ? classes.parent : classes.child}
-          indeterminate={data.checked === null}
+          indeterminate={level === 0 && hasOneAndNotAllChecked}
           name={data.label.toLowerCase().replace(/ /g, '')}
           onChange={(event: React.ChangeEvent<HTMLInputElement>) => onChange(event, data)}
           onClick={event => event.stopPropagation()}
@@ -48,6 +50,7 @@ export function CheckboxWrapper({ data, level, onChange }: CheckboxWrapperProps)
 function CheckboxTreeComponent() {
   const [{ data }, dispatch] = useCheckboxTree();
   const classes: StyleClasses = useStyles({} as StyleProps);
+
   const onChange = useCallback((e: React.ChangeEvent<HTMLInputElement>, node: TreeData) => {
     const isParentNode = node.children && node.children.length > 0;
     if (isParentNode && e.target.checked) {
@@ -66,6 +69,7 @@ function CheckboxTreeComponent() {
       });
     }
   }, []);
+
   if (data) {
     return (
       <div className={classes.container}>
