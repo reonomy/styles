@@ -14,7 +14,7 @@ export interface SelectCheckboxType {
 
 export interface ClearCheckboxType {
   type: CheckboxTreeActionTypes.clear;
-  payload: string; // the id to remove
+  payload: TreeData; // the id to remove
 }
 
 // Do these types need a payload?
@@ -35,10 +35,10 @@ export function selectCheckbox(dispatch: React.Dispatch<SelectCheckboxType>, sel
   });
 }
 
-export function clearCheckbox(dispatch: React.Dispatch<ClearCheckboxType>, id: string) {
+export function clearCheckbox(dispatch: React.Dispatch<ClearCheckboxType>, clearedCheckboxData: TreeData) {
   dispatch({
     type: CheckboxTreeActionTypes.clear,
-    payload: id
+    payload: clearedCheckboxData
   });
 }
 

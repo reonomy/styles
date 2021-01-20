@@ -28,7 +28,7 @@ CheckboxTreeContext.displayName = 'CheckboxTreeContext';
 
 const getCheckboxIndex = (id: string, children: TreeData[]) => children.findIndex(child => child.id === id);
 
-const childListToDict = (children: TreeData[]) => {
+const childListToMap = (children: TreeData[]) => {
   return children.reduce(
     (checkboxMap, child, index) => ({
       ...checkboxMap,
@@ -48,7 +48,7 @@ function reducer(state: CheckboxTreeState, action: Actions.CheckboxTreeActions) 
   switch (action.type) {
     case Actions.CheckboxTreeActionTypes.select:
       if (state?.data?.children) {
-        const tempChildDict = childListToDict(state.data.children);
+        const tempChildDict = childListToMap(state.data.children);
         const currentCheckboxIndex = getCheckboxIndex(action.payload.id, state.data.children);
         tempChildDict[currentCheckboxIndex] = action.payload;
         newCheckboxChildren = childMapToList(tempChildDict);
@@ -60,8 +60,19 @@ function reducer(state: CheckboxTreeState, action: Actions.CheckboxTreeActions) 
           children: newCheckboxChildren
         } as TreeData
       };
-    // case Actions.CheckboxTreeActionTypes.clearCheckbox:
-    //   return {};
+    case Actions.CheckboxTreeActionTypes.clear:
+      if (state?.data?.children) {
+        const tempChildDict = childListToMap(state.data.children);
+        const currentCheckboxIndex = getCheckboxIndex(action.payload.id, state.data.children);
+        tempChildDict[currentCheckboxIndex] = action.payload;
+        newCheckboxChildren = childMapToList(tempChildDict);
+      }
+      return {
+        data: {
+          ...state.data,
+          children: newCheckboxChildren
+        } as TreeData
+      };
     // case Actions.CheckboxTreeActionTypes.selectAll:
     //   return {};
     // case Actions.CheckboxTreeActionTypes.clearAll:

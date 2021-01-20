@@ -5,7 +5,7 @@ import React, { useCallback, useState } from 'react';
 import { Checkbox } from '../checkbox';
 import useStyles, { StyleClasses, StyleProps } from './style';
 import { CheckboxTreeProvider, useCheckboxTree } from './CheckboxTreeProvider';
-import { selectCheckbox } from './CheckboxTreeActions';
+import { clearCheckbox, selectCheckbox } from './CheckboxTreeActions';
 
 export interface TreeData {
   id: string;
@@ -63,7 +63,10 @@ function CheckboxTreeComponent() {
         checked: true
       });
     } else {
-      console.log('and the other');
+      clearCheckbox(dispatch, {
+        ...node,
+        checked: false
+      });
     }
   }, []);
   if (data) {
