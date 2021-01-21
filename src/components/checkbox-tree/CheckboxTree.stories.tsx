@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
-import { CheckboxTree, CheckboxTreeProps } from './CheckboxTree';
+import { CheckboxTree, CheckboxTreeProps, TreeData } from './CheckboxTree';
 
 export default {
   title: 'Components/CheckboxTree',
@@ -28,7 +28,10 @@ AllChecked.args = {
       }
     ]
   },
-  open: true
+  open: true,
+  onUpdate: (data: TreeData) => {
+    console.log('new data >>', data);
+  }
 };
 
 export const AtLeastOneChildChecked = Template.bind({});
@@ -50,7 +53,10 @@ AtLeastOneChildChecked.args = {
       }
     ]
   },
-  open: true
+  open: true,
+  onUpdate: (data: TreeData) => {
+    console.log('new data >>', data);
+  }
 };
 
 export const AllUnchecked = Template.bind({});
@@ -72,7 +78,10 @@ AllUnchecked.args = {
       }
     ]
   },
-  open: true
+  open: true,
+  onUpdate: (data: TreeData) => {
+    console.log('new data >>', data);
+  }
 };
 
 export const WithRootLevelClosed = Template.bind({});
@@ -94,5 +103,8 @@ WithRootLevelClosed.args = {
       }
     ]
   },
-  open: false
+  open: false,
+  onUpdate: (data: TreeData) => {
+    console.log('new data >>', data);
+  }
 };

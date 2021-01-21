@@ -6,6 +6,7 @@ import { ClearCheckboxType, SelectCheckboxType } from './CheckboxTreeActions';
 interface UseCheckboxTreeProps {
   data: TreeData | null;
   open: boolean;
+  onUpdate: (data: TreeData) => void;
   reducer?: (state: CheckboxTreeState, action: Actions.CheckboxTreeActions) => CheckboxTreeState;
 }
 
@@ -98,8 +99,13 @@ function checkboxTreeReducer(state: CheckboxTreeState, action: Actions.CheckboxT
   }
 }
 
-export function useCheckboxTree({ data, open, reducer = checkboxTreeReducer }: UseCheckboxTreeProps) {
+export function useCheckboxTree({ data, open, onUpdate, reducer = checkboxTreeReducer }: UseCheckboxTreeProps) {
   const [{ data: checkboxTreeData, open: isOpen }, dispatch] = React.useReducer(reducer, { data, open });
+
+  // onUpdate passes the most recent checkbox tree state back to the consumer
+  if (checkboxTreeData) {
+    onUpdate(checkboxTreeData);
+  }
 
   const selectAllCheckboxes = () => dispatch({ type: Actions.CheckboxTreeActionTypes.selectAll });
 

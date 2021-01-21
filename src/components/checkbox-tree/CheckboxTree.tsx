@@ -15,12 +15,13 @@ export interface TreeData {
   children?: TreeData[];
 }
 
-interface CheckboxTreeProps {
+export interface CheckboxTreeProps {
   data: TreeData;
   open?: boolean;
+  onUpdate: (data: TreeData) => void;
 }
 
-interface CheckboxWrapperProps extends CheckboxTreeProps {
+interface CheckboxWrapperProps extends Omit<CheckboxTreeProps, 'onUpdate'> {
   level: number;
   onChange: (event: React.ChangeEvent<HTMLInputElement>, data: TreeData) => void;
   closeCheckboxGroup?: VoidFunction;
@@ -87,7 +88,7 @@ export function CheckboxWrapper({
   );
 }
 
-export function CheckboxTreeComponent({ data, open }: CheckboxTreeProps) {
+export function CheckboxTreeComponent({ data, open, onUpdate }: CheckboxTreeProps) {
   const {
     checkboxTreeData,
     selectAllCheckboxes,
@@ -97,7 +98,7 @@ export function CheckboxTreeComponent({ data, open }: CheckboxTreeProps) {
     isOpen,
     openRootCheckbox,
     closeRootCheckbox
-  } = useCheckboxTree({ data, open: !!open });
+  } = useCheckboxTree({ data, open: !!open, onUpdate });
   const classes: StyleClasses = useStyles({} as StyleProps);
 
   const onChange = useCallback((e: React.ChangeEvent<HTMLInputElement>, node: TreeData) => {
@@ -135,7 +136,7 @@ export function CheckboxTreeComponent({ data, open }: CheckboxTreeProps) {
             {isOpen &&
               !!checkboxTreeData?.children?.length &&
               checkboxTreeData.children.map(childNode => (
-                <CheckboxWrapper data={childNode} level={1} onChange={onChange} />
+                <CheckboxWrapper key={childNode.id} data={childNode} level={1} onChange={onChange} />
               ))}
           </FormGroup>
         </FormControl>
@@ -146,7 +147,6 @@ export function CheckboxTreeComponent({ data, open }: CheckboxTreeProps) {
   return null;
 }
 
-// add onChange prop so consumer can access data
-export function CheckboxTree({ data, open }: CheckboxTreeProps) {
-  return <CheckboxTreeComponent data={data} open={open} />;
+export function CheckboxTree({ data, open, onUpdate }: CheckboxTreeProps) {
+  return <CheckboxTreeComponent data={data} open={open} onUpdate={onUpdate} />;
 }
