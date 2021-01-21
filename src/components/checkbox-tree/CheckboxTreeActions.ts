@@ -4,7 +4,9 @@ export enum CheckboxTreeActionTypes {
   select,
   clear,
   selectAll,
-  clearAll
+  clearAll,
+  open,
+  close
 }
 
 export interface SelectCheckboxType {
@@ -25,7 +27,21 @@ export interface ClearAllType {
   type: CheckboxTreeActionTypes.clearAll;
 }
 
-export type CheckboxTreeActions = SelectCheckboxType | ClearCheckboxType | SelectAllType | ClearAllType;
+export interface OpenType {
+  type: CheckboxTreeActionTypes.open;
+}
+
+export interface CloseType {
+  type: CheckboxTreeActionTypes.close;
+}
+
+export type CheckboxTreeActions =
+  | SelectCheckboxType
+  | ClearCheckboxType
+  | SelectAllType
+  | ClearAllType
+  | OpenType
+  | CloseType;
 
 export function selectCheckbox(dispatch: React.Dispatch<SelectCheckboxType>, selectedCheckboxData: TreeData) {
   dispatch({
@@ -50,5 +66,17 @@ export function selectAllCheckboxes(dispatch: React.Dispatch<SelectAllType>) {
 export function clearAllCheckboxes(dispatch: React.Dispatch<ClearAllType>) {
   dispatch({
     type: CheckboxTreeActionTypes.clearAll
+  });
+}
+
+export function openRootCheckbox(dispatch: React.Dispatch<OpenType>) {
+  dispatch({
+    type: CheckboxTreeActionTypes.open
+  });
+}
+
+export function closeRootCheckbox(dispatch: React.Dispatch<CloseType>) {
+  dispatch({
+    type: CheckboxTreeActionTypes.close
   });
 }

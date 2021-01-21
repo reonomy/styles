@@ -12,10 +12,12 @@ export interface TreeData {
 interface CheckboxTreeProviderProps {
   children: React.ReactNode;
   data: TreeData | null;
+  open: boolean;
 }
 
 type CheckboxTreeState = {
   data: TreeData | null;
+  open: boolean;
 };
 
 type CheckboxTreeContextType = [CheckboxTreeState, React.Dispatch<Actions.CheckboxTreeActions>];
@@ -54,6 +56,7 @@ function reducer(state: CheckboxTreeState, action: Actions.CheckboxTreeActions) 
   switch (action.type) {
     case Actions.CheckboxTreeActionTypes.select:
       return {
+        open: state.open,
         data: {
           ...state.data,
           children: updateChildCheckbox(action)
@@ -61,6 +64,7 @@ function reducer(state: CheckboxTreeState, action: Actions.CheckboxTreeActions) 
       };
     case Actions.CheckboxTreeActionTypes.clear:
       return {
+        open: state.open,
         data: {
           ...state.data,
           children: updateChildCheckbox(action)
@@ -68,6 +72,7 @@ function reducer(state: CheckboxTreeState, action: Actions.CheckboxTreeActions) 
       };
     case Actions.CheckboxTreeActionTypes.selectAll:
       return {
+        open: state.open,
         data: {
           ...state.data,
           checked: true,
@@ -79,6 +84,7 @@ function reducer(state: CheckboxTreeState, action: Actions.CheckboxTreeActions) 
       };
     case Actions.CheckboxTreeActionTypes.clearAll:
       return {
+        open: state.open,
         data: {
           ...state.data,
           checked: false,
@@ -88,14 +94,25 @@ function reducer(state: CheckboxTreeState, action: Actions.CheckboxTreeActions) 
           }))
         } as TreeData
       };
+    case Actions.CheckboxTreeActionTypes.open:
+      return {
+        data: { ...state.data } as TreeData,
+        open: true
+      };
+    case Actions.CheckboxTreeActionTypes.close:
+      return {
+        data: { ...state.data } as TreeData,
+        open: false
+      };
     default:
       return state;
   }
 }
 
-export function CheckboxTreeProvider({ children, data }: CheckboxTreeProviderProps) {
-  const [state, dispatch] = React.useReducer(reducer, { data });
-  console.log(state);
+export function CheckboxTreeProvider({ children, data, open }: CheckboxTreeProviderProps) {
+  const [state, dispatch] = React.useReducer(reducer, { data, open });
+  console.log('state >>', state);
+  console.log('open >>', open);
 
   return <CheckboxTreeContext.Provider value={[state, dispatch]}>{children}</CheckboxTreeContext.Provider>;
 }

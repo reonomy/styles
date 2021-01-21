@@ -5,7 +5,15 @@ import React, { useCallback } from 'react';
 import { Checkbox } from '../checkbox';
 import useStyles, { StyleClasses, StyleProps } from './style';
 import { CheckboxTreeProvider, useCheckboxTree } from './CheckboxTreeProvider';
-import { clearAllCheckboxes, clearCheckbox, selectAllCheckboxes, selectCheckbox } from './CheckboxTreeActions';
+import {
+  clearAllCheckboxes,
+  clearCheckbox,
+  closeRootCheckbox,
+  selectAllCheckboxes,
+  selectCheckbox,
+  openRootCheckbox
+} from './CheckboxTreeActions';
+import { IconCaretDownSolid, IconCaretForwardSolid } from '../..';
 
 export interface TreeData {
   id: string;
@@ -16,30 +24,53 @@ export interface TreeData {
 
 interface CheckboxTreeProps {
   data: TreeData;
+  open: boolean;
 }
 
 interface CheckboxWrapperProps {
   data: TreeData;
   level: number;
   onChange: (event: React.ChangeEvent<HTMLInputElement>, data: TreeData) => void;
+  open?: boolean;
 }
 
-export function CheckboxWrapper({ data, level, onChange }: CheckboxWrapperProps) {
+export function CheckboxWrapper({ data, level, onChange, open }: CheckboxWrapperProps) {
   const classes: StyleClasses = useStyles({ level } as StyleProps);
   const allChildrenChecked = data?.children?.every(child => child.checked);
   const hasOneAndNotAllChecked = data.children && data.children.some(child => child.checked) && !allChildrenChecked;
+  const [, dispatch] = useCheckboxTree();
+  const openIcon = open ? (
+    <IconCaretDownSolid
+      onClick={event => {
+        console.log('test');
+        closeRootCheckbox(dispatch);
+        event.preventDefault();
+      }}
+    />
+  ) : (
+    <IconCaretForwardSolid
+      onClick={event => {
+        openRootCheckbox(dispatch);
+        event.preventDefault();
+      }}
+    />
+  );
+
   return (
     <FormControlLabel
       control={
-        <Checkbox
-          color="default"
-          checked={level === 0 ? allChildrenChecked : !!data.checked}
-          className={level === 0 ? classes.parent : classes.child}
-          indeterminate={level === 0 && hasOneAndNotAllChecked}
-          name={data.label.toLowerCase().replace(/ /g, '')}
-          onChange={(event: React.ChangeEvent<HTMLInputElement>) => onChange(event, data)}
-          onClick={event => event.stopPropagation()}
-        />
+        <>
+          {level === 0 && openIcon}
+          <Checkbox
+            color="default"
+            checked={level === 0 ? allChildrenChecked : !!data.checked}
+            className={level === 0 ? classes.parent : classes.child}
+            indeterminate={level === 0 && hasOneAndNotAllChecked}
+            name={data.label.toLowerCase().replace(/ /g, '')}
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) => onChange(event, data)}
+            onClick={event => event.stopPropagation()}
+          />
+        </>
       }
       key={data.id}
       label={`${data.label} on level ${level}`}
@@ -47,8 +78,8 @@ export function CheckboxWrapper({ data, level, onChange }: CheckboxWrapperProps)
   );
 }
 
-function CheckboxTreeComponent() {
-  const [{ data }, dispatch] = useCheckboxTree();
+export function CheckboxTreeComponent() {
+  const [{ data, open }, dispatch] = useCheckboxTree();
   const classes: StyleClasses = useStyles({} as StyleProps);
 
   const onChange = useCallback((e: React.ChangeEvent<HTMLInputElement>, node: TreeData) => {
@@ -75,8 +106,9 @@ function CheckboxTreeComponent() {
       <div className={classes.container}>
         <FormControl>
           <FormGroup>
-            <CheckboxWrapper data={data} level={0} onChange={onChange} />
-            {!!data?.children?.length &&
+            <CheckboxWrapper data={data} level={0} onChange={onChange} open={open} />
+            {open &&
+              !!data?.children?.length &&
               data.children.map(childNode => <CheckboxWrapper data={childNode} level={1} onChange={onChange} />)}
           </FormGroup>
         </FormControl>
@@ -87,9 +119,9 @@ function CheckboxTreeComponent() {
   return null;
 }
 
-export function CheckboxTree({ data }: CheckboxTreeProps) {
+export function CheckboxTree({ data, open }: CheckboxTreeProps) {
   return (
-    <CheckboxTreeProvider data={data}>
+    <CheckboxTreeProvider data={data} open={open}>
       <CheckboxTreeComponent />
     </CheckboxTreeProvider>
   );
