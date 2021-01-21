@@ -12,17 +12,17 @@ const Template: Story<CheckboxTreeProps> = args => <CheckboxTree {...args} />;
 export const AllChecked = Template.bind({});
 AllChecked.args = {
   data: {
-    id: '1',
+    name: '1',
     label: 'one',
     checked: null,
     children: [
       {
-        id: '2',
+        name: '2',
         label: 'two',
         checked: true
       },
       {
-        id: '3',
+        name: '3',
         label: 'three',
         checked: true
       }
@@ -37,17 +37,17 @@ AllChecked.args = {
 export const AtLeastOneChildChecked = Template.bind({});
 AtLeastOneChildChecked.args = {
   data: {
-    id: '1',
+    name: '1',
     label: 'one',
     checked: null,
     children: [
       {
-        id: '2',
+        name: '2',
         label: 'two',
         checked: false
       },
       {
-        id: '3',
+        name: '3',
         label: 'three',
         checked: true
       }
@@ -62,17 +62,17 @@ AtLeastOneChildChecked.args = {
 export const AllUnchecked = Template.bind({});
 AllUnchecked.args = {
   data: {
-    id: '1',
+    name: '1',
     label: 'one',
     checked: null,
     children: [
       {
-        id: '2',
+        name: '2',
         label: 'two',
         checked: false
       },
       {
-        id: '3',
+        name: '3',
         label: 'three',
         checked: false
       }
@@ -87,17 +87,17 @@ AllUnchecked.args = {
 export const WithRootLevelClosed = Template.bind({});
 WithRootLevelClosed.args = {
   data: {
-    id: '1',
+    name: '1',
     label: 'one',
     checked: null,
     children: [
       {
-        id: '2',
+        name: '2',
         label: 'two',
         checked: false
       },
       {
-        id: '3',
+        name: '3',
         label: 'three',
         checked: false
       }

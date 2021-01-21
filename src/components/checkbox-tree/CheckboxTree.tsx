@@ -9,7 +9,7 @@ import {} from './CheckboxTreeActions';
 import { IconCaretDownSolid, IconCaretForwardSolid } from '../..';
 
 export interface TreeData {
-  id: string;
+  name: string;
   label: string;
   checked: boolean | null;
   children?: TreeData[];
@@ -82,7 +82,7 @@ export function CheckboxWrapper({
           />
         </>
       }
-      key={data.id}
+      key={data.name}
       label={`${data.label} on level ${level}`}
     />
   );
@@ -136,7 +136,7 @@ export function CheckboxTreeComponent({ data, open, onUpdate }: CheckboxTreeProp
             {isOpen &&
               !!checkboxTreeData?.children?.length &&
               checkboxTreeData.children.map(childNode => (
-                <CheckboxWrapper key={childNode.id} data={childNode} level={1} onChange={onChange} />
+                <CheckboxWrapper key={childNode.name} data={childNode} level={1} onChange={onChange} />
               ))}
           </FormGroup>
         </FormControl>
