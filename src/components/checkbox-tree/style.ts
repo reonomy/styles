@@ -12,6 +12,7 @@ export interface StyleProps {
 
 export default makeStyles((theme: Theme) => {
   const multiplier = theme.spacing(1 / 2);
+  const iconWidth = 24; // adds extra margin accounting the icon
 
   return createStyles({
     container: {
@@ -19,7 +20,7 @@ export default makeStyles((theme: Theme) => {
     },
     parent: {},
     child: {
-      marginLeft: (props: StyleProps) => theme.spacing(props.level * multiplier)
+      marginLeft: (props: StyleProps) => theme.spacing(props.level * multiplier) + iconWidth
     }
   });
 });
