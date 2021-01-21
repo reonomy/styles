@@ -15,7 +15,7 @@ type CheckboxTreeState = {
   open: boolean;
 };
 
-const getCheckboxIndex = (id: string, children: TreeData[]) => children.findIndex(child => child.name === id);
+const getCheckboxIndex = (name: string, children: TreeData[]) => children.findIndex(child => child.name === name);
 
 const childListToMap = (children: TreeData[]) => {
   return children.reduce(
