@@ -41,6 +41,7 @@ const childMapToList = (children: { [key: number]: TreeData }) => {
   return Object.values(children);
 };
 
+// export
 function reducer(state: CheckboxTreeState, action: Actions.CheckboxTreeActions) {
   const updateChildCheckbox = (data: SelectCheckboxType | ClearCheckboxType) => {
     let newCheckboxChildren: TreeData[] = [];
@@ -109,6 +110,7 @@ function reducer(state: CheckboxTreeState, action: Actions.CheckboxTreeActions) 
   }
 }
 
+// export reducer to CheckboxTreeComponent (delete provider)
 export function CheckboxTreeProvider({ children, data, open }: CheckboxTreeProviderProps) {
   const [state, dispatch] = React.useReducer(reducer, { data, open });
   console.log('state >>', state);

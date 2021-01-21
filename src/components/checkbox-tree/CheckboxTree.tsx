@@ -38,17 +38,19 @@ export function CheckboxWrapper({ data, level, onChange, open }: CheckboxWrapper
   const classes: StyleClasses = useStyles({ level } as StyleProps);
   const allChildrenChecked = data?.children?.every(child => child.checked);
   const hasOneAndNotAllChecked = data.children && data.children.some(child => child.checked) && !allChildrenChecked;
+  const checkboxName = data.label.toLowerCase().replace(/ /g, '');
   const [, dispatch] = useCheckboxTree();
   const openIcon = open ? (
     <IconCaretDownSolid
+      data-testid="icon-caret-down"
       onClick={event => {
-        console.log('test');
         closeRootCheckbox(dispatch);
         event.preventDefault();
       }}
     />
   ) : (
     <IconCaretForwardSolid
+      data-testid="icon-caret-forward"
       onClick={event => {
         openRootCheckbox(dispatch);
         event.preventDefault();
@@ -62,11 +64,12 @@ export function CheckboxWrapper({ data, level, onChange, open }: CheckboxWrapper
         <>
           {level === 0 && openIcon}
           <Checkbox
+            data-testid={`${checkboxName}`}
             color="default"
             checked={level === 0 ? allChildrenChecked : !!data.checked}
             className={level === 0 ? classes.parent : classes.child}
             indeterminate={level === 0 && hasOneAndNotAllChecked}
-            name={data.label.toLowerCase().replace(/ /g, '')}
+            name={checkboxName}
             onChange={(event: React.ChangeEvent<HTMLInputElement>) => onChange(event, data)}
             onClick={event => event.stopPropagation()}
           />
@@ -103,7 +106,7 @@ export function CheckboxTreeComponent() {
 
   if (data) {
     return (
-      <div className={classes.container}>
+      <div className={classes.container} data-testid="checkbox-tree-container">
         <FormControl>
           <FormGroup>
             <CheckboxWrapper data={data} level={0} onChange={onChange} open={open} />
@@ -119,6 +122,7 @@ export function CheckboxTreeComponent() {
   return null;
 }
 
+// add onChange prop so consumer can access data
 export function CheckboxTree({ data, open }: CheckboxTreeProps) {
   return (
     <CheckboxTreeProvider data={data} open={open}>
