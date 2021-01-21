@@ -466,6 +466,7 @@ const HelloWorld = () => {
               }
             ]
           }}
+          open={true}
         />
       </main>
     </ReonomyStyles>
