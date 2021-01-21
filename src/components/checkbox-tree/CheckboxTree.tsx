@@ -4,15 +4,8 @@ import FormGroup from '@material-ui/core/FormGroup';
 import React, { useCallback } from 'react';
 import { Checkbox } from '../checkbox';
 import useStyles, { StyleClasses, StyleProps } from './style';
-import { CheckboxTreeProvider, useCheckboxTree } from './CheckboxTreeProvider';
-import {
-  clearAllCheckboxes,
-  clearCheckbox,
-  closeRootCheckbox,
-  selectAllCheckboxes,
-  selectCheckbox,
-  openRootCheckbox
-} from './CheckboxTreeActions';
+import { useCheckboxTree } from './UseCheckboxTree';
+import {} from './CheckboxTreeActions';
 import { IconCaretDownSolid, IconCaretForwardSolid } from '../..';
 
 export interface TreeData {
@@ -24,35 +17,48 @@ export interface TreeData {
 
 interface CheckboxTreeProps {
   data: TreeData;
-  open: boolean;
-}
-
-interface CheckboxWrapperProps {
-  data: TreeData;
-  level: number;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>, data: TreeData) => void;
   open?: boolean;
 }
 
-export function CheckboxWrapper({ data, level, onChange, open }: CheckboxWrapperProps) {
+interface CheckboxWrapperProps extends CheckboxTreeProps {
+  level: number;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>, data: TreeData) => void;
+  closeCheckboxGroup?: VoidFunction;
+  openCheckboxGroup?: VoidFunction;
+}
+
+export function CheckboxWrapper({
+  data,
+  level,
+  onChange,
+  open,
+  closeCheckboxGroup,
+  openCheckboxGroup
+}: CheckboxWrapperProps) {
   const classes: StyleClasses = useStyles({ level } as StyleProps);
   const allChildrenChecked = data?.children?.every(child => child.checked);
   const hasOneAndNotAllChecked = data.children && data.children.some(child => child.checked) && !allChildrenChecked;
   const checkboxName = data.label.toLowerCase().replace(/ /g, '');
-  const [, dispatch] = useCheckboxTree();
+
   const openIcon = open ? (
     <IconCaretDownSolid
+      className={classes.collapseIcon}
       data-testid="icon-caret-down"
       onClick={event => {
-        closeRootCheckbox(dispatch);
+        if (closeCheckboxGroup) {
+          closeCheckboxGroup();
+        }
         event.preventDefault();
       }}
     />
   ) : (
     <IconCaretForwardSolid
+      className={classes.collapseIcon}
       data-testid="icon-caret-forward"
       onClick={event => {
-        openRootCheckbox(dispatch);
+        if (openCheckboxGroup) {
+          openCheckboxGroup();
+        }
         event.preventDefault();
       }}
     />
@@ -81,38 +87,56 @@ export function CheckboxWrapper({ data, level, onChange, open }: CheckboxWrapper
   );
 }
 
-export function CheckboxTreeComponent() {
-  const [{ data, open }, dispatch] = useCheckboxTree();
+export function CheckboxTreeComponent({ data, open }: CheckboxTreeProps) {
+  const {
+    checkboxTreeData,
+    selectAllCheckboxes,
+    clearAllCheckboxes,
+    selectCheckbox,
+    clearCheckbox,
+    isOpen,
+    openRootCheckbox,
+    closeRootCheckbox
+  } = useCheckboxTree({ data, open: !!open });
   const classes: StyleClasses = useStyles({} as StyleProps);
 
   const onChange = useCallback((e: React.ChangeEvent<HTMLInputElement>, node: TreeData) => {
     const isParentNode = node.children && node.children.length > 0;
     if (isParentNode && e.target.checked) {
-      selectAllCheckboxes(dispatch);
+      selectAllCheckboxes();
     } else if (isParentNode && !e.target.checked) {
-      clearAllCheckboxes(dispatch);
+      clearAllCheckboxes();
     } else if (!isParentNode && e.target.checked) {
-      selectCheckbox(dispatch, {
+      selectCheckbox({
         ...node,
         checked: true
       });
     } else {
-      clearCheckbox(dispatch, {
+      clearCheckbox({
         ...node,
         checked: false
       });
     }
   }, []);
 
-  if (data) {
+  if (checkboxTreeData) {
     return (
       <div className={classes.container} data-testid="checkbox-tree-container">
         <FormControl>
           <FormGroup>
-            <CheckboxWrapper data={data} level={0} onChange={onChange} open={open} />
-            {open &&
-              !!data?.children?.length &&
-              data.children.map(childNode => <CheckboxWrapper data={childNode} level={1} onChange={onChange} />)}
+            <CheckboxWrapper
+              data={checkboxTreeData}
+              level={0}
+              onChange={onChange}
+              open={isOpen}
+              openCheckboxGroup={openRootCheckbox}
+              closeCheckboxGroup={closeRootCheckbox}
+            />
+            {isOpen &&
+              !!checkboxTreeData?.children?.length &&
+              checkboxTreeData.children.map(childNode => (
+                <CheckboxWrapper data={childNode} level={1} onChange={onChange} />
+              ))}
           </FormGroup>
         </FormControl>
       </div>
@@ -124,9 +148,5 @@ export function CheckboxTreeComponent() {
 
 // add onChange prop so consumer can access data
 export function CheckboxTree({ data, open }: CheckboxTreeProps) {
-  return (
-    <CheckboxTreeProvider data={data} open={open}>
-      <CheckboxTreeComponent />
-    </CheckboxTreeProvider>
-  );
+  return <CheckboxTreeComponent data={data} open={open} />;
 }

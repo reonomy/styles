@@ -1,29 +1,18 @@
 import * as React from 'react';
+import { TreeData } from '..';
 import * as Actions from './CheckboxTreeActions';
 import { ClearCheckboxType, SelectCheckboxType } from './CheckboxTreeActions';
 
-export interface TreeData {
-  id: string;
-  label: string;
-  checked: boolean | null;
-  children?: TreeData[];
-}
-
-interface CheckboxTreeProviderProps {
-  children: React.ReactNode;
+interface UseCheckboxTreeProps {
   data: TreeData | null;
   open: boolean;
+  reducer?: (state: CheckboxTreeState, action: Actions.CheckboxTreeActions) => CheckboxTreeState;
 }
 
 type CheckboxTreeState = {
   data: TreeData | null;
   open: boolean;
 };
-
-type CheckboxTreeContextType = [CheckboxTreeState, React.Dispatch<Actions.CheckboxTreeActions>];
-
-const CheckboxTreeContext = React.createContext((null as unknown) as CheckboxTreeContextType);
-CheckboxTreeContext.displayName = 'CheckboxTreeContext';
 
 const getCheckboxIndex = (id: string, children: TreeData[]) => children.findIndex(child => child.id === id);
 
@@ -41,8 +30,7 @@ const childMapToList = (children: { [key: number]: TreeData }) => {
   return Object.values(children);
 };
 
-// export
-function reducer(state: CheckboxTreeState, action: Actions.CheckboxTreeActions) {
+function checkboxTreeReducer(state: CheckboxTreeState, action: Actions.CheckboxTreeActions) {
   const updateChildCheckbox = (data: SelectCheckboxType | ClearCheckboxType) => {
     let newCheckboxChildren: TreeData[] = [];
     if (state?.data?.children) {
@@ -110,19 +98,46 @@ function reducer(state: CheckboxTreeState, action: Actions.CheckboxTreeActions) 
   }
 }
 
-// export reducer to CheckboxTreeComponent (delete provider)
-export function CheckboxTreeProvider({ children, data, open }: CheckboxTreeProviderProps) {
-  const [state, dispatch] = React.useReducer(reducer, { data, open });
-  console.log('state >>', state);
-  console.log('open >>', open);
+export function useCheckboxTree({ data, open, reducer = checkboxTreeReducer }: UseCheckboxTreeProps) {
+  const [{ data: checkboxTreeData, open: isOpen }, dispatch] = React.useReducer(reducer, { data, open });
 
-  return <CheckboxTreeContext.Provider value={[state, dispatch]}>{children}</CheckboxTreeContext.Provider>;
-}
+  const selectAllCheckboxes = () => dispatch({ type: Actions.CheckboxTreeActionTypes.selectAll });
 
-export function useCheckboxTree() {
-  const context = React.useContext(CheckboxTreeContext);
-  if (!context) {
-    throw new Error('useCheckboxTree must be used within a CheckboxTreeContext');
-  }
-  return context;
+  const clearAllCheckboxes = () =>
+    dispatch({
+      type: Actions.CheckboxTreeActionTypes.clearAll
+    });
+
+  const selectCheckbox = (selectedCheckboxData: TreeData) =>
+    dispatch({
+      type: Actions.CheckboxTreeActionTypes.select,
+      payload: selectedCheckboxData
+    });
+
+  const clearCheckbox = (clearedCheckboxData: TreeData) =>
+    dispatch({
+      type: Actions.CheckboxTreeActionTypes.clear,
+      payload: clearedCheckboxData
+    });
+
+  const openRootCheckbox = () =>
+    dispatch({
+      type: Actions.CheckboxTreeActionTypes.open
+    });
+
+  const closeRootCheckbox = () =>
+    dispatch({
+      type: Actions.CheckboxTreeActionTypes.close
+    });
+
+  return {
+    checkboxTreeData,
+    isOpen,
+    selectAllCheckboxes,
+    clearAllCheckboxes,
+    selectCheckbox,
+    clearCheckbox,
+    openRootCheckbox,
+    closeRootCheckbox
+  };
 }

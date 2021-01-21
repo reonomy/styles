@@ -4,6 +4,7 @@ export interface StyleClasses {
   container: string;
   parent: string;
   child: string;
+  collapseIcon: string;
 }
 
 export interface StyleProps {
@@ -21,6 +22,9 @@ export default makeStyles((theme: Theme) => {
     parent: {},
     child: {
       marginLeft: (props: StyleProps) => theme.spacing(props.level * multiplier) + iconWidth
+    },
+    collapseIcon: {
+      color: theme.palette.grey[700]
     }
   });
 });
