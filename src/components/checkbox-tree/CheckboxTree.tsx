@@ -7,6 +7,7 @@ import useStyles, { StyleClasses, StyleProps } from './style';
 import { useCheckboxTree } from './UseCheckboxTree';
 import {} from './CheckboxTreeActions';
 import { IconCaretDownSolid, IconCaretForwardSolid } from '../..';
+import * as Actions from './CheckboxTreeActions';
 
 export interface TreeData {
   name: string;
@@ -89,33 +90,40 @@ export function CheckboxWrapper({
 }
 
 export function CheckboxTreeComponent({ data, open, onUpdate }: CheckboxTreeProps) {
-  const {
-    checkboxTreeData,
-    selectAllCheckboxes,
-    clearAllCheckboxes,
-    selectCheckbox,
-    clearCheckbox,
-    isOpen,
-    openRootCheckbox,
-    closeRootCheckbox
-  } = useCheckboxTree({ data, open: !!open, onUpdate });
+  const [state, dispatch] = useCheckboxTree({ data, open: !!open, onUpdate });
   const classes: StyleClasses = useStyles({} as StyleProps);
+  const openRootCheckbox = () =>
+    dispatch({
+      type: Actions.CheckboxTreeActionTypes.open
+    });
+  const closeRootCheckbox = () =>
+    dispatch({
+      type: Actions.CheckboxTreeActionTypes.close
+    });
 
   const onChange = useCallback((e: React.ChangeEvent<HTMLInputElement>, node: TreeData) => {
     const isParentNode = node.children && node.children.length > 0;
     if (isParentNode && e.target.checked) {
-      selectAllCheckboxes();
+      dispatch({ type: Actions.CheckboxTreeActionTypes.selectAll });
     } else if (isParentNode && !e.target.checked) {
-      clearAllCheckboxes();
+      dispatch({
+        type: Actions.CheckboxTreeActionTypes.clearAll
+      });
     } else if (!isParentNode && e.target.checked) {
-      selectCheckbox({
-        ...node,
-        checked: true
+      dispatch({
+        type: Actions.CheckboxTreeActionTypes.select,
+        payload: {
+          ...node,
+          checked: true
+        }
       });
     } else {
-      clearCheckbox({
-        ...node,
-        checked: false
+      dispatch({
+        type: Actions.CheckboxTreeActionTypes.clear,
+        payload: {
+          ...node,
+          checked: false
+        }
       });
     }
   }, []);
@@ -125,16 +133,16 @@ export function CheckboxTreeComponent({ data, open, onUpdate }: CheckboxTreeProp
       <FormControl>
         <FormGroup>
           <CheckboxWrapper
-            data={checkboxTreeData}
+            data={state.data}
             level={0}
             onChange={onChange}
-            open={isOpen}
+            open={state.open}
             openCheckboxGroup={openRootCheckbox}
             closeCheckboxGroup={closeRootCheckbox}
           />
-          {isOpen &&
-            !!checkboxTreeData?.children?.length &&
-            checkboxTreeData.children.map(childNode => (
+          {state.open &&
+            !!state.data?.children?.length &&
+            state.data.children.map(childNode => (
               <CheckboxWrapper key={childNode.name} data={childNode} level={1} onChange={onChange} />
             ))}
         </FormGroup>
