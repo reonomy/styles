@@ -120,31 +120,27 @@ export function CheckboxTreeComponent({ data, open, onUpdate }: CheckboxTreeProp
     }
   }, []);
 
-  if (checkboxTreeData) {
-    return (
-      <div className={classes.container} data-testid="checkbox-tree-container">
-        <FormControl>
-          <FormGroup>
-            <CheckboxWrapper
-              data={checkboxTreeData}
-              level={0}
-              onChange={onChange}
-              open={isOpen}
-              openCheckboxGroup={openRootCheckbox}
-              closeCheckboxGroup={closeRootCheckbox}
-            />
-            {isOpen &&
-              !!checkboxTreeData?.children?.length &&
-              checkboxTreeData.children.map(childNode => (
-                <CheckboxWrapper key={childNode.name} data={childNode} level={1} onChange={onChange} />
-              ))}
-          </FormGroup>
-        </FormControl>
-      </div>
-    );
-  }
-
-  return null;
+  return (
+    <div className={classes.container} data-testid="checkbox-tree-container">
+      <FormControl>
+        <FormGroup>
+          <CheckboxWrapper
+            data={checkboxTreeData}
+            level={0}
+            onChange={onChange}
+            open={isOpen}
+            openCheckboxGroup={openRootCheckbox}
+            closeCheckboxGroup={closeRootCheckbox}
+          />
+          {isOpen &&
+            !!checkboxTreeData?.children?.length &&
+            checkboxTreeData.children.map(childNode => (
+              <CheckboxWrapper key={childNode.name} data={childNode} level={1} onChange={onChange} />
+            ))}
+        </FormGroup>
+      </FormControl>
+    </div>
+  );
 }
 
 export function CheckboxTree({ data, open, onUpdate }: CheckboxTreeProps) {

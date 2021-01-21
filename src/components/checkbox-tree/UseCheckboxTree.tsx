@@ -4,14 +4,14 @@ import * as Actions from './CheckboxTreeActions';
 import { ClearCheckboxType, SelectCheckboxType } from './CheckboxTreeActions';
 
 interface UseCheckboxTreeProps {
-  data: TreeData | null;
+  data: TreeData;
   open: boolean;
   onUpdate: (data: TreeData) => void;
   reducer?: (state: CheckboxTreeState, action: Actions.CheckboxTreeActions) => CheckboxTreeState;
 }
 
 type CheckboxTreeState = {
-  data: TreeData | null;
+  data: TreeData;
   open: boolean;
 };
 
