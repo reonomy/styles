@@ -84,7 +84,7 @@ export function CheckboxWrapper({
         </>
       }
       key={data.name}
-      label={`${data.label}`}
+      label={data.label}
     />
   );
 }
