@@ -16,29 +16,15 @@ type CheckboxTreeState = {
 
 const getCheckboxIndex = (name: string, children: TreeData[]) => children.findIndex(child => child.name === name);
 
-const childListToMap = (children: TreeData[]) => {
-  return children.reduce(
-    (checkboxMap, child, index) => ({
-      ...checkboxMap,
-      [index]: child
-    }),
-    {} as { [key: number]: TreeData }
-  );
-};
-
-const childMapToList = (children: { [key: number]: TreeData }) => {
-  return Object.values(children);
-};
-
 const updateChildCheckbox = (state: CheckboxTreeState, payload: TreeData) => {
-  let newCheckboxChildren: TreeData[] = [];
-  if (state?.data?.children) {
-    const tempChildDict = childListToMap(state.data.children);
+  if (state.data.children) {
     const currentCheckboxIndex = getCheckboxIndex(payload.name, state.data.children);
-    tempChildDict[currentCheckboxIndex] = payload;
-    newCheckboxChildren = childMapToList(tempChildDict);
+    const newChildren = [...state.data.children];
+    newChildren.splice(currentCheckboxIndex, 1, payload);
+    return newChildren;
   }
-  return newCheckboxChildren;
+
+  return [];
 };
 
 function checkboxTreeReducer(state: CheckboxTreeState, action: Actions.CheckboxTreeActions) {
