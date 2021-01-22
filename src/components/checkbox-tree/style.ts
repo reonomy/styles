@@ -1,4 +1,4 @@
-import { createStyles, makeStyles, Theme } from '@material-ui/core';
+import { makeStyles, Theme } from '@material-ui/core';
 
 export interface StyleClasses {
   container: string;
@@ -15,7 +15,7 @@ export default makeStyles((theme: Theme) => {
   const multiplier = theme.spacing(1 / 2);
   const iconWidth = 24; // adds extra margin accounting the icon
 
-  return createStyles({
+  return {
     container: {
       display: 'flex'
     },
@@ -26,5 +26,5 @@ export default makeStyles((theme: Theme) => {
     collapseIcon: {
       color: theme.palette.grey[700]
     }
-  });
+  };
 });
