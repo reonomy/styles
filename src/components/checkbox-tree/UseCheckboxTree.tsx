@@ -31,12 +31,12 @@ const childMapToList = (children: { [key: number]: TreeData }) => {
   return Object.values(children);
 };
 
-const updateChildCheckbox = (state: CheckboxTreeState, data: SelectCheckboxType | ClearCheckboxType) => {
+const updateChildCheckbox = (state: CheckboxTreeState, payload: TreeData) => {
   let newCheckboxChildren: TreeData[] = [];
   if (state?.data?.children) {
     const tempChildDict = childListToMap(state.data.children);
-    const currentCheckboxIndex = getCheckboxIndex(data.payload.name, state.data.children);
-    tempChildDict[currentCheckboxIndex] = data.payload;
+    const currentCheckboxIndex = getCheckboxIndex(payload.name, state.data.children);
+    tempChildDict[currentCheckboxIndex] = payload;
     newCheckboxChildren = childMapToList(tempChildDict);
   }
   return newCheckboxChildren;
@@ -49,7 +49,7 @@ function checkboxTreeReducer(state: CheckboxTreeState, action: Actions.CheckboxT
         open: state.open,
         data: {
           ...state.data,
-          children: updateChildCheckbox(state, action)
+          children: updateChildCheckbox(state, action.payload)
         } as TreeData
       };
     case Actions.CheckboxTreeActionTypes.clear:
@@ -57,7 +57,7 @@ function checkboxTreeReducer(state: CheckboxTreeState, action: Actions.CheckboxT
         open: state.open,
         data: {
           ...state.data,
-          children: updateChildCheckbox(state, action)
+          children: updateChildCheckbox(state, action.payload)
         } as TreeData
       };
     case Actions.CheckboxTreeActionTypes.selectAll:
