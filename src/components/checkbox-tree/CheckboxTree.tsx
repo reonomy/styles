@@ -84,7 +84,7 @@ export function CheckboxWrapper({
         </>
       }
       key={data.name}
-      label={`${data.label} on level ${level}`}
+      label={`${data.label}`}
     />
   );
 }
