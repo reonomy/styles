@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { TreeData } from '..';
 import * as Actions from './CheckboxTreeActions';
-import { ClearCheckboxType, SelectCheckboxType } from './CheckboxTreeActions';
 
 interface UseCheckboxTreeProps {
   data: TreeData;
@@ -46,23 +45,23 @@ function checkboxTreeReducer(state: CheckboxTreeState, action: Actions.CheckboxT
   switch (action.type) {
     case Actions.CheckboxTreeActionTypes.select:
       return {
-        open: state.open,
+        ...state,
         data: {
           ...state.data,
           children: updateChildCheckbox(state, action.payload)
-        } as TreeData
+        }
       };
     case Actions.CheckboxTreeActionTypes.clear:
       return {
-        open: state.open,
+        ...state,
         data: {
           ...state.data,
           children: updateChildCheckbox(state, action.payload)
-        } as TreeData
+        }
       };
     case Actions.CheckboxTreeActionTypes.selectAll:
       return {
-        open: state.open,
+        ...state,
         data: {
           ...state.data,
           checked: true,
@@ -70,11 +69,11 @@ function checkboxTreeReducer(state: CheckboxTreeState, action: Actions.CheckboxT
             ...child,
             checked: true
           }))
-        } as TreeData
+        }
       };
     case Actions.CheckboxTreeActionTypes.clearAll:
       return {
-        open: state.open,
+        ...state,
         data: {
           ...state.data,
           checked: false,
@@ -82,16 +81,16 @@ function checkboxTreeReducer(state: CheckboxTreeState, action: Actions.CheckboxT
             ...child,
             checked: false
           }))
-        } as TreeData
+        }
       };
     case Actions.CheckboxTreeActionTypes.open:
       return {
-        data: { ...state.data } as TreeData,
+        ...state,
         open: true
       };
     case Actions.CheckboxTreeActionTypes.close:
       return {
-        data: { ...state.data } as TreeData,
+        ...state,
         open: false
       };
     default:
