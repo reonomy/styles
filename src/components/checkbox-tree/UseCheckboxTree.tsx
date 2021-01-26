@@ -5,7 +5,6 @@ import * as Actions from './CheckboxTreeActions';
 interface UseCheckboxTreeProps {
   data: TreeData;
   open: boolean;
-  onUpdate: (data: TreeData) => void;
   reducer?: (state: CheckboxTreeState, action: Actions.CheckboxTreeActions) => CheckboxTreeState;
 }
 
@@ -87,14 +86,9 @@ function checkboxTreeReducer(state: CheckboxTreeState, action: Actions.CheckboxT
 export function useCheckboxTree({
   data,
   open,
-  onUpdate,
   reducer = checkboxTreeReducer
 }: UseCheckboxTreeProps): [CheckboxTreeState, React.Dispatch<Actions.CheckboxTreeActions>] {
   const [state, dispatch] = React.useReducer(reducer, { data, open });
-
-  if (state.data) {
-    onUpdate(state.data);
-  }
 
   return [state, dispatch];
 }
