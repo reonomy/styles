@@ -13,6 +13,7 @@ export interface TreeData {
   name: string;
   label: string;
   checked: boolean | null;
+  disabled?: boolean;
   children?: TreeData[];
 }
 
@@ -38,8 +39,9 @@ export function CheckboxWrapper({
   openCheckboxGroup
 }: CheckboxWrapperProps) {
   const classes: StyleClasses = useStyles({ level } as StyleProps);
-  const allChildrenChecked = data?.children?.every(child => child.checked);
-  const hasOneAndNotAllChecked = data.children && data.children.some(child => child.checked) && !allChildrenChecked;
+  const allChildrenChecked = data?.children?.every(child => child.checked || child.disabled);
+  const hasOneAndNotAllChecked =
+    data.children && data.children.some(child => child.checked || child.disabled) && !allChildrenChecked;
   const checkboxName = data.label.toLowerCase().replace(/ /g, '');
 
   const openIcon = open ? (
@@ -76,6 +78,7 @@ export function CheckboxWrapper({
             color="default"
             checked={level === 0 ? allChildrenChecked : !!data.checked}
             className={level === 0 ? classes.parent : classes.child}
+            disabled={data.disabled}
             indeterminate={level === 0 && hasOneAndNotAllChecked}
             name={checkboxName}
             onChange={(event: React.ChangeEvent<HTMLInputElement>) => onChange(event, data)}
