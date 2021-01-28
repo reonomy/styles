@@ -5,10 +5,13 @@ export interface StyleClasses {
   parent: string;
   child: string;
   collapseIcon: string;
+  label: string;
 }
 
 export interface StyleProps {
   level: number;
+  variant: string;
+  checked: boolean;
 }
 
 export default makeStyles((theme: Theme) => {
@@ -16,6 +19,9 @@ export default makeStyles((theme: Theme) => {
   const iconWidth = 24; // adds extra margin accounting the icon
 
   return {
+    label: {
+      color: (props: StyleProps) => (props.variant === 'greyed' && !props.checked ? theme.palette.grey[500] : 'inherit')
+    },
     container: {
       display: 'flex'
     },

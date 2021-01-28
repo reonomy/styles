@@ -17,10 +17,13 @@ export interface TreeData {
   children?: TreeData[];
 }
 
+type Variant = 'default' | 'greyed';
+
 export interface CheckboxTreeProps {
   data: TreeData;
   open?: boolean;
   onUpdate: (data: TreeData) => void;
+  variant: Variant;
 }
 
 interface CheckboxWrapperProps extends Omit<CheckboxTreeProps, 'onUpdate'> {
@@ -28,6 +31,7 @@ interface CheckboxWrapperProps extends Omit<CheckboxTreeProps, 'onUpdate'> {
   onChange: (event: React.ChangeEvent<HTMLInputElement>, data: TreeData) => void;
   closeCheckboxGroup?: VoidFunction;
   openCheckboxGroup?: VoidFunction;
+  variant: Variant;
 }
 
 export function CheckboxWrapper({
@@ -36,10 +40,16 @@ export function CheckboxWrapper({
   onChange,
   open,
   closeCheckboxGroup,
-  openCheckboxGroup
+  openCheckboxGroup,
+  variant = 'default'
 }: CheckboxWrapperProps) {
-  const classes: StyleClasses = useStyles({ level } as StyleProps);
   const allChildrenChecked = data?.children?.every(child => child.checked || child.disabled);
+  const noChildrenChecked = data?.children?.every(child => !child.checked || child.disabled);
+  const classes: StyleClasses = useStyles({
+    level,
+    variant,
+    checked: level === 0 ? !noChildrenChecked : !!data.checked
+  } as StyleProps);
   const hasOneAndNotAllChecked =
     data.children && data.children.some(child => child.checked || child.disabled) && !allChildrenChecked;
   const checkboxName = data.label.toLowerCase().replace(/ /g, '');
@@ -88,11 +98,14 @@ export function CheckboxWrapper({
       }
       key={data.name}
       label={data.label}
+      classes={{
+        label: classes.label
+      }}
     />
   );
 }
 
-export function CheckboxTreeComponent({ data, open, onUpdate }: CheckboxTreeProps) {
+export function CheckboxTreeComponent({ data, open, onUpdate, variant }: CheckboxTreeProps) {
   const [state, dispatch] = useCheckboxTree({ data, open: !!open, onUpdate });
   const classes: StyleClasses = useStyles({} as StyleProps);
   const openRootCheckbox = () =>
@@ -142,11 +155,12 @@ export function CheckboxTreeComponent({ data, open, onUpdate }: CheckboxTreeProp
             open={state.open}
             openCheckboxGroup={openRootCheckbox}
             closeCheckboxGroup={closeRootCheckbox}
+            variant={variant}
           />
           {state.open &&
             !!state.data?.children?.length &&
             state.data.children.map(childNode => (
-              <CheckboxWrapper key={childNode.name} data={childNode} level={1} onChange={onChange} />
+              <CheckboxWrapper key={childNode.name} data={childNode} level={1} onChange={onChange} variant={variant} />
             ))}
         </FormGroup>
       </FormControl>
@@ -154,6 +168,6 @@ export function CheckboxTreeComponent({ data, open, onUpdate }: CheckboxTreeProp
   );
 }
 
-export function CheckboxTree({ data, open, onUpdate }: CheckboxTreeProps) {
-  return <CheckboxTreeComponent data={data} open={open} onUpdate={onUpdate} />;
+export function CheckboxTree({ data, open, onUpdate, variant }: CheckboxTreeProps) {
+  return <CheckboxTreeComponent data={data} open={open} onUpdate={onUpdate} variant={variant} />;
 }
