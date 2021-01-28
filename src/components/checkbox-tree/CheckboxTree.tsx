@@ -23,7 +23,7 @@ export interface CheckboxTreeProps {
   data: TreeData;
   open?: boolean;
   onUpdate: (data: TreeData) => void;
-  variant: Variant;
+  variant?: Variant;
 }
 
 interface CheckboxWrapperProps extends Omit<CheckboxTreeProps, 'onUpdate'> {
@@ -105,7 +105,7 @@ export function CheckboxWrapper({
   );
 }
 
-export function CheckboxTreeComponent({ data, open, onUpdate, variant }: CheckboxTreeProps) {
+export function CheckboxTreeComponent({ data, open, onUpdate, variant = 'default' }: CheckboxTreeProps) {
   const [state, dispatch] = useCheckboxTree({ data, open: !!open, onUpdate });
   const classes: StyleClasses = useStyles({} as StyleProps);
   const openRootCheckbox = () =>
