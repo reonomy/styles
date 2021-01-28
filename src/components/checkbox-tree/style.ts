@@ -20,7 +20,7 @@ export default makeStyles((theme: Theme) => {
 
   return {
     label: {
-      color: (props: StyleProps) => (props.variant === 'greyed' && !props.checked ? theme.palette.grey[500] : 'inherit')
+      color: (props: StyleProps) => (!props.checked ? theme.palette.grey[500] : 'inherit')
     },
     container: {
       display: 'flex'
