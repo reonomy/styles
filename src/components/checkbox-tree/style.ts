@@ -10,7 +10,6 @@ export interface StyleClasses {
 
 export interface StyleProps {
   level: number;
-  variant: string;
   checked: boolean;
 }
 
