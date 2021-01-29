@@ -1,7 +1,6 @@
 import React from 'react';
 import { makeStyles, CssBaseline } from '@material-ui/core';
 import ReonomyTheme from './theme';
-import Labels from './globals/labels';
 import Utils from './globals/utils';
 import Typography from './globals/typography';
 import Leaders from './globals/leaders';
@@ -15,7 +14,6 @@ const withReonomyStyles = () =>
     '@global': {
       ...Leaders(ReonomyTheme),
       ...Typography,
-      ...Labels,
       ...Utils,
       ...MTAs
     }

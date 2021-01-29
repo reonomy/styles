@@ -5,15 +5,29 @@ import createMuiTheme from '@material-ui/core/styles/createMuiTheme';
 
 const hasTouch = typeof document !== 'undefined' && 'ontouchstart' in document.documentElement;
 
+interface Labels {
+  0: string;
+  1: string;
+  2: string;
+  3: string;
+  4: string;
+  5: string;
+  6: string;
+  7: string;
+  8: string;
+}
+
 // override mui's palette typings to include custom colors
 declare module '@material-ui/core/styles/createPalette' {
   interface Palette {
     tertiary: SimplePaletteColorOptions;
     accent: SimplePaletteColorOptions;
+    labels: Labels;
   }
   interface PaletteOptions {
     tertiary?: SimplePaletteColorOptions;
     accent?: SimplePaletteColorOptions;
+    labels?: Labels;
   }
 }
 
@@ -92,6 +106,17 @@ const ReonomyTheme = createMuiTheme({
       '700': '#5B5D60',
       '800': '#3C3E41',
       '900': '#1C1D20'
+    },
+    labels: {
+      '0': '#959595', // grey
+      '1': '#f2d600', // yellow
+      '2': '#e79f27', // orange
+      '3': '#d36027', // red
+      '4': '#00a074', // green
+      '5': '#cc7aa8', // pink
+      '6': '#5fb2e6', // light blue
+      '7': '#0773b3', // dark blue
+      '8': '#3a3b4d' // black
     },
     background: {
       default: '#F7F9FE' // grey[50]
