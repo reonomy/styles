@@ -49,12 +49,10 @@ function checkboxTreeReducer(state: CheckboxTreeState, action: Actions.CheckboxT
         ...state,
         data: {
           ...state.data,
-          checked: (state?.data?.children || []).some(child => {
-            return child.disabled;
-          }),
+          checked: true,
           children: (state?.data?.children || []).map(child => ({
             ...child,
-            checked: child.disabled ? child.checked : true
+            checked: true
           }))
         }
       };
@@ -66,7 +64,7 @@ function checkboxTreeReducer(state: CheckboxTreeState, action: Actions.CheckboxT
           checked: false,
           children: (state?.data?.children || []).map(child => ({
             ...child,
-            checked: child.disabled ? child.checked : false
+            checked: false
           }))
         }
       };
