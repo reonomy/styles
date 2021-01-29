@@ -44,6 +44,14 @@ The default export `ReonomyStyles` includes the "kitchen sink" of the Reonomy We
   - MTA Icons
     - Styles for MTA transit line icons for NYC properties
 
+## Running Storybook
+
+To view components, icons and theme run the following command:
+
+```bash
+yarn storybook
+```
+
 ## Font assets
 
 In order for font files to be bundled along with your application, you will need a bundler (like webpack) that recognizes font file imports in order to include them in the bundle. Create-react-app supports this by default. Custom webpack configurations will need the `file-loader` plugin or something similar in order to load font assets.

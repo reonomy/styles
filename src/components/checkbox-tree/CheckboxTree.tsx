@@ -93,7 +93,7 @@ export function CheckboxWrapper({
 }
 
 export function CheckboxTreeComponent({ data, open, onUpdate }: CheckboxTreeProps) {
-  const [state, dispatch] = useCheckboxTree({ data, open: !!open, onUpdate });
+  const [state, dispatch] = useCheckboxTree({ data, open: !!open });
   const classes: StyleClasses = useStyles({} as StyleProps);
   const openRootCheckbox = () =>
     dispatch({
@@ -103,6 +103,12 @@ export function CheckboxTreeComponent({ data, open, onUpdate }: CheckboxTreeProp
     dispatch({
       type: Actions.CheckboxTreeActionTypes.close
     });
+
+  React.useEffect(() => {
+    if (state.data) {
+      onUpdate(state.data);
+    }
+  }, [state.data]);
 
   const onChange = useCallback((e: React.ChangeEvent<HTMLInputElement>, node: TreeData) => {
     const isParentNode = node.children && node.children.length > 0;
