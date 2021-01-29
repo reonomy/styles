@@ -1,8 +1,12 @@
 const ReonomyPalette = {
   // primary
-  pelorous: '#40bbc6', // teal
-  pelorousLight: '#7aeef9',
-  pelorousDark: '#008b95',
+  // pelorous: '#40bbc6', // teal
+  // pelorousLight: '#7aeef9',
+  // pelorousDark: '#008b95',
+
+  pelorous: '#1C1D20', // teal
+  pelorousLight: '#5B5D60',
+  pelorousDark: '#000000',
 
   // secondary
   bayOfMany: '#2e3191', // indigo blue

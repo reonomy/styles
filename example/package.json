@@ -11,8 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "@babel/core": "^7.12.3",
-    "@material-ui/core": "^4.5.1",
-    "@reonomy/styles": "../reonomy-styles-1.8.4.tgz",
+    "@material-ui/core": "^4.11.1",
+    "@reonomy/styles": "../reonomy-styles-1.8.72.tgz",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   },

@@ -1,10 +1,21 @@
 import createMuiTheme from '@material-ui/core/styles/createMuiTheme';
-import ReonomyPalette from './palette';
 
 // material-ui default theme reference:
 // https://material-ui.com/customization/default-theme/?expend-path=$.typography
 
 const hasTouch = typeof document !== 'undefined' && 'ontouchstart' in document.documentElement;
+
+// override mui's palette typings to include custom colors
+declare module '@material-ui/core/styles/createPalette' {
+  interface Palette {
+    tertiary: SimplePaletteColorOptions;
+    accent: SimplePaletteColorOptions;
+  }
+  interface PaletteOptions {
+    tertiary?: SimplePaletteColorOptions;
+    accent?: SimplePaletteColorOptions;
+  }
+}
 
 const ReonomyTheme = createMuiTheme({
   typography: {
@@ -34,16 +45,35 @@ const ReonomyTheme = createMuiTheme({
   },
   palette: {
     primary: {
-      light: ReonomyPalette.bayOfManyLight,
-      main: ReonomyPalette.bayOfMany,
-      dark: ReonomyPalette.bayOfManyDark,
+      main: '#1C1D20', // grey[900]
+      dark: '#000000',
       contrastText: '#fff'
     },
     secondary: {
-      light: ReonomyPalette.pelorousLight,
-      main: ReonomyPalette.pelorous,
-      dark: ReonomyPalette.pelorousDark,
+      light: '#E8EAF6',
+      main: '#2E3191',
+      dark: '#0F1144',
       contrastText: '#fff'
+    },
+    tertiary: {
+      light: '#E0F5F7',
+      main: '#41BBC7',
+      dark: '#2E8C94'
+    },
+    success: {
+      light: '#97E1AF',
+      main: '#37CC75',
+      dark: '#27914B',
+      contrastText: '#1C1D20' // grey[900]
+    },
+    warning: {
+      main: '#FFC700'
+    },
+    error: {
+      main: '#FF0000'
+    },
+    accent: {
+      main: '#F1F3F7' // grey[100]
     },
     text: {
       primary: '#1C1D20', // grey[900]
