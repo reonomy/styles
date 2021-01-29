@@ -35,6 +35,8 @@ The default export `ReonomyStyles` includes the "kitchen sink" of the Reonomy We
     - Helper classes like `.capitalize`, `.uppercase`, `.lowercase` etc, and `.icon-spin` for animated rotating icons.
   - Typography
     - Font references (see below).
+  - Labels
+    - Colors for Reonomy's user-generated labels `.label-style-1`, `.label-style-2` etc
   - Leader lines
     - Styles for common `dl`/`dt`/`dd` data display
   - MTA Icons
