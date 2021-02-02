@@ -4,7 +4,7 @@ import ReonomyCssBaseline from './baseline';
 import ReonomyTheme from './theme';
 
 interface StylesProps {
-  children?: React.ReactElement;
+  children: React.ReactElement;
 }
 
 function ReonomyStyles({ children }: StylesProps) {
