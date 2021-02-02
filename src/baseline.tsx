@@ -15,7 +15,7 @@ const withReonomyStyles = () =>
     '@global': {
       ...Leaders(ReonomyTheme),
       ...Typography,
-      ...Labels,
+      ...Labels(ReonomyTheme),
       ...Utils,
       ...MTAs
     }
