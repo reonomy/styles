@@ -105,6 +105,16 @@ export function CheckboxTreeComponent({ data, open, onUpdate }: CheckboxTreeProp
     });
 
   React.useEffect(() => {
+    dispatch({
+      type: Actions.CheckboxTreeActionTypes.setDataFromProps,
+      payload: {
+        data,
+        open: !!open
+      }
+    });
+  }, [data, open]);
+
+  React.useEffect(() => {
     if (state.data) {
       onUpdate(state.data);
     }

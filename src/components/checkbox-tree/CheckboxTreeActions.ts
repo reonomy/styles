@@ -1,4 +1,5 @@
 import { TreeData } from '..';
+import { CheckboxTreeState } from './UseCheckboxTree';
 
 export enum CheckboxTreeActionTypes {
   select,
@@ -6,7 +7,8 @@ export enum CheckboxTreeActionTypes {
   selectAll,
   clearAll,
   open,
-  close
+  close,
+  setDataFromProps
 }
 
 export interface SelectCheckboxType {
@@ -35,10 +37,16 @@ export interface CloseType {
   type: CheckboxTreeActionTypes.close;
 }
 
+export interface SetDataFromPropsType {
+  type: CheckboxTreeActionTypes.setDataFromProps;
+  payload: CheckboxTreeState;
+}
+
 export type CheckboxTreeActions =
   | SelectCheckboxType
   | ClearCheckboxType
   | SelectAllType
   | ClearAllType
   | OpenType
-  | CloseType;
+  | CloseType
+  | SetDataFromPropsType;

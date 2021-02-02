@@ -8,7 +8,7 @@ interface UseCheckboxTreeProps {
   reducer?: (state: CheckboxTreeState, action: Actions.CheckboxTreeActions) => CheckboxTreeState;
 }
 
-type CheckboxTreeState = {
+export type CheckboxTreeState = {
   data: TreeData;
   open: boolean;
 };
@@ -79,6 +79,14 @@ function checkboxTreeReducer(state: CheckboxTreeState, action: Actions.CheckboxT
       return {
         ...state,
         open: false
+      };
+    case Actions.CheckboxTreeActionTypes.setDataFromProps:
+      return {
+        ...state,
+        data: {
+          ...action.payload.data
+        },
+        open: action.payload.open
       };
     default:
       return state;
