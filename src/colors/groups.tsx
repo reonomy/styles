@@ -37,7 +37,7 @@ export function GreyGroup({ color }: { color: Partial<Color> }) {
   return (
     <>
       {Object.keys(color).map(key => (
-        <Item name={key} color={color[key as keyof Color]} />
+        <Item key={key} name={key} color={color[key as keyof Color]} />
       ))}
     </>
   );
@@ -47,7 +47,7 @@ export function LabelsGroup({ color }: { color: Labels }) {
   return (
     <>
       {Object.keys(color).map(key => (
-        <Item name={key} color={color[(key as unknown) as keyof Labels]} />
+        <Item key={key} name={key} color={color[(key as unknown) as keyof Labels]} />
       ))}
     </>
   );

@@ -33,15 +33,9 @@ export function Palette({ color }: { color: SimplePaletteColorOptions }) {
     <Grid container>
       <Grid item sm={2}>
         <div className={classes.block}>
-          <div className={classes.mainBlock} style={{ backgroundColor: color.main }}>
-            {' '}
-          </div>
-          <div className={classes.subBlock} style={{ backgroundColor: color.dark }}>
-            {' '}
-          </div>
-          <div className={classes.subBlock} style={{ backgroundColor: color.light }}>
-            {' '}
-          </div>
+          <div className={classes.mainBlock} style={{ backgroundColor: color.main }} />
+          <div className={classes.subBlock} style={{ backgroundColor: color.dark }} />
+          <div className={classes.subBlock} style={{ backgroundColor: color.light }} />
         </div>
       </Grid>
       <Grid item sm={10}>
