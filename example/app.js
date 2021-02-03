@@ -467,7 +467,7 @@ const HelloWorld = () => {
             ]
           }}
           open={true}
-          onUpdate={(data) => console.log(data)}
+          onUpdate={data => console.log(data)}
         />
       </main>
     </ReonomyStyles>

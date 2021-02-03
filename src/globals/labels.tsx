@@ -1,71 +1,88 @@
+import { Theme } from '@material-ui/core';
 import Color from 'color';
-import ReonomyPalette from '../palette';
 
-
-const Labels = {
+const Labels = (theme: Theme) => ({
   '.label-style-0': {
-    backgroundColor: `${ReonomyPalette.labelStyle0} !important`,
+    backgroundColor: `${theme.palette.labels[0]} !important`,
     color: 'white !important',
     '&:hover': {
-      backgroundColor: `${Color(ReonomyPalette.labelStyle0).darken(0.05).hex()} !important`
+      backgroundColor: `${Color(theme.palette.labels[0])
+        .darken(0.05)
+        .hex()} !important`
     }
   },
   '.label-style-1': {
-    backgroundColor: `${ReonomyPalette.labelStyle1} !important`,
+    backgroundColor: `${theme.palette.labels[1]} !important`,
     color: 'black !important',
     '&:hover': {
-      backgroundColor: `${Color(ReonomyPalette.labelStyle1).darken(0.05).hex()} !important`
+      backgroundColor: `${Color(theme.palette.labels[1])
+        .darken(0.05)
+        .hex()} !important`
     }
   },
   '.label-style-2': {
-    backgroundColor: `${ReonomyPalette.labelStyle2} !important`,
+    backgroundColor: `${theme.palette.labels[2]} !important`,
     color: 'black !important',
     '&:hover': {
-      backgroundColor: `${Color(ReonomyPalette.labelStyle2).darken(0.05).hex()} !important`
+      backgroundColor: `${Color(theme.palette.labels[2])
+        .darken(0.05)
+        .hex()} !important`
     }
   },
   '.label-style-3': {
-    backgroundColor: `${ReonomyPalette.labelStyle3} !important`,
+    backgroundColor: `${theme.palette.labels[3]} !important`,
     color: 'white !important',
     '&:hover': {
-      backgroundColor: `${Color(ReonomyPalette.labelStyle3).darken(0.05).hex()} !important`
+      backgroundColor: `${Color(theme.palette.labels[3])
+        .darken(0.05)
+        .hex()} !important`
     }
   },
   '.label-style-4': {
-    backgroundColor: `${ReonomyPalette.labelStyle4} !important`,
+    backgroundColor: `${theme.palette.labels[4]} !important`,
     color: 'white !important',
     '&:hover': {
-      backgroundColor: `${Color(ReonomyPalette.labelStyle4).darken(0.05).hex()} !important`
+      backgroundColor: `${Color(theme.palette.labels[4])
+        .darken(0.05)
+        .hex()} !important`
     }
   },
   '.label-style-5': {
-    backgroundColor: `${ReonomyPalette.labelStyle5} !important`,
+    backgroundColor: `${theme.palette.labels[5]} !important`,
     color: 'white !important',
     '&:hover': {
-      backgroundColor: `${Color(ReonomyPalette.labelStyle5).darken(0.05).hex()} !important`
+      backgroundColor: `${Color(theme.palette.labels[5])
+        .darken(0.05)
+        .hex()} !important`
     }
   },
   '.label-style-6': {
-    backgroundColor: `${ReonomyPalette.labelStyle6} !important`,
+    backgroundColor: `${theme.palette.labels[6]} !important`,
     color: 'white !important',
     '&:hover': {
-      backgroundColor: `${Color(ReonomyPalette.labelStyle6).darken(0.05).hex()} !important`
+      backgroundColor: `${Color(theme.palette.labels[6])
+        .darken(0.05)
+        .hex()} !important`
     }
   },
   '.label-style-7': {
-    backgroundColor: `${ReonomyPalette.labelStyle7} !important`,
+    backgroundColor: `${theme.palette.labels[7]} !important`,
     color: 'white !important',
     '&:hover': {
-      backgroundColor: `${Color(ReonomyPalette.labelStyle7).darken(0.05).hex()} !important`
+      backgroundColor: `${Color(theme.palette.labels[7])
+        .darken(0.05)
+        .hex()} !important`
     }
   },
   '.label-style-8': {
-    backgroundColor: `${ReonomyPalette.labelStyle8} !important`,
+    backgroundColor: `${theme.palette.labels[8]} !important`,
     color: 'white !important',
     '&:hover': {
-      backgroundColor: `${Color(ReonomyPalette.labelStyle8).darken(0.05).hex()} !important`
+      backgroundColor: `${Color(theme.palette.labels[8])
+        .darken(0.05)
+        .hex()} !important`
     }
   }
-}
+});
 
 export default Labels;

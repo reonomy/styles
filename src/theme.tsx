@@ -1,10 +1,35 @@
 import createMuiTheme from '@material-ui/core/styles/createMuiTheme';
-import ReonomyPalette from './palette';
 
 // material-ui default theme reference:
 // https://material-ui.com/customization/default-theme/?expend-path=$.typography
 
 const hasTouch = typeof document !== 'undefined' && 'ontouchstart' in document.documentElement;
+
+interface Labels {
+  0: string;
+  1: string;
+  2: string;
+  3: string;
+  4: string;
+  5: string;
+  6: string;
+  7: string;
+  8: string;
+}
+
+// override mui's palette typings to include custom colors
+declare module '@material-ui/core/styles/createPalette' {
+  interface Palette {
+    tertiary: SimplePaletteColorOptions;
+    accent: SimplePaletteColorOptions;
+    labels: Labels;
+  }
+  interface PaletteOptions {
+    tertiary?: SimplePaletteColorOptions;
+    accent?: SimplePaletteColorOptions;
+    labels?: Labels;
+  }
+}
 
 const ReonomyTheme = createMuiTheme({
   typography: {
@@ -34,16 +59,35 @@ const ReonomyTheme = createMuiTheme({
   },
   palette: {
     primary: {
-      light: ReonomyPalette.bayOfManyLight,
-      main: ReonomyPalette.bayOfMany,
-      dark: ReonomyPalette.bayOfManyDark,
+      main: '#1C1D20', // grey[900]
+      dark: '#000000',
       contrastText: '#fff'
     },
     secondary: {
-      light: ReonomyPalette.pelorousLight,
-      main: ReonomyPalette.pelorous,
-      dark: ReonomyPalette.pelorousDark,
+      light: '#E8EAF6',
+      main: '#2E3191',
+      dark: '#0F1144',
       contrastText: '#fff'
+    },
+    tertiary: {
+      light: '#E0F5F7',
+      main: '#41BBC7',
+      dark: '#2E8C94'
+    },
+    success: {
+      light: '#97E1AF',
+      main: '#37CC75',
+      dark: '#27914B',
+      contrastText: '#1C1D20' // grey[900]
+    },
+    warning: {
+      main: '#FFC700'
+    },
+    error: {
+      main: '#FF0000'
+    },
+    accent: {
+      main: '#F1F3F7' // grey[100]
     },
     text: {
       primary: '#1C1D20', // grey[900]
@@ -62,6 +106,17 @@ const ReonomyTheme = createMuiTheme({
       '700': '#5B5D60',
       '800': '#3C3E41',
       '900': '#1C1D20'
+    },
+    labels: {
+      '0': '#959595', // grey
+      '1': '#f2d600', // yellow
+      '2': '#e79f27', // orange
+      '3': '#d36027', // red
+      '4': '#00a074', // green
+      '5': '#cc7aa8', // pink
+      '6': '#5fb2e6', // light blue
+      '7': '#0773b3', // dark blue
+      '8': '#3a3b4d' // black
     },
     background: {
       default: '#F7F9FE' // grey[50]

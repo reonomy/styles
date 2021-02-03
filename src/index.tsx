@@ -1,11 +1,10 @@
 import React from 'react';
 import { MuiThemeProvider } from '@material-ui/core';
-import ReonomyPalette from './palette';
 import ReonomyCssBaseline from './baseline';
 import ReonomyTheme from './theme';
 
 interface StylesProps {
-  children?: React.ReactElement;
+  children: React.ReactElement;
 }
 
 function ReonomyStyles({ children }: StylesProps) {
@@ -17,7 +16,7 @@ function ReonomyStyles({ children }: StylesProps) {
   );
 }
 
-export { ReonomyPalette, ReonomyCssBaseline, ReonomyTheme };
+export { ReonomyCssBaseline, ReonomyTheme };
 
 export * from './ionicons';
 
