@@ -5,7 +5,7 @@ import createMuiTheme from '@material-ui/core/styles/createMuiTheme';
 
 const hasTouch = typeof document !== 'undefined' && 'ontouchstart' in document.documentElement;
 
-interface Labels {
+export interface Labels {
   0: string;
   1: string;
   2: string;
@@ -72,7 +72,8 @@ const ReonomyTheme = createMuiTheme({
     tertiary: {
       light: '#E0F5F7',
       main: '#41BBC7',
-      dark: '#2E8C94'
+      dark: '#2E8C94',
+      contrastText: '#fff'
     },
     success: {
       light: '#97E1AF',
