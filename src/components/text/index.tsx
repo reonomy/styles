@@ -2,7 +2,7 @@ import React from 'react';
 import { Typography, TypographyProps } from '@material-ui/core';
 import useStyles, { StyleClasses } from './style';
 
-interface TextProps extends Omit<TypographyProps, 'variant' | 'color'> {
+export interface TextProps extends Omit<TypographyProps, 'variant' | 'color'> {
   gutterBottom?: boolean;
   gutterTop?: boolean;
   gutterLeft?: boolean;
