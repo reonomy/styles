@@ -37,8 +37,9 @@ export default makeStyles((theme: Theme) => {
       padding: theme.spacing(2)
     },
     huge: {
+      fontFamily: "'Basier Square Regular', Helvetica, Arial, sans-serif",
       fontSize: '9rem',
-      fontFamily: "'Basier Square Regular', Helvetica, Arial, sans-serif"
+      letterSpacing: -5
     },
     code: {
       fontFamily: 'monospace, monaco, courier'

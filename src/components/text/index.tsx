@@ -2,6 +2,8 @@ import React from 'react';
 import { Typography, TypographyProps } from '@material-ui/core';
 import useStyles, { StyleClasses } from './style';
 
+type MuiVariant = Exclude<TypographyProps['variant'], 'button'>;
+
 export interface TextProps extends Omit<TypographyProps, 'variant' | 'color'> {
   gutterBottom?: boolean;
   gutterTop?: boolean;
@@ -10,9 +12,9 @@ export interface TextProps extends Omit<TypographyProps, 'variant' | 'color'> {
   gutters?: boolean;
   padded?: boolean;
   fontWeight?: 'regular' | 'medium' | 'semibold'; // 400, 500, 600
-  variant?: TypographyProps['variant'] | 'huge' | 'code';
+  variant?: MuiVariant | 'huge' | 'code';
   color?: TypographyProps['color'] | 'textDisabled' | 'textHint';
-  component?: React.ElementType<any>;
+  component?: React.ElementType;
 }
 
 export function Text({
@@ -27,11 +29,12 @@ export function Text({
   fontWeight,
   color,
   component: elementType,
+  className,
   ...muiProps
 }: TextProps) {
   const classes: StyleClasses = useStyles();
   const classNames: string[] = [];
-  let muiVariant: TypographyProps['variant'];
+  let muiVariant: MuiVariant;
   let muiColor: TypographyProps['color'];
   let component = elementType;
 
@@ -47,6 +50,7 @@ export function Text({
     case 'code':
       classNames.push(classes.code);
       component = component || 'code';
+      muiVariant = 'body2';
       break;
     default:
       muiVariant = variant;
@@ -76,6 +80,8 @@ export function Text({
     default:
       muiColor = color;
   }
+
+  if (className) classNames.push(className);
 
   return (
     <Typography variant={muiVariant} color={muiColor} className={classNames.join(' ')} {...{ component }} {...muiProps}>
