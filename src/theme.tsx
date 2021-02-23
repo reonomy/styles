@@ -201,6 +201,17 @@ const ReonomyTheme = createMuiTheme({
         }
       }
     },
+    MuiTab: {
+      root: {
+        fontFamily: "'Basier Square Regular', Helvetica, Arial, sans-serif",
+        '&$selected': {
+          fontFamily: "'Basier Square Medium', Helvetica, Arial, sans-serif"
+        },
+        '@media (min-width: 600px)': {
+          minWidth: 'auto'
+        }
+      }
+    },
     MuiTooltip: {
       tooltip: {
         fontSize: '.875rem'
