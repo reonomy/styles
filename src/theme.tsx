@@ -90,7 +90,7 @@ const ReonomyTheme = createMuiTheme({
     body2: {
       fontSize: '.875rem',
       fontWeight: 'normal',
-      lineHeight: 1.715,
+      lineHeight: 1.5,
       letterSpacing: 0.5
     },
     button: {
@@ -203,9 +203,7 @@ const ReonomyTheme = createMuiTheme({
     },
     MuiTooltip: {
       tooltip: {
-        fontSize: '.875rem',
-        lineHeight: 1.715,
-        letterSpacing: 0.5
+        fontSize: '.875rem'
       }
     },
     MuiChip: {
@@ -218,19 +216,6 @@ const ReonomyTheme = createMuiTheme({
       deleteIcon: {
         width: `12px`,
         color: '#3C3E41' // grey[800]
-      }
-    },
-    MuiTab: {
-      wrapper: {
-        fontSize: '.875rem',
-        fontWeight: 'normal',
-        lineHeight: 1.715,
-        letterSpacing: 0.5
-      },
-      root: {
-        '&$selected': {
-          fontFamily: "'Basier Square Medium', Helvetica, Arial, sans-serif"
-        }
       }
     },
     MuiTableCell: {
