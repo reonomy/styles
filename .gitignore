@@ -46,3 +46,6 @@ example/yarn.lock
 # Intellij Artifacts
 .idea/
 *.iml
+
+.vscode
+*.swp

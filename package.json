@@ -71,6 +71,11 @@
   },
   "dependencies": {
     "@types/color": "^3.0.1",
-    "color": "^3.1.2"
+    "clsx": "^1.1.1",
+    "color": "^3.1.2",
+    "dnd-core": "^12.0.1",
+    "immutability-helper": "^3.1.1",
+    "react-dnd": "^13.0.1",
+    "react-dnd-html5-backend": "^12.1.0"
   }
 }

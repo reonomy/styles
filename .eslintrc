@@ -12,7 +12,9 @@
         "no-plusplus": 0,
         "import/extensions": ["error", "never"],
         "react/require-default-props": 0,
-        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }]
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"]}],
+        "react/prop-types": "off",
+        "no-param-reassign": ["error", { "props": false }]
     },
     "globals": {
         "window": true,
