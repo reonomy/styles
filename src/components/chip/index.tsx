@@ -1,6 +1,6 @@
 import MaterialUiChip from '@material-ui/core/Chip';
 import Zoom from '@material-ui/core/Zoom';
-import React, { useCallback, useContext } from 'react';
+import React, { useCallback } from 'react';
 import IconButton from '@material-ui/core/IconButton';
 import clsx from 'clsx';
 import useStyles, { StyleClasses } from './style';

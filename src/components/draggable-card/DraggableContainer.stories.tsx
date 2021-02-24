@@ -2,17 +2,12 @@ import React from 'react';
 import { Meta } from '@storybook/react/types-6-0';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
-import ReonomyTheme from '../../theme';
-import { Card } from './DraggableCard';
 import { Container } from './DraggableContainer';
-// import { GreyGroup, LabelsGroup } from './groups';
 
 export default {
   title: 'Components/DraggableContainer'
 } as Meta;
 
-// export const Greys = () => <GreyGroup color={ReonomyTheme.palette.grey} />;
-// export const Labels = () => <LabelsGroup color={ReonomyTheme.palette.labels} />;
 const mockCards = [
   {
     id: 1,

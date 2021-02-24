@@ -1,6 +1,6 @@
 import React, { FC, useState, useCallback } from 'react';
 import update from 'immutability-helper';
-import { Card, CardProps } from './DraggableCard';
+import { Card } from './DraggableCard';
 
 const style = {
   width: 200

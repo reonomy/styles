@@ -82,7 +82,7 @@ export const Card: FC<CardProps> = ({ id, text, index, moveCard }) => {
         // Generally it's better to avoid mutations,
         // but it's good here for the sake of performance
         // to avoid expensive index searches.
-        item.index = hoverIndex;
+        item.index = hoverIndex; // eslint-disable-line no-param-reassign
       }
     }),
     [index, moveCard]
