@@ -11,8 +11,8 @@ export interface RenderDraggableChipProps {
   text: string;
   icon?: JSX.Element;
   deleteIcon?: JSX.Element;
-  onDelete?: () => void;
-  // chip: Chip;
+  index: number;
+  onDelete?: (deleteIndex: number) => void;
 }
 
 // Renders an individual chip.
@@ -25,15 +25,16 @@ export function DraggableChip({
       <IconCloseSolid />
     </IconButton>
   ),
+  index,
   onDelete
 }: RenderDraggableChipProps) {
   const classes: StyleClasses = useStyles();
 
   const handleDelete = useCallback(() => {
     if (typeof onDelete === 'function') {
-      // onDelete(chip);
+      onDelete(index);
     }
-  }, []);
+  }, [index]);
 
   return (
     <Zoom in>

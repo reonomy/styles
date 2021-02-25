@@ -7,13 +7,13 @@ export interface DraggableItem {
   text: string;
 }
 
-export interface ContainerState {
+export interface DraggableContainerState {
   initialCards: DraggableItem[];
   width?: number;
   updateCards: (updatedCards: DraggableItem[]) => void;
 }
 
-export const Container: FC<ContainerState> = ({ initialCards, width = 200, updateCards }: ContainerState) => {
+export function DraggableContainer({ initialCards, width = 200, updateCards }: DraggableContainerState) {
   const style = {
     width
   };
@@ -44,8 +44,28 @@ export const Container: FC<ContainerState> = ({ initialCards, width = 200, updat
     [cards]
   );
 
+  const deleteCard = useCallback(
+    (deleteIndex: number) => {
+      setCards(
+        update(cards, {
+          $splice: [[deleteIndex, 1]]
+        })
+      );
+      if (typeof updateCards === 'function') {
+        updateCards(
+          update(cards, {
+            $splice: [[deleteIndex, 1]]
+          })
+        );
+      }
+    },
+    [cards]
+  );
+
   const renderCard = (card: { id: number; text: string }, index: number) => {
-    return <Card key={card.id} index={index} id={card.id} text={card.text} moveCard={moveCard} />;
+    return (
+      <Card key={card.id} index={index} id={card.id} text={card.text} moveCard={moveCard} deleteCard={deleteCard} />
+    );
   };
 
   return (
@@ -53,4 +73,4 @@ export const Container: FC<ContainerState> = ({ initialCards, width = 200, updat
       <div style={style}>{cards.map((card, i) => renderCard(card, i))}</div>
     </>
   );
-};
+}

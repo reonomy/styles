@@ -2,7 +2,7 @@ import React from 'react';
 import { Meta } from '@storybook/react/types-6-0';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
-import { Container } from './DraggableContainer';
+import { DraggableContainer } from './DraggableContainer';
 
 export default {
   title: 'Components/DraggableContainer'
@@ -39,9 +39,9 @@ const mockCards = [
   }
 ];
 
-export const DraggableContainer = () => (
+export const DraggableContainerComponent = () => (
   <DndProvider backend={HTML5Backend}>
-    <Container
+    <DraggableContainer
       initialCards={mockCards}
       updateCards={updatedCards => {
         console.log(updatedCards);

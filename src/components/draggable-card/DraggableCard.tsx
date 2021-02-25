@@ -18,6 +18,7 @@ export interface CardProps {
   text: string;
   index: number;
   moveCard: (dragIndex: number, hoverIndex: number) => void;
+  deleteCard: (deleteIndex: number) => void;
 }
 
 interface DragItem {
@@ -26,7 +27,7 @@ interface DragItem {
   type: string;
 }
 
-export const Card: FC<CardProps> = ({ id, text, index, moveCard }) => {
+export const Card: FC<CardProps> = ({ id, text, index, moveCard, deleteCard }) => {
   const ref = useRef<HTMLDivElement>(null);
   const classes: StyleClasses = useStyles();
   const [{ handlerId }, drop] = useDrop(
@@ -102,7 +103,7 @@ export const Card: FC<CardProps> = ({ id, text, index, moveCard }) => {
   drag(drop(ref));
   return (
     <div ref={ref} style={{ ...style, opacity }} data-handler-id={handlerId}>
-      <DraggableChip className={classes.card} text={text} />
+      <DraggableChip className={classes.card} text={text} onDelete={deleteCard} index={index} />
     </div>
   );
 };

@@ -1,5 +1,4 @@
 import React from 'react';
-// import { IRenderChipProps } from '@material-ui/core';
 import { Meta, Story } from '@storybook/react/types-6-0';
 import { DraggableChip, RenderDraggableChipProps } from './DraggableChip';
 
