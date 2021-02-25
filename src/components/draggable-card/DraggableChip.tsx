@@ -6,18 +6,17 @@ import clsx from 'clsx';
 import useStyles, { StyleClasses } from './style';
 import { IconCloseSolid, IconMenuOutline } from '../..';
 
-export interface RenderChipProps {
+export interface RenderDraggableChipProps {
   className: string;
   text: string;
   icon?: JSX.Element;
   deleteIcon?: JSX.Element;
-  onClick?: () => void;
   onDelete?: () => void;
   // chip: Chip;
 }
 
 // Renders an individual chip.
-export function Chip({
+export function DraggableChip({
   className,
   text,
   icon = <IconMenuOutline />,
@@ -26,15 +25,9 @@ export function Chip({
       <IconCloseSolid />
     </IconButton>
   ),
-  onClick,
   onDelete
-}: RenderChipProps) {
+}: RenderDraggableChipProps) {
   const classes: StyleClasses = useStyles();
-  const handleClick = useCallback(() => {
-    if (typeof onClick === 'function') {
-      onClick();
-    }
-  }, []);
 
   const handleDelete = useCallback(() => {
     if (typeof onDelete === 'function') {
@@ -50,7 +43,6 @@ export function Chip({
         icon={icon}
         onDelete={handleDelete}
         deleteIcon={deleteIcon}
-        onClick={handleClick}
       />
     </Zoom>
   );

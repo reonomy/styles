@@ -2,7 +2,7 @@ import React, { FC, useRef } from 'react';
 import { useDrag, useDrop, DropTargetMonitor } from 'react-dnd';
 import { XYCoord } from 'dnd-core';
 import { ItemTypes } from './ItemTypes';
-import { Chip } from '../chip';
+import { DraggableChip } from './DraggableChip';
 import useStyles, { StyleClasses } from './style';
 
 const style = {
@@ -102,7 +102,7 @@ export const Card: FC<CardProps> = ({ id, text, index, moveCard }) => {
   drag(drop(ref));
   return (
     <div ref={ref} style={{ ...style, opacity }} data-handler-id={handlerId}>
-      <Chip className={classes.card} text={text} />
+      <DraggableChip className={classes.card} text={text} />
     </div>
   );
 };

@@ -2,20 +2,21 @@ import React, { FC, useState, useCallback } from 'react';
 import update from 'immutability-helper';
 import { Card } from './DraggableCard';
 
-const style = {
-  width: 200
-};
-
-export interface Item {
+export interface DraggableItem {
   id: number;
   text: string;
 }
 
 export interface ContainerState {
-  initialCards: Item[];
+  initialCards: DraggableItem[];
+  width?: number;
+  updateCards: (updatedCards: DraggableItem[]) => void;
 }
 
-export const Container: FC<ContainerState> = ({ initialCards }: ContainerState) => {
+export const Container: FC<ContainerState> = ({ initialCards, width = 200, updateCards }: ContainerState) => {
+  const style = {
+    width
+  };
   const [cards, setCards] = useState(initialCards);
 
   const moveCard = useCallback(
@@ -29,6 +30,16 @@ export const Container: FC<ContainerState> = ({ initialCards }: ContainerState) 
           ]
         })
       );
+      if (typeof updateCards === 'function') {
+        updateCards(
+          update(cards, {
+            $splice: [
+              [dragIndex, 1],
+              [hoverIndex, 0, dragCard]
+            ]
+          })
+        );
+      }
     },
     [cards]
   );

@@ -41,6 +41,11 @@ const mockCards = [
 
 export const DraggableContainer = () => (
   <DndProvider backend={HTML5Backend}>
-    <Container initialCards={mockCards} />
+    <Container
+      initialCards={mockCards}
+      updateCards={updatedCards => {
+        console.log(updatedCards);
+      }}
+    />
   </DndProvider>
 );
