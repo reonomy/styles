@@ -34,27 +34,77 @@ declare module '@material-ui/core/styles/createPalette' {
 const ReonomyTheme = createMuiTheme({
   typography: {
     fontFamily: "'Basier Square Regular', Helvetica, Arial, sans-serif",
+    h1: {
+      fontSize: '6rem',
+      fontWeight: 'normal',
+      lineHeight: 1.167,
+      letterSpacing: -2.5
+    },
+    h2: {
+      fontSize: '4.5rem',
+      fontWeight: 'normal',
+      lineHeight: 1.225,
+      letterSpacing: -1.5
+    },
+    h3: {
+      fontSize: '3.75rem',
+      fontWeight: 'normal',
+      lineHeight: 1.2,
+      letterSpacing: -0.75
+    },
+    h4: {
+      fontSize: '3rem',
+      fontWeight: 'normal',
+      lineHeight: 1.333,
+      letterSpacing: -0.5
+    },
+    h5: {
+      fontSize: '2.5rem',
+      fontWeight: 'normal',
+      lineHeight: 1.4,
+      letterSpacing: -0.25
+    },
     h6: {
-      fontFamily: "'Basier Square Medium', Helvetica, Arial, sans-serif",
-      fontWeight: 'normal'
+      fontSize: '2rem',
+      fontWeight: 'normal',
+      lineHeight: 1.5,
+      letterSpacing: -0.15
     },
     subtitle1: {
-      fontSize: '1.125rem',
-      lineHeight: '1.33'
+      fontSize: '1.5rem',
+      fontWeight: 'normal',
+      lineHeight: 1.333
     },
     subtitle2: {
-      fontFamily: "'Basier Square Medium', Helvetica, Arial, sans-serif",
+      fontSize: '1.25rem',
+      fontWeight: 'normal',
+      lineHeight: 1.6,
+      letterSpacing: 0.15
+    },
+    body1: {
       fontSize: '1rem',
-      fontWeight: 'normal'
+      fontWeight: 'normal',
+      lineHeight: 1.5,
+      letterSpacing: 0.25
+    },
+    body2: {
+      fontSize: '.875rem',
+      fontWeight: 'normal',
+      lineHeight: 1.5,
+      letterSpacing: 0.5
     },
     button: {
-      fontFamily: "'Basier Square Medium', Helvetica, Arial, sans-serif",
+      fontFamily: "'Basier Square SemiBold', Helvetica, Arial, sans-serif",
       fontWeight: 'normal',
+      letterSpacing: 0.5,
       textTransform: 'none'
     },
     overline: {
+      fontSize: '.75rem',
       fontFamily: "'Basier Square Medium', Helvetica, Arial, sans-serif",
-      fontWeight: 'normal'
+      fontWeight: 'normal',
+      lineHeight: 1.333,
+      letterSpacing: 2
     }
   },
   palette: {
@@ -151,6 +201,17 @@ const ReonomyTheme = createMuiTheme({
         }
       }
     },
+    MuiTab: {
+      root: {
+        fontFamily: "'Basier Square Regular', Helvetica, Arial, sans-serif",
+        '&$selected': {
+          fontFamily: "'Basier Square Medium', Helvetica, Arial, sans-serif"
+        },
+        '@media (min-width: 600px)': {
+          minWidth: 'auto'
+        }
+      }
+    },
     MuiTooltip: {
       tooltip: {
         fontSize: '.875rem'
@@ -168,26 +229,18 @@ const ReonomyTheme = createMuiTheme({
         color: '#3C3E41' // grey[800]
       }
     },
-    MuiTab: {
-      wrapper: {
-        fontSize: '.875rem'
-      }
-    },
     MuiTableCell: {
       root: {
         fontSize: '.875rem',
         padding: '8px'
       },
       head: {
-        fontSize: '.875rem'
+        fontSize: '.875rem',
+        fontFamily: "'Basier Square Medium', Helvetica, Arial, sans-serif",
+        fontWeight: 'normal'
       },
       stickyHeader: {
         backgroundColor: 'white'
-      }
-    },
-    MuiCardHeader: {
-      title: {
-        fontSize: '1rem'
       }
     },
     MuiListItemText: {

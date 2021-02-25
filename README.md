@@ -138,7 +138,13 @@ This will generate a .tgz file top level you can now update reference to in /exa
 
 Update /example/public/index.html as needed, and ensure visual styles are as expected.
 
-Delete old .tgz file versions for good housekeeping.
+To test in visage locally, simply reference this file from the visage directory in the visage package.json:
+
+```js
+"@reonomy/styles": "../../../styles/reonomy-styles-1.0.5.tgz",
+```
+
+Delete any old .tgz files before generating packing new versions (as they will be included in the bundle).
 
 You may periodically need to clear the yarn cache with:
 

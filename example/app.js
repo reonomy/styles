@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 
 import ReonomyStyles, {
   CheckboxTree,
+  Text,
   IconAddSolid,
   IconArrowDownSolid,
   IconArrowUpSolid,
@@ -162,14 +163,14 @@ import ReonomyStyles, {
   IconRefreshOutline,
   IconLinkOutline
 } from '@reonomy/styles';
-import { Button, IconButton, Typography } from '@material-ui/core';
+import { Button, IconButton } from '@material-ui/core';
 
 const HelloWorld = () => {
   return (
     <ReonomyStyles>
       <main style={{ padding: 150 }}>
-        <Typography variant="h1">Hello World, I should be Basier Square</Typography>
-        <Typography>These leader lines should look not broken:</Typography>
+        <Text variant="h1">Hello World, I should be Basier Square</Text>
+        <Text>These leader lines should look not broken:</Text>
         <article style={{ width: 350, padding: 20, background: 'white' }}>
           <dl className="leader-lines">
             <dt>Lot Area SF</dt>
@@ -201,7 +202,7 @@ const HelloWorld = () => {
           </dl>
         </article>
 
-        <Typography variant="h5">These buttons should be colorful and hoverable:</Typography>
+        <Text variant="h5">These buttons should be colorful and hoverable:</Text>
         <article>
           <Button variant="contained" className="label-style-0">
             Style 0
@@ -229,14 +230,14 @@ const HelloWorld = () => {
           </Button>
         </article>
 
-        <Typography variant="h5">And hey look, a spinning ampersand:</Typography>
+        <Text variant="h5">And hey look, a spinning ampersand:</Text>
         <article>
           <div className="icon-spin" style={{ background: 'white', boxShadow: '0 0 5px rgba(0,0,0,0.2)' }}>
             @
           </div>
         </article>
 
-        <Typography variant="h5">MTA icons, for your pleasure:</Typography>
+        <Text variant="h5">MTA icons, for your pleasure:</Text>
         <article>
           <div>
             <span className="subway-icon mta-green">6</span>
@@ -263,11 +264,11 @@ const HelloWorld = () => {
           </div>
         </article>
 
-        <Typography variant="h5" gutterBottom>
+        <Text variant="h5" gutterBottom>
           IonIcons
-        </Typography>
+        </Text>
         <article>
-          <Typography>Solid Icons</Typography>
+          <Text>Solid Icons</Text>
           <IconAddSolid />
           <IconArrowDownSolid />
           <IconArrowUpSolid />
@@ -347,7 +348,7 @@ const HelloWorld = () => {
           <IconWarningSolid />
         </article>
         <article>
-          <Typography>Outline Icons</Typography>
+          <Text>Outline Icons</Text>
           <IconAddOutline />
           <IconArrowDownOutline />
           <IconArrowUpOutline />
@@ -430,24 +431,24 @@ const HelloWorld = () => {
           <IconRefreshOutline />
           <IconLinkOutline />
         </article>
-        <Typography variant="h2" color="primary">
+        <Text variant="h2" color="primary">
           I am primary color h2 with icon <IconTodaySolid fontSize="inherit" />
-        </Typography>
-        <Typography variant="subtitle1" color="secondary">
+        </Text>
+        <Text variant="subtitle1" color="secondary">
           I am a secondary color subtitle1 with icon <IconTodaySolid fontSize="inherit" />
-        </Typography>
-        <Typography variant="subtitle2" color="textSecondary">
+        </Text>
+        <Text variant="subtitle2" color="textSecondary">
           I am a textSecondary color subtitle2 with icon <IconTodaySolid fontSize="inherit" />
-        </Typography>
-        <Typography>
-          I am a default body color paragraph with icon <IconTodaySolid fontSize="inherit" />
-        </Typography>
-        <Typography>
+        </Text>
+        <Text variant="body1" fontWeight="medium">
+          I am a bolder default body color paragraph with icon <IconTodaySolid fontSize="inherit" />
+        </Text>
+        <Text>
           And here is an IconButton:
           <IconButton>
             <IconTodaySolid fontSize="inherit" />
           </IconButton>
-        </Typography>
+        </Text>
         <CheckboxTree
           data={{
             id: '1',

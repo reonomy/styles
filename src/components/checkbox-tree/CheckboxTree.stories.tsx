@@ -1,13 +1,18 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
 import { CheckboxTree, CheckboxTreeProps, TreeData } from './CheckboxTree';
+import ReonomyStyles from '../..';
 
 export default {
   title: 'Components/CheckboxTree',
   component: CheckboxTree
 } as Meta;
 
-const Template: Story<CheckboxTreeProps> = args => <CheckboxTree {...args} />;
+const Template: Story<CheckboxTreeProps> = args => (
+  <ReonomyStyles>
+    <CheckboxTree {...args} />
+  </ReonomyStyles>
+);
 
 export const AllChecked = Template.bind({});
 AllChecked.args = {
