@@ -16,17 +16,22 @@ let linearDarkIconsIds = [];
 const downloadSVGs = (urls) => {
   console.log(urls);
   return https.get(urls[0], (res) => {
-    console.log('statusCode:', res.statusCode);
-    let data = '';
-
-    res.on('data', (d) => {
-      console.log(typeof d);
-      data += d;
-    });
+    const file = fs.createWriteStream("file.svg");
+    res.pipe(file);
 
     res.on('end', () => {
-      const file = fs.createWriteStream("file.svg");
-      res.pipe(file);
+      fs.writeFileSync('cool.tsx', `
+import React from 'react';
+import SvgIcon, { SvgIconProps } from '@material-ui/core/SvgIcon'
+
+export function TestIcon(props: SvgIconProps)  {
+  return (
+    <SvgIcon viewBox="0 0 24 24" stroke="currentColor" {...props}>
+      // put the svg path in here somehow? Maybe use dom-stream or another 3rd party lib
+    </SvgIcon>
+  );
+}
+      `);
     });
 
   }).on('error', (e) => {
