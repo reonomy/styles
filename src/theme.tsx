@@ -91,7 +91,7 @@ const ReonomyTheme = createMuiTheme({
       fontSize: '.875rem',
       fontWeight: 'normal',
       lineHeight: 1.5,
-      letterSpacing: 0.5
+      letterSpacing: 0.25
     },
     button: {
       fontFamily: "'Basier Square SemiBold', Helvetica, Arial, sans-serif",

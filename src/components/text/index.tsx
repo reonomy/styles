@@ -13,7 +13,7 @@ export interface TextProps extends Omit<TypographyProps, 'variant' | 'color'> {
   padded?: boolean;
   fontWeight?: 'regular' | 'medium' | 'semibold'; // 400, 500, 600
   variant?: MuiVariant | 'huge' | 'code';
-  color?: TypographyProps['color'] | 'textDisabled' | 'textHint';
+  color?: TypographyProps['color'] | 'textDisabled' | 'textHint' | 'white';
   component?: React.ElementType;
 }
 
@@ -76,6 +76,9 @@ export function Text({
       break;
     case 'textHint':
       classNames.push(classes.textHint);
+      break;
+    case 'white':
+      classNames.push(classes.textWhite);
       break;
     default:
       muiColor = color;
