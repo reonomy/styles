@@ -14,6 +14,7 @@ export interface StyleClasses {
   fontWeightSemiBold: string;
   textDisabled: string;
   textHint: string;
+  textWhite: string;
 }
 
 export default makeStyles((theme: Theme) => {
@@ -58,6 +59,9 @@ export default makeStyles((theme: Theme) => {
     },
     textHint: {
       color: theme.palette.text.hint
+    },
+    textWhite: {
+      color: theme.palette.common.white
     }
   };
 });
