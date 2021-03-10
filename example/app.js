@@ -1,8 +1,11 @@
+import Grid from '@material-ui/core/Grid';
+import IconButton from '@material-ui/core/IconButton';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
 import ReonomyStyles, {
   CheckboxTree,
+  Button,
   Text,
   IconAddSolid,
   IconArrowDownSolid,
@@ -163,7 +166,6 @@ import ReonomyStyles, {
   IconRefreshOutline,
   IconLinkOutline
 } from '@reonomy/styles';
-import { Button, IconButton } from '@material-ui/core';
 
 const HelloWorld = () => {
   return (
@@ -200,34 +202,6 @@ const HelloWorld = () => {
             <dt>Asset Type</dt>
             <dd style={{ maxWidth: '72%' }}>A line that has just gone too long</dd>
           </dl>
-        </article>
-
-        <Text variant="h5">These buttons should be colorful and hoverable:</Text>
-        <article>
-          <Button variant="contained" className="label-style-0">
-            Style 0
-          </Button>
-          <Button variant="contained" className="label-style-1">
-            Style 1
-          </Button>
-          <Button variant="contained" className="label-style-2">
-            Style 2
-          </Button>
-          <Button variant="contained" className="label-style-3">
-            Style 3
-          </Button>
-          <Button variant="contained" className="label-style-4">
-            Style 4
-          </Button>
-          <Button variant="contained" className="label-style-5">
-            Style 5
-          </Button>
-          <Button variant="contained" className="label-style-6">
-            Style 6
-          </Button>
-          <Button variant="contained" className="label-style-7">
-            Style 7
-          </Button>
         </article>
 
         <Text variant="h5">And hey look, a spinning ampersand:</Text>
@@ -470,6 +444,127 @@ const HelloWorld = () => {
           open={true}
           onUpdate={data => console.log(data)}
         />
+        <Text variant="h5">These buttons should be colorful and hoverable:</Text>
+        <article>
+          <Button variant="contained" className="label-style-0">
+            Style 0
+          </Button>
+          <Button variant="contained" className="label-style-1">
+            Style 1
+          </Button>
+          <Button variant="contained" className="label-style-2">
+            Style 2
+          </Button>
+          <Button variant="contained" className="label-style-3">
+            Style 3
+          </Button>
+          <Button variant="contained" className="label-style-4">
+            Style 4
+          </Button>
+          <Button variant="contained" className="label-style-5">
+            Style 5
+          </Button>
+          <Button variant="contained" className="label-style-6">
+            Style 6
+          </Button>
+          <Button variant="contained" className="label-style-7">
+            Style 7
+          </Button>
+        </article>
+        <Text variant="h5">These are buttons of every variant and color</Text>
+        <Grid container spacing={3}>
+          {['huge', 'large', 'medium', 'small'].map(size => (
+            <Grid key={size} item>
+              <Grid container direction="column" spacing={2}>
+                <Grid item>
+                  <Button size={size} variant="contained" color="primary">
+                    Button
+                  </Button>
+                </Grid>
+                <Grid item>
+                  <Button size={size} variant="contained" color="secondary">
+                    Button
+                  </Button>
+                </Grid>
+                <Grid item>
+                  <Button size={size} variant="contained" color="tertiary">
+                    Button
+                  </Button>
+                </Grid>
+                <Grid item>
+                  <Button size={size} variant="contained" color="success">
+                    Button
+                  </Button>
+                </Grid>
+                <Grid item>
+                  <Button size={size} variant="contained" disabled={true}>
+                    Button
+                  </Button>
+                </Grid>
+                <Grid item>
+                  <Button size={size} variant="outlined" color="primary">
+                    Button
+                  </Button>
+                </Grid>
+                <Grid item>
+                  <Button size={size} variant="outlined" color="secondary">
+                    Button
+                  </Button>
+                </Grid>
+                <Grid item>
+                  <Button size={size} variant="outlined" color="tertiary">
+                    Button
+                  </Button>
+                </Grid>
+                <Grid item>
+                  <Button size={size} variant="outlined" color="success">
+                    Button
+                  </Button>
+                </Grid>
+                <Grid item>
+                  <Button size={size} variant="outlined" disabled={true}>
+                    Button
+                  </Button>
+                </Grid>
+                <Grid item>
+                  <Button size={size} color="primary">
+                    Button
+                  </Button>
+                </Grid>
+                <Grid item>
+                  <Button size={size} color="secondary">
+                    Button
+                  </Button>
+                </Grid>
+                <Grid item>
+                  <Button size={size} color="tertiary">
+                    Button
+                  </Button>
+                </Grid>
+                <Grid item>
+                  <Button size={size} color="success">
+                    Button
+                  </Button>
+                </Grid>
+                <Grid item>
+                  <Button size={size} disabled={true}>
+                    Button
+                  </Button>
+                </Grid>
+                <Grid item>
+                  <Button size={size} startIcon={<IconArrowBackSolid />}>
+                    Button
+                  </Button>
+                </Grid>
+                <Grid item>
+                  <Button size={size} endIcon={<IconArrowForwardSolid />}>
+                    Button
+                  </Button>
+                </Grid>
+              </Grid>
+            </Grid>
+          ))}
+        </Grid>
       </main>
     </ReonomyStyles>
   );

@@ -183,21 +183,12 @@ const ReonomyTheme = createMuiTheme({
       }
     },
     MuiButton: {
-      containedPrimary: {
-        boxShadow: 'none',
-        '&:hover': {
-          boxShadow: 'none'
-        }
-      },
-      containedSecondary: {
-        boxShadow: 'none',
-        '&:hover': {
-          boxShadow: 'none'
-        }
-      },
       contained: {
         boxShadow: 'none',
         '&:active': {
+          boxShadow: 'none'
+        },
+        '&:hover': {
           boxShadow: 'none'
         }
       }
