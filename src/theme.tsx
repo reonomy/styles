@@ -196,6 +196,7 @@ const ReonomyTheme = createMuiTheme({
         }
       },
       contained: {
+        boxShadow: 'none',
         '&:active': {
           boxShadow: 'none'
         }
