@@ -1,6 +1,5 @@
 import { makeStyles, Theme } from '@material-ui/core';
 import Color from 'color';
-import ReonomyTheme from '../../theme';
 
 export interface StyleClasses {
   root: string;
@@ -22,44 +21,44 @@ export default makeStyles((theme: Theme) => ({
   },
   containedSuccess: {
     color: theme.palette.grey[900],
-    background: ReonomyTheme.palette.success.main,
+    background: theme.palette.success.main,
     '&:hover': {
-      background: ReonomyTheme.palette.success.dark
+      background: theme.palette.success.dark
     }
   },
   containedTertiary: {
     color: '#FFF',
-    background: ReonomyTheme.palette.tertiary.main,
+    background: theme.palette.tertiary.main,
     '&:hover': {
-      background: ReonomyTheme.palette.tertiary.dark
+      background: theme.palette.tertiary.dark
     }
   },
   outlinedSuccess: {
-    color: ReonomyTheme.palette.success.main,
-    borderColor: `${Color(ReonomyTheme.palette.success.main).alpha(0.5)}`,
+    color: theme.palette.success.main,
+    borderColor: `${Color(theme.palette.success.main).alpha(0.5)}`,
     '&:hover': {
-      backgroundColor: `${Color(ReonomyTheme.palette.success.main).alpha(0.04)}`,
-      borderColor: ReonomyTheme.palette.success.main
+      backgroundColor: `${Color(theme.palette.success.main).alpha(0.04)}`,
+      borderColor: theme.palette.success.main
     }
   },
   outlinedTertiary: {
-    color: ReonomyTheme.palette.tertiary.main,
-    borderColor: `${Color(ReonomyTheme.palette.tertiary.main).alpha(0.5)}`,
+    color: theme.palette.tertiary.main,
+    borderColor: `${Color(theme.palette.tertiary.main).alpha(0.5)}`,
     '&:hover': {
-      backgroundColor: `${Color(ReonomyTheme.palette.tertiary.main).alpha(0.04)}`,
-      borderColor: ReonomyTheme.palette.tertiary.main
+      backgroundColor: `${Color(theme.palette.tertiary.main).alpha(0.04)}`,
+      borderColor: theme.palette.tertiary.main
     }
   },
   textSuccess: {
-    color: ReonomyTheme.palette.success.main,
+    color: theme.palette.success.main,
     '&:hover': {
-      backgroundColor: `${Color(ReonomyTheme.palette.success.main).alpha(0.04)}`
+      backgroundColor: `${Color(theme.palette.success.main).alpha(0.04)}`
     }
   },
   textTertiary: {
-    color: ReonomyTheme.palette.tertiary.main,
+    color: theme.palette.tertiary.main,
     '&:hover': {
-      backgroundColor: `${Color(ReonomyTheme.palette.tertiary.main).alpha(0.04)}`
+      backgroundColor: `${Color(theme.palette.tertiary.main).alpha(0.04)}`
     }
   },
   sizeSmall: {
