@@ -2,7 +2,7 @@ import MuiButton, { ButtonProps as MuiButtonProps } from '@material-ui/core/Butt
 import React from 'react';
 import useStyles, { StyleClasses } from './style';
 
-interface ButtonProps extends Omit<MuiButtonProps, 'color' | 'size'> {
+export interface ButtonProps extends Omit<MuiButtonProps, 'color' | 'size'> {
   color?: MuiButtonProps['color'] | 'tertiary' | 'success';
   size?: MuiButtonProps['size'] | 'huge';
 }
