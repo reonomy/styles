@@ -1,15 +1,21 @@
 import MuiButton, { ButtonProps as MuiButtonProps } from '@material-ui/core/Button';
 import React from 'react';
+import ReonomyTheme from '../../theme';
+import { getMarginArray } from '../../utils/margin';
 import useStyles, { StyleClasses } from './style';
 
 export interface ButtonProps extends Omit<MuiButtonProps, 'color' | 'size'> {
   color?: MuiButtonProps['color'] | 'tertiary' | 'success';
   size?: MuiButtonProps['size'] | 'huge';
+  // Accepts theme.spacing() args as an array or single number
+  margin?: number | number[];
 }
 
-export const Button = ({ children, color, size = 'medium', variant, ...muiProps }: ButtonProps) => {
+export const Button = ({ children, className, color, size = 'medium', variant, margin, ...muiProps }: ButtonProps) => {
   const classes: StyleClasses = useStyles();
   const classNames: string[] = [classes.root];
+
+  if (className) classNames.push(className);
 
   let muiColor: MuiButtonProps['color'];
   const muiSize: MuiButtonProps['size'] = size !== 'huge' ? size : undefined;
@@ -54,7 +60,17 @@ export const Button = ({ children, color, size = 'medium', variant, ...muiProps 
   }
 
   return (
-    <MuiButton color={muiColor} size={muiSize} className={classNames.join(' ')} variant={variant} {...muiProps}>
+    <MuiButton
+      className={classNames.join(' ')}
+      color={muiColor}
+      size={muiSize}
+      variant={variant}
+      style={{
+        // type must be [number, number, number, number] when using spread operator
+        margin: margin && ReonomyTheme.spacing(...getMarginArray(margin))
+      }}
+      {...muiProps}
+    >
       {children}
     </MuiButton>
   );

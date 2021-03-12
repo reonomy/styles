@@ -171,6 +171,10 @@ const ReonomyTheme = createMuiTheme({
     },
     background: {
       default: '#F7F9FE' // grey[50]
+    },
+    action: {
+      disabled: '#97999D', // grey[500]
+      disabledBackground: '#F1F3F7' // grey[100]
     }
   },
   shape: {
@@ -185,11 +189,26 @@ const ReonomyTheme = createMuiTheme({
     MuiButton: {
       contained: {
         boxShadow: 'none',
-        '&:active': {
+        '&:active, &:focus': {
           boxShadow: 'none'
         },
         '&:hover': {
           boxShadow: 'none'
+        }
+      },
+      outlined: {
+        borderWidth: 2
+      },
+      outlinedPrimary: {
+        borderWidth: 2,
+        '&:hover': {
+          borderWidth: 2
+        }
+      },
+      outlinedSecondary: {
+        borderWidth: 2,
+        '&:hover': {
+          borderWidth: 2
         }
       }
     },
@@ -295,10 +314,12 @@ const ReonomyTheme = createMuiTheme({
   },
   props: {
     MuiButton: {
-      disableRipple: !hasTouch
+      disableTouchRipple: !hasTouch,
+      disableFocusRipple: false
     },
     MuiTab: {
-      disableRipple: !hasTouch
+      disableTouchRipple: !hasTouch,
+      disableFocusRipple: false
     }
   }
 });
