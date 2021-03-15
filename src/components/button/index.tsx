@@ -4,17 +4,16 @@ import ReonomyTheme from '../../theme';
 import { getMarginArray } from '../../utils/margin';
 import useStyles, { StyleClasses } from './style';
 
-export interface ButtonProps extends Omit<MuiButtonProps, 'color' | 'size' | 'ref'> {
+export type ButtonProps<C extends React.ElementType> = Omit<MuiButtonProps<C, { component?: C }>, 'color' | 'size'> & {
   color?: MuiButtonProps['color'] | 'tertiary' | 'success';
   size?: MuiButtonProps['size'] | 'huge';
-  // Accepts theme.spacing() args as an array or single number
   margin?: number | number[];
-}
+};
 
 export const Button = React.forwardRef(
-  (
-    { children, className, color, size = 'medium', variant, margin, ...muiProps }: ButtonProps,
-    ref: MuiButtonProps['ref']
+  <C extends React.ElementType>(
+    { children, className, color, size = 'medium', variant, margin, ...muiProps }: ButtonProps<C>,
+    ref: React.Ref<HTMLButtonElement>
   ) => {
     const classes: StyleClasses = useStyles();
     const classNames: string[] = [classes.root];
@@ -73,8 +72,8 @@ export const Button = React.forwardRef(
           // type must be [number, number, number, number] when using spread operator
           margin: margin && ReonomyTheme.spacing(...getMarginArray(margin))
         }}
-        {...muiProps}
         ref={ref}
+        {...muiProps}
       >
         {children}
       </MuiButton>

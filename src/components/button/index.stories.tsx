@@ -1,9 +1,10 @@
-import { Typography } from '@material-ui/core';
+import { ButtonTypeMap } from '@material-ui/core/Button/Button';
 import * as React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
 import Popover from '@material-ui/core/Popover';
 import { Button as ReonomyButton, ButtonProps } from '.';
 import { Text as TextComponent } from '../text';
+
 import ReonomyStyles, { IconArrowBackSolid, IconArrowForwardSolid } from '../..';
 
 export default {
@@ -11,13 +12,15 @@ export default {
   component: ReonomyButton
 } as Meta;
 
-const Template: Story<ButtonProps> = args => (
+type DefaultButtonPropType = ButtonProps<ButtonTypeMap['defaultComponent']>;
+
+const Template: Story<DefaultButtonPropType> = args => (
   <ReonomyStyles>
     <ReonomyButton {...args}>Button</ReonomyButton>
   </ReonomyStyles>
 );
 
-const TemplateWithIcons: Story<ButtonProps> = args => (
+const TemplateWithIcons: Story<DefaultButtonPropType> = args => (
   <ReonomyStyles>
     <>
       <ReonomyButton {...args} startIcon={<IconArrowBackSolid />}>
@@ -30,7 +33,7 @@ const TemplateWithIcons: Story<ButtonProps> = args => (
   </ReonomyStyles>
 );
 
-const TemplateWithPopover: Story<ButtonProps> = args => {
+const TemplateWithPopover: Story<DefaultButtonPropType> = args => {
   const anchor = React.useRef(null);
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
 
@@ -54,7 +57,7 @@ const TemplateWithPopover: Story<ButtonProps> = args => {
           horizontal: 'right'
         }}
       >
-        <TextComponent gutters>This is a popover anchored to the button</TextComponent>
+        <TextComponent gutters>I am anchored to the above button's bottom left corner</TextComponent>
       </Popover>
     </>
   );
