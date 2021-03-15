@@ -57,7 +57,7 @@ const TemplateWithPopover: Story<DefaultButtonPropType> = args => {
           horizontal: 'right'
         }}
       >
-        <TextComponent gutters>I am anchored to the above button's bottom left corner</TextComponent>
+        <TextComponent gutters>I am anchored to the above button&apos;s bottom left corner</TextComponent>
       </Popover>
     </>
   );
