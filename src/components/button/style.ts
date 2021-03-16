@@ -5,6 +5,7 @@ export interface StyleClasses {
   root: string;
   containedSuccess: string;
   containedTertiary: string;
+  outlined: string;
   outlinedSuccess: string;
   outlinedTertiary: string;
   textSuccess: string;
@@ -46,6 +47,7 @@ export default makeStyles((theme: Theme) => {
         background: theme.palette.tertiary.dark
       }
     },
+    outlined: {}, // targeted inside a size class
     outlinedSuccess: {
       color: theme.palette.success.main,
       borderColor: getOutlineBorder('success'),
@@ -76,19 +78,31 @@ export default makeStyles((theme: Theme) => {
     },
     sizeSmall: {
       fontSize: '0.875rem',
-      padding: theme.spacing(0.5, 1.5)
+      padding: '4px 12px',
+      '&$outlined': {
+        padding: '4px 10px'
+      }
     },
     sizeMedium: {
       fontSize: '0.875rem',
-      padding: theme.spacing(1, 2)
+      padding: '8px 16px',
+      '&$outlined': {
+        padding: '8px 14px'
+      }
     },
     sizeLarge: {
       fontSize: '1rem',
-      padding: theme.spacing(1.5, 3)
+      padding: '12px 24px',
+      '&$outlined': {
+        padding: '12px 22px'
+      }
     },
     sizeHuge: {
       fontSize: '1.25rem',
-      padding: theme.spacing(1.5, 3)
+      padding: '12px 24px',
+      '&$outlined': {
+        padding: '12px 22px'
+      }
     }
   };
 });

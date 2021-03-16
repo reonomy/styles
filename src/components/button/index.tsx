@@ -4,6 +4,8 @@ import ReonomyTheme from '../../theme';
 import { getMarginArray } from '../../utils/margin';
 import useStyles, { StyleClasses } from './style';
 
+// Requires special typing in order to accept a `component` prop
+// See https://material-ui.com/guides/typescript/#usage-of-component-prop
 export type ButtonProps<C extends React.ElementType> = Omit<MuiButtonProps<C, { component?: C }>, 'color' | 'size'> & {
   color?: MuiButtonProps['color'] | 'tertiary' | 'success';
   size?: MuiButtonProps['size'] | 'huge';
@@ -18,10 +20,10 @@ export const Button = React.forwardRef(
     const classes: StyleClasses = useStyles();
     const classNames: string[] = [classes.root];
 
-    if (className) classNames.push(className);
-
     let muiColor: MuiButtonProps['color'];
     const muiSize: MuiButtonProps['size'] = size !== 'huge' ? size : undefined;
+
+    if (variant === 'outlined') classNames.push(classes.outlined);
 
     switch (color) {
       case 'tertiary':
@@ -62,16 +64,18 @@ export const Button = React.forwardRef(
       default:
     }
 
+    if (className) classNames.push(className);
+
+    const style = { ...muiProps.style };
+    if (margin) style.margin = ReonomyTheme.spacing(...getMarginArray(margin));
+
     return (
       <MuiButton
         className={classNames.join(' ')}
         color={muiColor}
         size={muiSize}
         variant={variant}
-        style={{
-          // type must be [number, number, number, number] when using spread operator
-          margin: margin && ReonomyTheme.spacing(...getMarginArray(margin))
-        }}
+        style={style}
         ref={ref}
         {...muiProps}
       >

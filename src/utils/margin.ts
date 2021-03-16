@@ -4,7 +4,7 @@ export type MarginArray = [number, number, number, number];
 // Auto-fills if you give it less (e.g. [1,2] -> [1,2,1,2]
 export function getMarginArray(value: number | number[]): MarginArray {
   const values = Array.isArray(value) ? value : [value];
-  const [top, right, bottom] = values;
+  const [top, right, bottom, left] = values;
 
   switch (values.length) {
     case 1:
@@ -14,6 +14,6 @@ export function getMarginArray(value: number | number[]): MarginArray {
     case 3:
       return [top, right, bottom, right];
     default:
-      return values.slice(0, 4) as MarginArray;
+      return [top, right, bottom, left];
   }
 }

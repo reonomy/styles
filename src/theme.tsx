@@ -197,7 +197,10 @@ const ReonomyTheme = createMuiTheme({
         }
       },
       outlined: {
-        borderWidth: 2
+        borderWidth: 2,
+        '&$disabled': {
+          borderWidth: 2
+        }
       },
       outlinedPrimary: {
         borderWidth: 2,
